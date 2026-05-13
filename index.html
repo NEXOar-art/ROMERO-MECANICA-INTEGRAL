@@ -5,1170 +5,1603 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="JRP Motors de Jonas Risso Patron - Taller de reparación de automóviles con años de experiencia. Servicio de calidad, confiable y transparente en Santiago del Estero.">
 <meta name="theme-color" content="#0A0A0A">
-<!-- Optimización: Preload de recursos críticos -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style">
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
 <title>JRP MOTORS | Taller Mecánico - Jonas Risso Patron - Diagnóstico y Reparación Profesional</title>
-<!-- Preconnect para mejor rendimiento -->
+<!-- Preconnect para mejor rendimiento-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<!-- Tailwind CSS CDN + Supresor de warnings -->
+<!-- Tailwind CSS CDN + Supresor de warnings-->
 <script>
-(function(){const originalWarn=console.warn;console.warn=function(...args){if(typeof args[0]==='string'&&args[0].includes('cdn.tailwindcss.com'))return;originalWarn.apply(console,args);};})();
+(function(){
+const originalWarn= console.warn;
+console.warn= function(...args){
+if(typeof args[0]=== 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+originalWarn.apply(console, args); }; })();
 </script>
-<script src="https://cdn.tailwindcss.com/3.4.14" defer></script>
-<!-- Font Awesome -->
+<script src="https://cdn.tailwindcss.com/3.4.14"></script>
+<!-- Font Awesome-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<!-- Google Fonts -->
+<!-- Google Fonts-->
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <script>
-tailwind.config={theme:{extend:{fontFamily:{sans:['Manrope','sans-serif'],display:['Space Grotesk','sans-serif']},colors:{primary:{orange:'#FF6B35',amber:'#F7931E',dark:'#0A0A0A',gray:'#1A1A1A',card:'#2D2D2D',metallic:'#C0C0C0',light:'#F1F5F9',cream:'#F5F1E8'}},boxShadow:{'neon':'0 0 25px rgba(255, 107, 53, 0.45)','glow':'0 0 40px rgba(255, 107, 53, 0.25)','card':'0 10px 40px-10px rgba(0, 0, 0, 0.5)','soft':'0 4px 20px rgba(0, 0, 0, 0.15)','premium':'0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 107, 53, 0.15)'},screens:{'xs':'475px','2xl':'1400px'},animation:{'float':'float 6s ease-in-out infinite','pulse-slow':'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite','shimmer':'shimmer 2s linear infinite','gradient':'gradient 8s ease infinite'},keyframes:{float:{'0%, 100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-12px)'}},shimmer:{'0%':{backgroundPosition:'-1000px 0'},'100%':{backgroundPosition:'1000px 0'}},gradient:{'0%, 100%':{backgroundPosition:'0% 50%'},'50%':{backgroundPosition:'100% 50%'}}}}}}
+tailwind.config ={
+theme:{
+extend:{
+fontFamily:{
+sans:['Manrope','sans-serif'],
+display:['Space Grotesk','sans-serif'],
+},
+colors:{
+primary:{
+orange:'#FF6B35',
+amber:'#F7931E',
+dark:'#0A0A0A',
+gray:'#1A1A1A',
+card:'#2D2D2D',
+metallic:'#C0C0C0',
+light:'#F1F5F9',
+cream:'#F5F1E8'
+}
+},
+boxShadow:{
+'neon':'0 0 25px rgba(255, 107, 53, 0.45)',
+'glow':'0 0 40px rgba(255, 107, 53, 0.25)',
+'card':'0 10px 40px-10px rgba(0, 0, 0, 0.5)',
+'soft':'0 4px 20px rgba(0, 0, 0, 0.15)',
+'premium':'0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 107, 53, 0.15)',
+},
+screens:{
+'xs':'475px',
+'2xl':'1400px',
+},
+animation:{
+'float':'float 6s ease-in-out infinite',
+'pulse-slow':'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+'shimmer':'shimmer 2s linear infinite',
+'gradient':'gradient 8s ease infinite',
+},
+keyframes:{
+float:{
+'0%, 100%':{transform:'translateY(0)'},
+'50%':{transform:'translateY(-12px)'},
+},
+shimmer:{
+'0%':{backgroundPosition:'-1000px 0'},
+'100%':{backgroundPosition:'1000px 0'},
+},
+gradient:{
+'0%, 100%':{backgroundPosition:'0% 50%'},
+'50%':{backgroundPosition:'100% 50%'},
+}
+}
+}
+}
+}
 </script>
 <style>
-:root{--gradient-primary: linear-gradient(135deg,#FF6B35 0%,#F7931E 100%);--gradient-dark: linear-gradient(180deg,#0A0A0A 0%,#1A1A1A 100%);--gradient-metallic: linear-gradient(135deg,#E8E8E8 0%,#A8A8A8 50%,#E8E8E8 100%);--gradient-orange-glow: linear-gradient(135deg, rgba(255,107,53,0.3) 0%, rgba(247,147,30,0.1) 100%);--gradient-animated: linear-gradient(-45deg, #FF6B35, #F7931E, #FF8C42, #FF6B35);}
-*{-webkit-tap-highlight-color: transparent;}
-body{background: var(--gradient-dark);color:#E2E8F0;font-feature-settings:"cv02","cv03","cv04","cv11";overflow-x: hidden;position: relative;}
-body::before{content:'';position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920&q=80');background-size: cover;background-position: center;background-repeat: no-repeat;opacity: 0.12;z-index: -2;animation: backgroundMove 40s ease-in-out infinite;filter: brightness(0.5) contrast(1.3);}
-body::after{content:'';position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: var(--gradient-animated);background-size: 400% 400%;opacity: 0.03;z-index: -1;animation: gradient 15s ease infinite;pointer-events: none;}
-@keyframes backgroundMove{0%, 100%{transform: scale(1) translate(0, 0);}25%{transform: scale(1.08) translate(-2%, -2%);}50%{transform: scale(1) translate(0, -3%);}75%{transform: scale(1.08) translate(2%, -2%);}}
-.glass{background: rgba(26, 26, 26, 0.75);backdrop-filter: blur(20px) saturate(180%);-webkit-backdrop-filter: blur(20px) saturate(180%);border: 1px solid rgba(255, 107, 53, 0.2);box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);}
-.glass-card{background: linear-gradient(145deg, rgba(45, 45, 45, 0.85), rgba(26, 26, 26, 0.95));backdrop-filter: blur(20px) saturate(180%);border: 1px solid rgba(255, 255, 255, 0.08);border-radius: 24px;transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);position: relative;overflow: hidden;}
-.glass-card::before{content:'';position: absolute;top: 0;left: -100%;width: 100%;height: 100%;background: linear-gradient(90deg, transparent, rgba(255,107,53,0.1), transparent);transition: left 0.7s ease;}
-.glass-card:hover::before{left: 100%;}
-.glass-card:hover{border-color: rgba(255, 107, 53, 0.5);transform: translateY(-8px) scale(1.01);box-shadow: var(--shadow-premium), 0 0 50px rgba(255, 107, 53, 0.2);}
-.glow-text{text-shadow: 0 0 30px rgba(255, 107, 53, 0.7), 0 0 60px rgba(247, 147, 30, 0.4), 0 0 90px rgba(255, 107, 53, 0.2);letter-spacing:-0.02em;}
-.gradient-text{background: var(--gradient-primary);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text;background-size: 200% auto;animation: shimmer 3s linear infinite;}
-.metallic-text{background: var(--gradient-metallic);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text;}
-.pulse-glow{animation: pulse-glow 3s ease-in-out infinite;}
-@keyframes pulse-glow{0%, 100%{opacity: 1; box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);}50%{opacity: 0.85; box-shadow: 0 0 50px rgba(255, 107, 53, 0.8);}}
-.fade-in-up{opacity: 0;transform: translateY(40px);animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;}
-@keyframes fadeInUp{to{opacity: 1; transform: translateY(0);}}
-.hover-lift{transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);}
-.hover-lift:hover{transform: translateY(-10px);box-shadow: var(--shadow-glow), var(--shadow-card);}
-.hover-glow{transition: all 0.5s ease;position: relative;overflow: hidden;}
-.hover-glow::before{content:'';position: absolute;top: 0; left:-100%;width: 100%; height: 100%;background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);transition: left 0.8s ease;}
-.hover-glow:hover::before{left: 100%;}
-.hover-glow:hover{box-shadow: 0 0 50px rgba(255, 107, 53, 0.4);transform: translateY(-8px);}
-.parallax-image{transition: transform 0.5s ease-out;will-change: transform;filter: brightness(0.75) contrast(1.2);}
-.parallax-bg{animation: subtle-move 30s ease-in-out infinite alternate;}
-@keyframes subtle-move{0%{transform: translate(0, 0) scale(1.05);}50%{transform: translate(5%, 3%) scale(1.1);}100%{transform: translate(0, 0) scale(1.05);}}
-.input-modern{background: rgba(26, 26, 26, 0.85);border: 2px solid rgba(255, 255, 255, 0.12);border-radius: 16px;transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);color:#fff;position: relative;}
-.input-modern:focus{border-color:#FF6B35;box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2), 0 0 30px rgba(255, 107, 53, 0.2);outline: none;background: rgba(26, 26, 26, 0.95);transform: translateY(-2px);}
-.input-modern::placeholder{color: rgba(226, 232, 240, 0.5);}
-.input-valid{border-color:#FF6B35!important;background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23FF6B35'%3e%3cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3e%3c/svg%3e");background-repeat: no-repeat;background-position: right 1rem center;background-size: 1.3em;}
-.input-invalid{border-color:#EF4444!important;animation: shake 0.5s ease-in-out;}
-@keyframes shake{0%, 100%{transform: translateX(0);}25%{transform: translateX(-4px);}75%{transform: translateX(4px);}}
-.btn-primary{background: var(--gradient-primary);color:#fff;font-weight: 700;letter-spacing: 0.02em;position: relative;overflow: hidden;transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);}
-.btn-primary::before{content:'';position: absolute;top: 50%;left: 50%;width: 0;height: 0;border-radius: 50%;background: rgba(255,255,255,0.3);transform: translate(-50%, -50%);transition: width 0.6s, height 0.6s;}
-.btn-primary:hover::before{width: 300px;height: 300px;}
-.btn-primary:hover{transform: translateY(-4px) scale(1.02);box-shadow: 0 20px 50px rgba(255, 107, 53, 0.5), 0 0 40px rgba(255, 107, 53, 0.4);}
-.btn-outline{background: transparent;border: 2px solid rgba(255, 255, 255, 0.25);color:#fff;font-weight: 600;transition: all 0.4s ease;position: relative;overflow: hidden;}
-.btn-outline::before{content:'';position: absolute;top: 0;left: 0;width: 0;height: 100%;background: rgba(255, 107, 53, 0.1);transition: width 0.4s ease;z-index: -1;}
-.btn-outline:hover::before{width: 100%;}
-.btn-outline:hover{border-color:#FF6B35;transform: translateY(-4px);box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);}
-.btn-review{background: linear-gradient(135deg,#FFD700 0%,#FFA500 50%,#FF8C00 100%);color:#0A0A0A;font-weight: 700;letter-spacing: 0.02em;position: relative;overflow: hidden;transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);}
-.btn-review::after{content:'';position: absolute;top: 0; left: 0; right: 0; bottom: 0;background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(255,255,255,0.2) 100%);opacity: 0;transition: opacity 0.4s ease;}
-.btn-review:hover{transform: translateY(-4px) scale(1.02);box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 165, 0, 0.4);}
-.btn-review:hover::after{opacity: 1;}
-::-webkit-scrollbar{width: 10px; height: 10px;}
-::-webkit-scrollbar-track{background: rgba(26, 26, 26, 0.6);border-radius: 8px;}
-::-webkit-scrollbar-thumb{background: linear-gradient(180deg,#FF6B35,#F7931E);border-radius: 8px;border: 2px solid transparent;background-clip: content-box;}
-::-webkit-scrollbar-thumb:hover{background: linear-gradient(180deg,#F7931E,#FF6B35);}
-@media(max-width: 640px){.text-5xl{font-size: 2.25rem; line-height: 1.15;}.text-7xl{font-size: 2.75rem; line-height: 1.1;}h1{font-size: 2.3rem;}.container{padding-left: 1.25rem; padding-right: 1.25rem;}}
-@media(max-width: 475px){.text-3xl{font-size: 1.75rem;}.py-24{padding-top: 3.5rem; padding-bottom: 3.5rem;}.glass-card{border-radius: 18px;}}
-.status-dot{position: relative;}
-.status-dot::after{content:'';position: absolute;top:-2px; left:-2px; right:-2px; bottom:-2px;border-radius: 50%;background: inherit;filter: blur(6px);opacity: 0.7;animation: pulse 2s infinite;}
-.divider{height: 2px;background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), rgba(255, 107, 53, 0.3), transparent);margin: 2.5rem 0;position: relative;}
-.divider::before{content:'';position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);width: 8px;height: 8px;background: #FF6B35;border-radius: 50%;box-shadow: 0 0 20px rgba(255, 107, 53, 0.8);}
-.loading-skeleton{background: linear-gradient(90deg, rgba(45,45,45,0.3) 25%, rgba(60,60,60,0.5) 50%, rgba(45,45,45,0.3) 75%);background-size: 200% 100%;animation: loading 1.5s infinite;border-radius: 12px;}
-@keyframes loading{0%{background-position: 200% 0;}100%{background-position:-200% 0;}}
-.particles{position: absolute;top: 0; left: 0; right: 0; bottom: 0;pointer-events: none;overflow: hidden;z-index: 0;}
-.particle{position: absolute;width: 4px; height: 4px;background: rgba(255, 107, 53, 0.7);border-radius: 50%;animation: float-particle 20s infinite linear;opacity: 0.6;box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);}
-@keyframes float-particle{0%{transform: translateY(100vh) translateX(0); opacity: 0;}10%{opacity: 0.8;}90%{opacity: 0.8;}100%{transform: translateY(-20px) translateX(100px); opacity: 0;}}
-.label-below{display: block;margin-top: 0.6rem;margin-left: 0.25rem;font-size: 0.8rem;font-weight: 600;color: #FF6B35;text-transform: uppercase;letter-spacing: 0.05em;}
-.label-below span.required{color: #EF4444;margin-left: 2px;}
-.navbar-logo{height: 70px;width: 70px;object-fit: cover;border-radius: 50%;border: 3px solid #FF6B35;box-shadow: 0 0 25px rgba(255, 107, 53, 0.6), inset 0 0 20px rgba(255, 107, 53, 0.2);transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);position: relative;}
-.navbar-logo::before{content:'';position: absolute;top: 0;left: 0;right: 0;height: 50%;background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 50%, transparent 100%);border-radius: 50% 50% 0 0;opacity: 0;transition: opacity 0.4s ease;pointer-events: none;}
-.navbar-logo:hover::before{opacity: 1;}
-.navbar-logo:hover{transform: scale(1.15) rotate(5deg);box-shadow: 0 0 40px rgba(255, 107, 53, 0.9), inset 0 0 30px rgba(255, 107, 53, 0.3);}
-.hero-logo{height: 12rem;width: 12rem;object-fit: cover;border-radius: 50%;border: 5px solid #FF6B35;box-shadow: 0 0 40px rgba(255, 107, 53, 0.5), 0 0 80px rgba(255, 107, 53, 0.3), inset 0 0 30px rgba(255, 107, 53, 0.15);transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);display: block;margin: 0 auto;position: relative;overflow: hidden;background: #0A0A0A;}
-.hero-logo::before{content:'';position: absolute;top: 0;left: 0;right: 0;height: 55%;background: linear-gradient(180deg,rgba(255,255,255,0.35) 0%,rgba(255,255,255,0.15) 25%,rgba(255,255,255,0.03) 50%,transparent 100%);border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;opacity: 0.7;pointer-events: none;z-index: 2;}
-.hero-logo::after{content:'';position: absolute;inset: -8px;border-radius: 50%;border: 2px solid rgba(255, 107, 53, 0.25);animation: rotate 10s linear infinite;pointer-events: none;z-index: 3;}
-.hero-logo .shine-effect{position: absolute;top: 0;left: -100%;width: 100%;height: 100%;background: linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.35) 50%,transparent 100%);transition: left 0.8s ease;pointer-events: none;z-index: 4;}
-.hero-logo:hover .shine-effect{left: 100%;}
-.fire-ring{position: absolute;inset: -10px;border-radius: 50%;pointer-events: none;z-index: 1;opacity: 0;transition: opacity 1.5s ease;}
-.fire-ring.active{opacity: 1;animation: fire-pulse 2s ease-in-out infinite;}
-.fire-ring::before{content:'';position: absolute;inset: 0;border-radius: 50%;border: 4px solid transparent;background: conic-gradient(from 0deg,#FF4500,#FF6B35,#FFA500,#FFD700,#FF6B35,#FF4500,#FF0000,#FF4500) border-box;-webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);-webkit-mask-composite: xor;mask-composite: exclude;animation: fire-rotate 3s linear infinite;box-shadow:0 0 15px rgba(255, 69, 0, 0.8),0 0 30px rgba(255, 107, 53, 0.6),0 0 45px rgba(255, 165, 0, 0.4),0 0 60px rgba(255, 0, 0, 0.3);}
-.fire-ring::after{content:'';position: absolute;inset: -5px;border-radius: 50%;background: conic-gradient(from 180deg,transparent,rgba(255, 69, 0, 0.3),rgba(255, 107, 53, 0.5),rgba(255, 215, 0, 0.3),transparent,rgba(255, 0, 0, 0.4),transparent);filter: blur(8px);animation: fire-rotate-reverse 4s linear infinite;}
-@keyframes fire-rotate{0%{transform: rotate(0deg);}100%{transform: rotate(360deg);}}
-@keyframes fire-rotate-reverse{0%{transform: rotate(0deg);}100%{transform: rotate(-360deg);}}
-@keyframes fire-pulse{0%, 100%{transform: scale(1);filter: brightness(1);}50%{transform: scale(1.03);filter: brightness(1.2);}}
-.hero-logo:hover{transform: scale(1.08);box-shadow: 0 0 80px rgba(255, 107, 53, 0.8), 0 0 120px rgba(255, 107, 53, 0.5), inset 0 0 50px rgba(255, 107, 53, 0.3);}
-.hero-logo-wrapper{display: flex;justify-content: center;align-items: center;padding: 1rem 0;width: 100%;}
-@keyframes rotate{from{transform: rotate(0deg);}to{transform: rotate(360deg);}}
-@media(max-width: 768px){.navbar-logo{height: 55px;width: 55px;}.hero-logo{height: 8rem;width: 8rem;}}
-.navbar-clock{font-family: 'Space Grotesk', monospace;font-weight: 700;font-size: 1.15rem;color: #FF6B35;text-shadow: 0 0 15px rgba(255, 107, 53, 0.7), 0 0 30px rgba(255, 107, 53, 0.4);letter-spacing: 0.1em;background: rgba(255, 107, 53, 0.1);border: 2px solid rgba(255, 107, 53, 0.35);padding: 0.3rem 0.9rem;border-radius: 10px;backdrop-filter: blur(10px);box-shadow: 0 0 20px rgba(255, 107, 53, 0.25), inset 0 0 15px rgba(255, 107, 53, 0.08);animation: clock-pulse 2s ease-in-out infinite;white-space: nowrap;display: flex;align-items: center;gap: 0.4rem;}
-.navbar-clock i{font-size: 0.95rem;}
-@keyframes clock-pulse{0%, 100%{box-shadow: 0 0 20px rgba(255, 107, 53, 0.25), inset 0 0 15px rgba(255, 107, 53, 0.08);}50%{box-shadow: 0 0 35px rgba(255, 107, 53, 0.45), inset 0 0 25px rgba(255, 107, 53, 0.15);}}
-@media(max-width: 768px){.navbar-clock{font-size: 0.95rem;padding: 0.25rem 0.7rem;}}
-.lang-switcher{background: rgba(255, 107, 53, 0.15);border: 2px solid rgba(255, 107, 53, 0.4);color: #fff;font-weight: 600;padding: 0.5rem 1rem;border-radius: 10px;cursor: pointer;transition: all 0.3s ease;font-size: 0.875rem;}
-.lang-switcher:hover{background: rgba(255, 107, 53, 0.25);border-color: #FF6B35;transform: translateY(-2px);}
-.social-btn{display: inline-flex;align-items: center;justify-content: center;width: 50px;height: 50px;border-radius: 50%;background: rgba(255, 255, 255, 0.05);border: 2px solid rgba(255, 255, 255, 0.15);color: #fff;font-size: 1.4rem;transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);position: relative;overflow: hidden;}
-.social-btn::before{content:'';position: absolute;top: 50%;left: 50%;width: 0;height: 0;border-radius: 50%;transform: translate(-50%, -50%);transition: width 0.5s, height 0.5s;}
-.social-btn:hover::before{width: 100%;height: 100%;}
-.social-btn:hover{transform: translateY(-5px) scale(1.1);box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);}
-.social-btn.facebook:hover{background: #1877F2;border-color: transparent;}
-.social-btn.facebook::before{background: rgba(255,255,255,0.2);}
-.card-shine{position: relative;overflow: hidden;}
-.card-shine::after{content:'';position: absolute;top: -50%;left: -50%;width: 200%;height: 200%;background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);transform: rotate(45deg);transition: all 0.6s;}
-.card-shine:hover::after{animation: shine 0.6s ease-in-out;}
-@keyframes shine{0%{transform: translateX(-100%) translateY(-100%) rotate(45deg);}100%{transform: translateX(100%) translateY(100%) rotate(45deg);}}
-.badge-animated{position: relative;animation: badge-pulse 2s ease-in-out infinite;}
-@keyframes badge-pulse{0%, 100%{transform: scale(1);}50%{transform: scale(1.05);}}
-/* Optimización: Critical CSS para carga inicial */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+:root{
+--gradient-primary: linear-gradient(135deg,#FF6B35 0%,#F7931E 100%);
+--gradient-dark: linear-gradient(180deg,#0A0A0A 0%,#1A1A1A 100%);
+--gradient-metallic: linear-gradient(135deg,#E8E8E8 0%,#A8A8A8 50%,#E8E8E8 100%);
+--gradient-orange-glow: linear-gradient(135deg, rgba(255,107,53,0.3) 0%, rgba(247,147,30,0.1) 100%);
+--gradient-animated: linear-gradient(-45deg, #FF6B35, #F7931E, #FF8C42, #FF6B35);
+}
+*{
+-webkit-tap-highlight-color: transparent;
+}
+body{
+background: var(--gradient-dark);
+color:#E2E8F0;
+font-feature-settings:"cv02","cv03","cv04","cv11";
+overflow-x: hidden;
+position: relative;
+}
+/* Background Image with Animation - AUTOMOTIVE PREMIUM */
+body::before{
+content:'';
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920&q=80');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+opacity: 0.12;
+z-index: -2;
+animation: backgroundMove 40s ease-in-out infinite;
+filter: brightness(0.5) contrast(1.3);
+}
+/* Capa adicional con gradiente animado */
+body::after{
+content:'';
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: var(--gradient-animated);
+background-size: 400% 400%;
+opacity: 0.03;
+z-index: -1;
+animation: gradient 15s ease infinite;
+pointer-events: none;
+}
+@keyframes backgroundMove{
+0%, 100%{
+transform: scale(1) translate(0, 0);
+}
+25%{
+transform: scale(1.08) translate(-2%, -2%);
+}
+50%{
+transform: scale(1) translate(0, -3%);
+}
+75%{
+transform: scale(1.08) translate(2%, -2%);
+}
+}
+/* Glassmorphism premium mejorado */
+.glass{
+background: rgba(26, 26, 26, 0.75);
+backdrop-filter: blur(20px) saturate(180%);
+-webkit-backdrop-filter: blur(20px) saturate(180%);
+border: 1px solid rgba(255, 107, 53, 0.2);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.glass-card{
+background: linear-gradient(145deg, rgba(45, 45, 45, 0.85), rgba(26, 26, 26, 0.95));
+backdrop-filter: blur(20px) saturate(180%);
+border: 1px solid rgba(255, 255, 255, 0.08);
+border-radius: 24px;
+transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+position: relative;
+overflow: hidden;
+}
+.glass-card::before{
+content:'';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255,107,53,0.1), transparent);
+transition: left 0.7s ease;
+}
+.glass-card:hover::before{
+left: 100%;
+}
+.glass-card:hover{
+border-color: rgba(255, 107, 53, 0.5);
+transform: translateY(-8px) scale(1.01);
+box-shadow: var(--shadow-premium), 0 0 50px rgba(255, 107, 53, 0.2);
+}
+/* Textos y efectos mejorados */
+.glow-text{
+text-shadow: 0 0 30px rgba(255, 107, 53, 0.7), 0 0 60px rgba(247, 147, 30, 0.4), 0 0 90px rgba(255, 107, 53, 0.2);
+letter-spacing:-0.02em;
+}
+.gradient-text{
+background: var(--gradient-primary);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+background-size: 200% auto;
+animation: shimmer 3s linear infinite;
+}
+.metallic-text{
+background: var(--gradient-metallic);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.pulse-glow{
+animation: pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow{
+0%, 100%{opacity: 1; box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);}
+50%{opacity: 0.85; box-shadow: 0 0 50px rgba(255, 107, 53, 0.8);}
+}
+/* Animaciones de entrada mejoradas */
+.fade-in-up{
+opacity: 0;
+transform: translateY(40px);
+animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+@keyframes fadeInUp{
+to{opacity: 1; transform: translateY(0);}
+}
+/* Hover effects profesionales premium */
+.hover-lift{
+transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.hover-lift:hover{
+transform: translateY(-10px);
+box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+.hover-glow{
+transition: all 0.5s ease;
+position: relative;
+overflow: hidden;
+}
+.hover-glow::before{
+content:'';
+position: absolute;
+top: 0; left:-100%;
+width: 100%; height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+transition: left 0.8s ease;
+}
+.hover-glow:hover::before{
+left: 100%;
+}
+.hover-glow:hover{
+box-shadow: 0 0 50px rgba(255, 107, 53, 0.4);
+transform: translateY(-8px);
+}
+/* Parallax suave mejorado */
+.parallax-image{
+transition: transform 0.5s ease-out;
+will-change: transform;
+filter: brightness(0.75) contrast(1.2);
+}
+.parallax-bg{
+animation: subtle-move 30s ease-in-out infinite alternate;
+}
+@keyframes subtle-move{
+0%{transform: translate(0, 0) scale(1.05);}
+50%{transform: translate(5%, 3%) scale(1.1);}
+100%{transform: translate(0, 0) scale(1.05);}
+}
+/* Inputs modernos mejorados */
+.input-modern{
+background: rgba(26, 26, 26, 0.85);
+border: 2px solid rgba(255, 255, 255, 0.12);
+border-radius: 16px;
+transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+color:#fff;
+position: relative;
+}
+.input-modern:focus{
+border-color:#FF6B35;
+box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2), 0 0 30px rgba(255, 107, 53, 0.2);
+outline: none;
+background: rgba(26, 26, 26, 0.95);
+transform: translateY(-2px);
+}
+.input-modern::placeholder{
+color: rgba(226, 232, 240, 0.5);
+}
+.input-valid{
+border-color:#FF6B35!important;
+background-image: url("image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23FF6B35'%3e%3cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3e%3c/svg%3e");
+background-repeat: no-repeat;
+background-position: right 1rem center;
+background-size: 1.3em;
+}
+.input-invalid{
+border-color:#EF4444!important;
+animation: shake 0.5s ease-in-out;
+}
+@keyframes shake{
+0%, 100%{transform: translateX(0);}
+25%{transform: translateX(-4px);}
+75%{transform: translateX(4px);}
+}
+/* Botones premium mejorados */
+.btn-primary{
+background: var(--gradient-primary);
+color:#fff;
+font-weight: 700;
+letter-spacing: 0.02em;
+position: relative;
+overflow: hidden;
+transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+.btn-primary::before{
+content:'';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+border-radius: 50%;
+background: rgba(255,255,255,0.3);
+transform: translate(-50%, -50%);
+transition: width 0.6s, height 0.6s;
+}
+.btn-primary:hover::before{
+width: 300px;
+height: 300px;
+}
+.btn-primary:hover{
+transform: translateY(-4px) scale(1.02);
+box-shadow: 0 20px 50px rgba(255, 107, 53, 0.5), 0 0 40px rgba(255, 107, 53, 0.4);
+}
+.btn-outline{
+background: transparent;
+border: 2px solid rgba(255, 255, 255, 0.25);
+color:#fff;
+font-weight: 600;
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
+}
+.btn-outline::before{
+content:'';
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+height: 100%;
+background: rgba(255, 107, 53, 0.1);
+transition: width 0.4s ease;
+z-index: -1;
+}
+.btn-outline:hover::before{
+width: 100%;
+}
+.btn-outline:hover{
+border-color:#FF6B35;
+transform: translateY(-4px);
+box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+}
+/* Botón de reseñas - estilo especial dorado mejorado */
+.btn-review{
+background: linear-gradient(135deg,#FFD700 0%,#FFA500 50%,#FF8C00 100%);
+color:#0A0A0A;
+font-weight: 700;
+letter-spacing: 0.02em;
+position: relative;
+overflow: hidden;
+transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+.btn-review::after{
+content:'';
+position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(255,255,255,0.2) 100%);
+opacity: 0;
+transition: opacity 0.4s ease;
+}
+.btn-review:hover{
+transform: translateY(-4px) scale(1.02);
+box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 165, 0, 0.4);
+}
+.btn-review:hover::after{
+opacity: 1;
+}
+/* Scrollbar personalizado mejorado */
+::-webkit-scrollbar{
+width: 10px; height: 10px;
+}
+::-webkit-scrollbar-track{
+background: rgba(26, 26, 26, 0.6);
+border-radius: 8px;
+}
+::-webkit-scrollbar-thumb{
+background: linear-gradient(180deg,#FF6B35,#F7931E);
+border-radius: 8px;
+border: 2px solid transparent;
+background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover{
+background: linear-gradient(180deg,#F7931E,#FF6B35);
+}
+/* Responsive typography */
+@media(max-width: 640px){
+.text-5xl{font-size: 2.25rem; line-height: 1.15;}
+.text-7xl{font-size: 2.75rem; line-height: 1.1;}
+h1{font-size: 2.3rem;}
+.container{padding-left: 1.25rem; padding-right: 1.25rem;}
+}
+@media(max-width: 475px){
+.text-3xl{font-size: 1.75rem;}
+.py-24{padding-top: 3.5rem; padding-bottom: 3.5rem;}
+.glass-card{border-radius: 18px;}
+}
+/* Badge de estado animado mejorado */
+.status-dot{
+position: relative;
+}
+.status-dot::after{
+content:'';
+position: absolute;
+top:-2px; left:-2px; right:-2px; bottom:-2px;
+border-radius: 50%;
+background: inherit;
+filter: blur(6px);
+opacity: 0.7;
+animation: pulse 2s infinite;
+}
+/* Separador decorativo mejorado */
+.divider{
+height: 2px;
+background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), rgba(255, 107, 53, 0.3), transparent);
+margin: 2.5rem 0;
+position: relative;
+}
+.divider::before{
+content:'';
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+width: 8px;
+height: 8px;
+background: #FF6B35;
+border-radius: 50%;
+box-shadow: 0 0 20px rgba(255, 107, 53, 0.8);
+}
+/* Animación de carga sutil mejorada */
+.loading-skeleton{
+background: linear-gradient(90deg, rgba(45,45,45,0.3) 25%, rgba(60,60,60,0.5) 50%, rgba(45,45,45,0.3) 75%);
+background-size: 200% 100%;
+animation: loading 1.5s infinite;
+border-radius: 12px;
+}
+@keyframes loading{
+0%{background-position: 200% 0;}
+100%{background-position:-200% 0;}
+}
+/* Efecto de partículas mejorado */
+.particles{
+position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+pointer-events: none;
+overflow: hidden;
+z-index: 0;
+}
+.particle{
+position: absolute;
+width: 4px; height: 4px;
+background: rgba(255, 107, 53, 0.7);
+border-radius: 50%;
+animation: float-particle 20s infinite linear;
+opacity: 0.6;
+box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+@keyframes float-particle{
+0%{transform: translateY(100vh) translateX(0); opacity: 0;}
+10%{opacity: 0.8;}
+90%{opacity: 0.8;}
+100%{transform: translateY(-20px) translateX(100px); opacity: 0;}
+}
+/* Labels debajo de inputs - ESTILO MEJORADO */
+.label-below{
+display: block;
+margin-top: 0.6rem;
+margin-left: 0.25rem;
+font-size: 0.8rem;
+font-weight: 600;
+color: #FF6B35;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+}
+.label-below span.required{
+color: #EF4444;
+margin-left: 2px;
+}
+/* Logo styles - ACTUALIZADO: CIRCULAR, CENTRADO Y CON EFECTOS DE REFLEJO */
+.navbar-logo{
+height: 70px;
+width: 70px;
+object-fit: cover;
+border-radius: 50%;
+border: 3px solid #FF6B35;
+box-shadow: 0 0 25px rgba(255, 107, 53, 0.6), inset 0 0 20px rgba(255, 107, 53, 0.2);
+transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+position: relative;
+}
+.navbar-logo::before{
+content:'';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 50%;
+background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+border-radius: 50% 50% 0 0;
+opacity: 0;
+transition: opacity 0.4s ease;
+pointer-events: none;
+}
+.navbar-logo:hover::before{
+opacity: 1;
+}
+.navbar-logo:hover{
+transform: scale(1.15) rotate(5deg);
+box-shadow: 0 0 40px rgba(255, 107, 53, 0.9), inset 0 0 30px rgba(255, 107, 53, 0.3);
+}
+/* Hero Logo - Grande, Circular, CENTRADO Y CON EFECTOS DE REFLEJO PREMIUM */
+.hero-logo{
+height: 12rem;
+width: 12rem;
+object-fit: cover;
+border-radius: 50%;
+border: 6px solid #FF6B35;
+box-shadow: 0 0 60px rgba(255, 107, 53, 0.7), 0 0 100px rgba(255, 107, 53, 0.4), inset 0 0 40px rgba(255, 107, 53, 0.2);
+transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+animation: pulse-glow 4s ease-in-out infinite;
+display: block;
+margin: 0 auto;
+position: relative;
+overflow: hidden;
+}
+.hero-logo::before{
+content:'';
+position: absolute;
+inset: -10px;
+border-radius: 50%;
+border: 2px solid rgba(255, 107, 53, 0.3);
+animation: rotate 10s linear infinite;
+pointer-events: none;
+}
+/* Efecto de reflejo/brillo superior */
+.hero-logo::after{
+content:'';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 55%;
+background: linear-gradient(180deg, 
+  rgba(255,255,255,0.4) 0%, 
+  rgba(255,255,255,0.2) 25%, 
+  rgba(255,255,255,0.05) 50%, 
+  transparent 100%);
+border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+opacity: 0.7;
+pointer-events: none;
+}
+/* Brillo animado en hover */
+.hero-logo .shine-effect{
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, 
+  transparent 0%, 
+  rgba(255,255,255,0.4) 50%, 
+  transparent 100%);
+transition: left 0.8s ease;
+pointer-events: none;
+}
+.hero-logo:hover .shine-effect{
+left: 100%;
+}
+.hero-logo:hover{
+transform: scale(1.1) rotate(2deg);
+box-shadow: 0 0 100px rgba(255, 107, 53, 0.9), 0 0 150px rgba(255, 107, 53, 0.6), inset 0 0 60px rgba(255, 107, 53, 0.4);
+border-color: #FF8C42;
+}
+@keyframes rotate{
+from{transform: rotate(0deg);}
+to{transform: rotate(360deg);}
+}
+@media(max-width: 768px){
+.navbar-logo{
+height: 55px;
+width: 55px;
+}
+.hero-logo{
+height: 8rem;
+width: 8rem;
+}
+}
+/* Language Switcher Styles */
+.lang-switcher{
+background: rgba(255, 107, 53, 0.15);
+border: 2px solid rgba(255, 107, 53, 0.4);
+color: #fff;
+font-weight: 600;
+padding: 0.5rem 1rem;
+border-radius: 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-size: 0.875rem;
+}
+.lang-switcher:hover{
+background: rgba(255, 107, 53, 0.25);
+border-color: #FF6B35;
+transform: translateY(-2px);
+}
+/* Social Media Buttons mejorados */
+.social-btn{
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.05);
+border: 2px solid rgba(255, 255, 255, 0.15);
+color: #fff;
+font-size: 1.4rem;
+transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+position: relative;
+overflow: hidden;
+}
+.social-btn::before{
+content:'';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+border-radius: 50%;
+transform: translate(-50%, -50%);
+transition: width 0.5s, height 0.5s;
+}
+.social-btn:hover::before{
+width: 100%;
+height: 100%;
+}
+.social-btn:hover{
+transform: translateY(-5px) scale(1.1);
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+.social-btn.facebook:hover{
+background: #1877F2;
+border-color: transparent;
+}
+.social-btn.facebook::before{
+background: rgba(255,255,255,0.2);
+}
+/* Efecto de brillo en tarjetas */
+.card-shine{
+position: relative;
+overflow: hidden;
+}
+.card-shine::after{
+content:'';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+transform: rotate(45deg);
+transition: all 0.6s;
+}
+.card-shine:hover::after{
+animation: shine 0.6s ease-in-out;
+}
+@keyframes shine{
+0%{transform: translateX(-100%) translateY(-100%) rotate(45deg);}
+100%{transform: translateX(100%) translateY(100%) rotate(45deg);}
+}
+/* Badge animado */
+.badge-animated{
+position: relative;
+animation: badge-pulse 2s ease-in-out infinite;
+}
+@keyframes badge-pulse{
+0%, 100%{transform: scale(1);}
+50%{transform: scale(1.05);}
 }
 </style>
 </head>
 <body class="antialiased relative">
-<!-- Partículas decorativas de fondo -->
-<div class="particles" id="particles" aria-hidden="true"></div>
-
-<!-- NAVBAR -->
-<nav class="fixed w-full z-50 top-0 glass border-b border-white/10 transition-all duration-300" id="navbar" role="navigation" aria-label="Navegación principal">
-  <div class="container mx-auto px-4 h-16 md:h-20 flex items-center relative">
-    <!-- LOGO - Izquierda superior -->
-    <a href="#" class="flex items-center md:absolute md:left-4 md:translate-x-0" aria-label="Ir al inicio">
-      <img src="JRPLOGO.png" alt="JRP Motors Logo" class="navbar-logo" width="70" height="70" loading="eager">
-    </a>
-    
-    <!-- Título centrado -->
-    <a href="#" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 md:ml-auto md:mr-auto font-display font-bold text-lg sm:text-xl md:text-2xl gradient-text tracking-tight uppercase text-center md:text-left drop-shadow-lg">
-      JRP MOTORS
-    </a>
-    
-    <!-- RELOJ DIGITAL EN NAVBAR -->
-    <div id="navbarClock" class="hidden md:flex items-center ml-4" aria-label="Hora actual">
-      <div class="navbar-clock">
-        <i class="fa-regular fa-clock" aria-hidden="true"></i>
-        <span id="navbarClockTime">00:00:00</span>
-      </div>
-    </div>
-    
-    <div class="ml-auto flex items-center gap-3 md:gap-5">
-      <div id="status-badge-desktop" class="hidden md:flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-semibold uppercase tracking-wide bg-white/5 border border-white/10 hover:border-primary-orange/40 transition-all" role="status" aria-live="polite">
-        <span id="status-dot-desktop" class="status-dot w-2 h-2 rounded-full mr-2.5 bg-gray-500" aria-hidden="true"></span>
-        <span id="status-text-desktop" class="text-gray-300">Verificando...</span>
-      </div>
-      
-      <div class="hidden md:flex items-center gap-3 lg:gap-5">
-        <a href="#asesoramiento" class="text-gray-300 hover:text-primary-orange transition text-sm lg:text-base font-medium relative group">
-          Asesoramiento
-          <span class="absolute bottom-1 left-0 w-0 h-0.5 bg-primary-orange transition-all group-hover:w-full"></span>
-        </a>
-        <a href="#diagnostico" class="btn-primary px-4 lg:px-6 py-2 lg:py-2.5 rounded-xl font-bold transition shadow-neon uppercase text-xs lg:text-sm tracking-wide">
-          Pre-Diagnóstico
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <div id="status-bar-mobile" class="md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-gray-900/80 border-t border-white/10 flex items-center justify-center gap-2" role="status" aria-live="polite">
-    <span id="navbarClockTimeMobile" style="font-family:'Space Grotesk',monospace;color:#FF6B35;text-shadow:0 0 10px rgba(255,107,53,0.6);">00:00:00</span>
-    <span aria-hidden="true">|</span>
-    <span>Verificando estado...</span>
-  </div>
-</nav>
-
-<!-- Botones flotantes premium -->
-<div class="fixed bottom-24 md:bottom-8 right-4 z-50 animate-float flex flex-col gap-3" role="complementary" aria-label="Acciones rápidas">
-  <!-- Botón flotante de WhatsApp directo -->
-  <a href="https://api.whatsapp.com/send?phone=543855814187" target="_blank" rel="noopener noreferrer"
-     class="bg-[#25D366] hover:bg-[#128C7E] text-white p-3.5 md:p-4 rounded-full shadow-lg transition-all hover:scale-110 flex items-center justify-center gap-2 group"
-     title="Chat directo por WhatsApp" aria-label="Contactar por WhatsApp" style="animation: float 6s ease-in-out infinite;">
-    <i class="fa-brands fa-whatsapp text-2xl md:text-3xl" aria-hidden="true"></i>
-    <span class="hidden lg:inline text-xs font-bold whitespace-nowrap">Chat</span>
-  </a>
-  
-  <a href="#diagnostico" class="btn-primary px-5 py-3 md:px-7 md:py-3.5 rounded-2xl shadow-neon transition flex items-center gap-2.5 hover:shadow-glow text-sm font-semibold group" aria-label="Solicitar turno para diagnóstico">
-    <i class="fa-solid fa-calendar-check text-lg" aria-hidden="true"></i>
-    <span class="hidden xs:inline">Pedir Turno</span>
-    <i class="fa-solid fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
-  </a>
-  
-  <!-- Botón flotante de reseñas -->
-  <a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-review px-4 py-2.5 md:px-5 md:py-3 rounded-xl shadow-lg transition flex items-center gap-2 text-xs md:text-sm font-semibold group animate-float" style="animation-delay: 0.5s;" aria-label="Dejar reseña en Google Maps">
-    <i class="fa-solid fa-star text-lg" aria-hidden="true"></i>
-    <span class="hidden xs:inline">Deja tu Reseña</span>
-  </a>
+<!-- Partículas decorativas de fondo-->
+<div class="particles" id="particles"></div>
+<!-- NAVBAR-->
+<nav class="fixed w-full z-50 top-0 glass border-b border-white/10 transition-all duration-300" id="navbar">
+<div class="container mx-auto px-4 h-16 md:h-20 flex items-center relative">
+<!-- LOGO - Izquierda superior (CIRCULAR Y MÁS VISIBLE) -->
+<a href="#" class="flex items-center md:absolute md:left-4 md:translate-x-0">
+<img src="JRPLOGO.png" alt="JRP Motors Logo" class="navbar-logo">
+</a>
+<!-- Título centrado -->
+<a href="#" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 md:ml-auto md:mr-auto font-display font-bold text-lg sm:text-xl md:text-2xl gradient-text tracking-tight uppercase text-center md:text-left drop-shadow-lg">
+JRP MOTORS
+</a>
+<div class="ml-auto flex items-center gap-3 md:gap-5">
+<div id="status-badge-desktop" class="hidden md:flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-semibold uppercase tracking-wide bg-white/5 border border-white/10 hover:border-primary-orange/40 transition-all">
+<span id="status-dot-desktop" class="status-dot w-2 h-2 rounded-full mr-2.5 bg-gray-500"></span>
+<span id="status-text-desktop" class="text-gray-300">Verificando...</span>
 </div>
-
-<!-- HERO SECTION -->
+<div class="hidden md:flex items-center gap-3 lg:gap-5">
+<a href="#asesoramiento" class="text-gray-300 hover:text-primary-orange transition text-sm lg:text-base font-medium relative group">
+Asesoramiento
+<span class="absolute bottom-1 left-0 w-0 h-0.5 bg-primary-orange transition-all group-hover:w-full"></span>
+</a>
+<a href="#diagnostico" class="btn-primary px-4 lg:px-6 py-2 lg:py-2.5 rounded-xl font-bold transition shadow-neon uppercase text-xs lg:text-sm tracking-wide">
+Pre-Diagnóstico
+</a>
+</div>
+</div>
+</div>
+<div id="status-bar-mobile" class="md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-gray-900/80 border-t border-white/10">Verificando estado...</div>
+</nav>
+<!-- Botones flotantes premium -->
+<div class="fixed bottom-24 md:bottom-8 right-4 z-50 animate-float flex flex-col gap-3">
+<!-- Botón flotante de WhatsApp directo -->
+<a href="https://api.whatsapp.com/send?phone=543855814187" target="_blank" rel="noopener noreferrer"
+class="bg-[#25D366] hover:bg-[#128C7E] text-white p-3.5 md:p-4 rounded-full shadow-lg transition-all hover:scale-110 flex items-center justify-center gap-2 group"
+title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinite;">
+<i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
+<span class="hidden lg:inline text-xs font-bold whitespace-nowrap">Chat</span>
+</a>
+<a href="#diagnostico" class="btn-primary px-5 py-3 md:px-7 md:py-3.5 rounded-2xl shadow-neon transition flex items-center gap-2.5 hover:shadow-glow text-sm font-semibold group">
+<i class="fa-solid fa-calendar-check text-lg"></i>
+<span class="hidden xs:inline">Pedir Turno</span>
+<i class="fa-solid fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
+</a>
+<!-- Botón flotante de reseñas-->
+<a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-review px-4 py-2.5 md:px-5 md:py-3 rounded-xl shadow-lg transition flex items-center gap-2 text-xs md:text-sm font-semibold group animate-float" style="animation-delay: 0.5s;">
+<i class="fa-solid fa-star text-lg"></i>
+<span class="hidden xs:inline">Deja tu Reseña</span>
+</a>
+</div>
+<!-- HERO SECTION CON FONDO COMPLETO MEJORADO-->
 <header class="relative pt-20 pb-20 md:pt-32 md:pb-32 lg:pt-40 lg:pb-40 min-h-screen flex items-center overflow-hidden">
-  <!-- Fondo con gradiente -->
-  <div class="absolute inset-0 bg-gradient-to-br from-primary-dark via-[#0D0D0D] to-[#0A0A0A]" aria-hidden="true">
-    <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 20% 35%, rgba(255,107,53, 0.2) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(247,147,30, 0.15) 0%, transparent 45%)"></div>
-  </div>
-  
-  <!-- Imagen de fondo con lazy loading -->
-  <div id="parallax-container" class="absolute inset-0 overflow-hidden" aria-hidden="true">
-    <img id="parallax-img" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1974&auto=format&fit=crop" alt="Taller mecánico profesional" class="parallax-image w-full h-full object-cover opacity-50 parallax-bg" loading="eager" width="1974" height="1316">
-    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/70 to-transparent"></div>
-  </div>
-  
-  <div class="container mx-auto px-4 md:px-6 relative z-10">
-    <div class="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
-      <div class="fade-in-up badge-animated" style="animation-delay: 0.1s;">
-        <div class="inline-flex items-center gap-2 bg-primary-orange/20 border border-primary-orange/40 text-primary-orange px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm shadow-lg">
-          <i class="fa-solid fa-microchip" aria-hidden="true"></i> <span>Diagnóstico de Precisión</span>
-        </div>
-      </div>
-      
-      <h1 class="font-display font-black text-4xl md:text-5xl lg:text-7xl leading-tight glow-text main-title fade-in-up" style="animation-delay: 0.2s;">
-        JRP MOTORS<br><span class="gradient-text">DE JONAS RISSO PATRON</span>
-      </h1>
-
-      <!-- LOGO CENTRADO CON EFECTO FUEGO -->
-      <div class="hero-logo-wrapper fade-in-up" style="animation-delay: 0.25s;">
-        <div class="relative" style="display:inline-block;">
-          <img src="JRPLOGO.png" alt="JRP Motors Logo" class="hero-logo" id="heroLogo" width="192" height="192" loading="eager">
-          <div class="shine-effect" aria-hidden="true"></div>
-          <div class="fire-ring" id="fireRing" aria-hidden="true"></div>
-        </div>
-      </div>
-
-      <!-- DESCRIPCIÓN -->
-      <p class="text-gray-300/90 text-base md:text-lg max-w-3xl mx-auto description-text fade-in-up leading-relaxed" style="animation-delay: 0.3s;">
-        En JRP Motors de Jonas Risso Patron, entendemos que tu auto es una inversión importante y tu seguridad es primordial. Somos un taller de reparación de automóviles con años de experiencia en Santiago del Estero, dedicados a brindarte un servicio de calidad, confiable y transparente. Nos especializamos en mantener tu vehículo en óptimas condiciones para que disfrutes de cada viaje con total tranquilidad.
-      </p>
-      
-      <!-- Stats animados -->
-      <div class="grid grid-cols-3 gap-3 md:gap-5 pt-2 md:pt-4 fade-in-up" style="animation-delay: 0.5s;">
-        <div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-orange/40 transition card-shine">
-          <span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter1" data-target="99">0</span>%</span>
-          <span class="text-xs text-gray-400 mt-1 block">Precisión</span>
-        </div>
-        <div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-orange/40 transition card-shine">
-          <span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter2" data-target="50">0</span>min</span>
-          <span class="text-xs text-gray-400 mt-1 block">Ahorro</span>
-        </div>
-        <div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-orange/40 transition card-shine">
-          <span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter3" data-target="8000">0</span>+</span>
-          <span class="text-xs text-gray-400 mt-1 block">Vehículos</span>
-        </div>
-      </div>
-      
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-3.5 pt-2 justify-center fade-in-up" style="animation-delay: 0.6s;">
-        <a href="#diagnostico" class="btn-primary px-6 py-3.5 rounded-xl uppercase tracking-wide flex items-center justify-center gap-2.5 group text-sm font-semibold shadow-neon">
-          <span>Iniciar Diagnóstico</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
-        </a>
-        <a href="#asesoramiento" class="btn-outline px-6 py-3.5 rounded-xl uppercase tracking-wide flex items-center justify-center gap-2 text-sm font-semibold">
-          <i class="fa-solid fa-book-open text-primary-orange" aria-hidden="true"></i> <span>Guías Técnicas</span>
-        </a>
-      </div>
-    </div>
-  </div>
+<!-- Fondo con gradiente y partículas mejorado-->
+<div class="absolute inset-0 bg-gradient-to-br from-primary-dark via-[#0D0D0D] to-[#0A0A0A]">
+<div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 20% 35%, rgba(255,107,53, 0.2) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(247,147,30, 0.15) 0%, transparent 45%)"></div>
+</div>
+<!-- Imagen de fondo completa y visible -->
+<div id="parallax-container" class="absolute inset-0 overflow-hidden">
+<img id="parallax-img" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1974&auto=format&fit=crop" alt="Taller mecánico profesional" class="parallax-image w-full h-full object-cover opacity-50 parallax-bg">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/70 to-transparent"></div>
+</div>
+<div class="container mx-auto px-4 md:px-6 relative z-10">
+<div class="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
+<div class="fade-in-up badge-animated" style="animation-delay: 0.1s;">
+<div class="inline-flex items-center gap-2 bg-primary-orange/20 border border-primary-orange/40 text-primary-orange px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm shadow-lg">
+<i class="fa-solid fa-microchip"></i> <span>Diagnóstico de Precisión</span>
+</div>
+</div>
+<h1 class="font-display font-black text-4xl md:text-5xl lg:text-7xl leading-tight glow-text main-title fade-in-up" style="animation-delay: 0.2s;">
+JRP MOTORS<br><span class="gradient-text">DE JONAS RISSO PATRON</span>
+</h1>
+<!-- Logo centrado en el hero CON EFECTOS DE REFLEJO -->
+<div class="fade-in-up flex justify-center" style="animation-delay: 0.25s;">
+<div class="relative">
+<img src="JRPLOGO.png" alt="JRP Motors Logo" class="hero-logo">
+<div class="shine-effect"></div>
+</div>
+</div>
+<!-- DESCRIPCIÓN ACTUALIZADA -->
+<p class="text-gray-300/90 text-base md:text-lg max-w-3xl mx-auto description-text fade-in-up leading-relaxed" style="animation-delay: 0.3s;">
+En JRP Motors de Jonas Risso Patron, entendemos que tu auto es una inversión importante y tu seguridad es primordial. Somos un taller de reparación de automóviles con años de experiencia en Santiago del Estero, dedicados a brindarte un servicio de calidad, confiable y transparente. Nos especializamos en mantener tu vehículo en óptimas condiciones para que disfrutes de cada viaje con total tranquilidad.
+</p>
+<!-- Stats animados-->
+<div class="grid grid-cols-3 gap-3 md:gap-5 pt-2 md:pt-4 fade-in-up" style="animation-delay: 0.5s;">
+<div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-orange/40 transition card-shine">
+<span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter1" data-target="99">0</span>%</span>
+<span class="text-xs text-gray-400 mt-1 block">Precisión</span>
+</div>
+<div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-orange/40 transition card-shine">
+<span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter2" data-target="50">0</span>min</span>
+<span class="text-xs text-gray-400 mt-1 block">Ahorro</span>
+</div>
+<div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-orange/40 transition card-shine">
+<span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter3" data-target="8000">0</span>+</span>
+<span class="text-xs text-gray-400 mt-1 block">Vehículos</span>
+</div>
+</div>
+<!-- CTAs-->
+<div class="flex flex-col sm:flex-row gap-3.5 pt-2 justify-center fade-in-up" style="animation-delay: 0.6s;">
+<a href="#diagnostico" class="btn-primary px-6 py-3.5 rounded-xl uppercase tracking-wide flex items-center justify-center gap-2.5 group text-sm font-semibold shadow-neon">
+<span>Iniciar Diagnóstico</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+</a>
+<a href="#asesoramiento" class="btn-outline px-6 py-3.5 rounded-xl uppercase tracking-wide flex items-center justify-center gap-2 text-sm font-semibold">
+<i class="fa-solid fa-book-open text-primary-orange"></i> <span>Guías Técnicas</span>
+</a>
+</div>
+</div>
+</div>
 </header>
-
-<!-- SECCIÓN: CENTRO DE ASESORAMIENTO -->
+<!-- SECCIÓN: CENTRO DE ASESORAMIENTO-->
 <section id="asesoramiento" class="py-16 md:py-24 bg-[#0D0D0D] relative">
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,107,53,0.1),_transparent_60%)]" aria-hidden="true"></div>
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="text-center mb-14 md:mb-20 max-w-3xl mx-auto">
-      <div class="inline-block bg-primary-orange/15 border border-primary-orange/30 text-primary-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
-        <i class="fa-solid fa-lightbulb mr-1.5" aria-hidden="true"></i> <span>Conocimiento Técnico</span>
-      </div>
-      <h2 class="font-display font-bold text-4xl md:text-5xl gradient-text uppercase mb-5 glow-text tracking-tight">Centro de Asesoramiento</h2>
-      <p class="text-gray-400/90 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-        Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a identificar las señales clave de tu vehículo.
-      </p>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7">
-      <!-- Card 1 -->
-      <article class="glass-card hover-lift card-shine">
-        <div class="relative h-44 md:h-48 overflow-hidden rounded-t-2xl">
-          <img src="https://placehold.co/600x400/FF6B35/0A0A0A?text=FRENOS" alt="Sistema de frenos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy" width="600" height="400">
-          <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent" aria-hidden="true"></div>
-          <div class="absolute bottom-3 left-4">
-            <span class="text-xs font-bold text-primary-orange uppercase tracking-wider">Predictivo</span>
-          </div>
-        </div>
-        <div class="p-5 md:p-6">
-          <h3 class="font-bold text-lg md:text-xl text-white mb-2.5">Señales en Frenos</h3>
-          <p class="text-gray-400/90 text-sm mb-4 leading-relaxed">Chillidos, vibración en pedal o recorrido excesivo: indicadores de desgaste en pastillas o aire en el circuito.</p>
-          <a href="#diagnostico" class="text-primary-orange hover:text-orange-300 font-semibold text-sm flex items-center gap-1.5 group">
-            <span>Analizar ahora</span>
-            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
-          </a>
-        </div>
-      </article>
-      
-      <!-- Card 2 -->
-      <article class="glass-card hover-lift card-shine">
-        <div class="relative h-44 md:h-48 overflow-hidden rounded-t-2xl">
-          <img src="https://placehold.co/600x400/2D2D2D/FF6B35?text=BATERIA" alt="Sistema eléctrico" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy" width="600" height="400">
-          <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent" aria-hidden="true"></div>
-          <div class="absolute bottom-3 left-4">
-            <span class="text-xs font-bold text-primary-orange uppercase tracking-wider">Preventivo</span>
-          </div>
-        </div>
-        <div class="p-5 md:p-6">
-          <h3 class="font-bold text-lg md:text-xl text-white mb-2.5">Batería y Alternador</h3>
-          <p class="text-gray-400/90 text-sm mb-4 leading-relaxed">Arranque lento, luces tenues o parpadeantes: verifica voltaje y estado de carga antes de una falla total.</p>
-          <a href="#diagnostico" class="text-primary-orange hover:text-orange-300 font-semibold text-sm flex items-center gap-1.5 group">
-            <span>Verificar sistema</span>
-            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
-          </a>
-        </div>
-      </article>
-      
-      <!-- Card 3 -->
-      <article class="glass-card hover-lift card-shine">
-        <div class="relative h-44 md:h-48 overflow-hidden rounded-t-2xl">
-          <img src="https://placehold.co/600x400/F7931E/0A0A0A?text=FLUIDOS" alt="Fluidos críticos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy" width="600" height="400">
-          <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent" aria-hidden="true"></div>
-          <div class="absolute bottom-3 left-4">
-            <span class="text-xs font-bold text-primary-orange uppercase tracking-wider">Mantenimiento</span>
-          </div>
-        </div>
-        <div class="p-5 md:p-6">
-          <h3 class="font-bold text-lg md:text-xl text-white mb-2.5">Fluidos Críticos</h3>
-          <p class="text-gray-400/90 text-sm mb-4 leading-relaxed">Aceite, refrigerante y líquido de frenos: niveles bajos o cambios de color indican urgencia de revisión.</p>
-          <a href="#diagnostico" class="text-primary-orange hover:text-orange-300 font-semibold text-sm flex items-center gap-1.5 group">
-            <span>Revisar niveles</span>
-            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
-          </a>
-        </div>
-      </article>
-    </div>
-    
-    <div class="text-center mt-10 md:mt-14">
-      <a href="#diagnostico" class="inline-flex items-center gap-2.5 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-primary-orange/40 text-white font-bold py-3.5 px-7 md:px-9 rounded-2xl transition-all uppercase tracking-wide text-sm shadow-soft hover:shadow-neon">
-        <i class="fa-solid fa-hand-pointer text-primary-orange" aria-hidden="true"></i> <span>Iniciar Pre-Diagnóstico Ahora</span>
-      </a>
-    </div>
-  </div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,107,53,0.1),_transparent_60%)]"></div>
+<div class="container mx-auto px-4 relative z-10">
+<div class="text-center mb-14 md:mb-20 max-w-3xl mx-auto">
+<div class="inline-block bg-primary-orange/15 border border-primary-orange/30 text-primary-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
+<i class="fa-solid fa-lightbulb mr-1.5"></i> <span>Conocimiento Técnico</span>
+</div>
+<h2 class="font-display font-bold text-4xl md:text-5xl gradient-text uppercase mb-5 glow-text tracking-tight">Centro de Asesoramiento</h2>
+<p class="text-gray-400/90 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a identificar las señales clave de tu vehículo.
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7">
+<!-- Card 1-->
+<div class="glass-card hover-lift card-shine">
+<div class="relative h-44 md:h-48 overflow-hidden rounded-t-2xl">
+<img src="https://placehold.co/600x400/FF6B35/0A0A0A?text=FRENOS" alt="Sistema de frenos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent"></div>
+<div class="absolute bottom-3 left-4">
+<span class="text-xs font-bold text-primary-orange uppercase tracking-wider">Predictivo</span>
+</div>
+</div>
+<div class="p-5 md:p-6">
+<h3 class="font-bold text-lg md:text-xl text-white mb-2.5">Señales en Frenos</h3>
+<p class="text-gray-400/90 text-sm mb-4 leading-relaxed">Chillidos, vibración en pedal o recorrido excesivo: indicadores de desgaste en pastillas o aire en el circuito.</p>
+<a href="#diagnostico" class="text-primary-orange hover:text-orange-300 font-semibold text-sm flex items-center gap-1.5 group">
+<span>Analizar ahora</span>
+<i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+</div>
+<!-- Card 2-->
+<div class="glass-card hover-lift card-shine">
+<div class="relative h-44 md:h-48 overflow-hidden rounded-t-2xl">
+<img src="https://placehold.co/600x400/2D2D2D/FF6B35?text=BATERIA" alt="Sistema eléctrico" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent"></div>
+<div class="absolute bottom-3 left-4">
+<span class="text-xs font-bold text-primary-orange uppercase tracking-wider">Preventivo</span>
+</div>
+</div>
+<div class="p-5 md:p-6">
+<h3 class="font-bold text-lg md:text-xl text-white mb-2.5">Batería y Alternador</h3>
+<p class="text-gray-400/90 text-sm mb-4 leading-relaxed">Arranque lento, luces tenues o parpadeantes: verifica voltaje y estado de carga antes de una falla total.</p>
+<a href="#diagnostico" class="text-primary-orange hover:text-orange-300 font-semibold text-sm flex items-center gap-1.5 group">
+<span>Verificar sistema</span>
+<i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+</div>
+<!-- Card 3-->
+<div class="glass-card hover-lift card-shine">
+<div class="relative h-44 md:h-48 overflow-hidden rounded-t-2xl">
+<img src="https://placehold.co/600x400/F7931E/0A0A0A?text=FLUIDOS" alt="Fluidos críticos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent"></div>
+<div class="absolute bottom-3 left-4">
+<span class="text-xs font-bold text-primary-orange uppercase tracking-wider">Mantenimiento</span>
+</div>
+</div>
+<div class="p-5 md:p-6">
+<h3 class="font-bold text-lg md:text-xl text-white mb-2.5">Fluidos Críticos</h3>
+<p class="text-gray-400/90 text-sm mb-4 leading-relaxed">Aceite, refrigerante y líquido de frenos: niveles bajos o cambios de color indican urgencia de revisión.</p>
+<a href="#diagnostico" class="text-primary-orange hover:text-orange-300 font-semibold text-sm flex items-center gap-1.5 group">
+<span>Revisar niveles</span>
+<i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-10 md:mt-14">
+<a href="#diagnostico" class="inline-flex items-center gap-2.5 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-primary-orange/40 text-white font-bold py-3.5 px-7 md:px-9 rounded-2xl transition-all uppercase tracking-wide text-sm shadow-soft hover:shadow-neon">
+<i class="fa-solid fa-hand-pointer text-primary-orange"></i> <span>Iniciar Pre-Diagnóstico Ahora</span>
+</a>
+</div>
+</div>
 </section>
-
-<!-- SECCIÓN: SERVICIOS INTEGRALES -->
+<!-- SECCIÓN: SERVICIOS INTEGRALES (AMPLIADA)-->
 <section class="py-16 md:py-24 bg-primary-dark relative">
-  <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 10% 20%, rgba(255,107,53, 0.08) 0%, transparent 25%), radial-gradient(circle at 90% 80%, rgba(247,147,30, 0.08) 0%, transparent 25%)" aria-hidden="true"></div>
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="text-center mb-14 md:mb-20">
-      <div class="inline-block bg-primary-orange/15 border border-primary-orange/30 text-primary-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
-        <i class="fa-solid fa-screwdriver-wrench mr-1.5" aria-hidden="true"></i> <span>Soluciones Profesionales</span>
-      </div>
-      <h2 class="font-display font-bold text-4xl md:text-5xl text-white uppercase mb-4 glow-text tracking-tight"><span>Servicios</span><span class="gradient-text">Integrales</span></h2>
-      <p class="text-gray-400/90 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-        Tecnología avanzada y expertise técnico para mantener tu vehículo en condiciones óptimas de seguridad y rendimiento.
-      </p>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-      <!-- Servicios (10 items - mismos que el original) -->
-      <!-- Servicio 1 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-laptop-code text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Diagnóstico Computarizado</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Escaneo avanzado de ECU, sensores y sistemas electrónicos con equipos de última generación.</p>
-      </article>
-      
-      <!-- Servicio 2 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-oil-can text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Mecánica Ligera</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Cambios de aceite, filtros, bujías y services programados con repuestos de calidad certificada.</p>
-      </article>
-      
-      <!-- Servicio 3 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-circle-stop text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Sistema de Frenos</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Revisión integral de ABS, pastillas, discos y líquido de frenos para máxima seguridad.</p>
-      </article>
-      
-      <!-- Servicio 4 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-car-burst text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Suspensión y Dirección</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Amortiguadores, rótulas, alineación y balanceo para confort y estabilidad en ruta.</p>
-      </article>
-      
-      <!-- Servicio 5 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-snowflake text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Climatización</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Carga de gas, limpieza de conductos y reparación de compresores para confort térmico.</p>
-      </article>
-      
-      <!-- Servicio 6 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-bolt text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Electricidad Automotriz</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Diagnóstico de fallas eléctricas, baterías, alternadores y sistemas de iluminación.</p>
-      </article>
-      
-      <!-- Servicio 7 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-wrench text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Mecánica Integral</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Reparaciones completas de motor, transmisión y sistemas mecánicos con garantía de calidad.</p>
-      </article>
-      
-      <!-- Servicio 8 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-box-open text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Repuestos</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Amplio stock de repuestos originales y alternativos de primera calidad para todas las marcas.</p>
-      </article>
-      
-      <!-- Servicio 9 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-magnifying-glass-chart text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Escaneo Profesional</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Lectura y borrado de códigos de falla, análisis de datos en tiempo real y programación de módulos.</p>
-      </article>
-      
-      <!-- Servicio 10 -->
-      <article class="glass-card p-6 md:p-7 hover-lift group card-shine">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-          <i class="fa-solid fa-compass-drafting text-2xl md:text-3xl text-primary-orange" aria-hidden="true"></i>
-        </div>
-        <h3 class="font-bold text-xl text-white mb-2.5">Alineación y Balanceo</h3>
-        <p class="text-gray-400/90 text-sm leading-relaxed">Equipos láser de última generación para alineación 3D y balanceo computarizado de ruedas.</p>
-      </article>
-    </div>
-  </div>
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 10% 20%, rgba(255,107,53, 0.08) 0%, transparent 25%), radial-gradient(circle at 90% 80%, rgba(247,147,30, 0.08) 0%, transparent 25%)"></div>
+<div class="container mx-auto px-4 relative z-10">
+<div class="text-center mb-14 md:mb-20">
+<div class="inline-block bg-primary-orange/15 border border-primary-orange/30 text-primary-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
+<i class="fa-solid fa-screwdriver-wrench mr-1.5"></i> <span>Soluciones Profesionales</span>
+</div>
+<h2 class="font-display font-bold text-4xl md:text-5xl text-white uppercase mb-4 glow-text tracking-tight"><span>Servicios</span><span class="gradient-text">Integrales</span></h2>
+<p class="text-gray-400/90 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+Tecnología avanzada y expertise técnico para mantener tu vehículo en condiciones óptimas de seguridad y rendimiento.
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+<!-- Servicio 1-->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-laptop-code text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Diagnóstico Computarizado</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Escaneo avanzado de ECU, sensores y sistemas electrónicos con equipos de última generación.</p>
+</div>
+<!-- Servicio 2-->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-oil-can text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Mecánica Ligera</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Cambios de aceite, filtros, bujías y services programados con repuestos de calidad certificada.</p>
+</div>
+<!-- Servicio 3-->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-circle-stop text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Sistema de Frenos</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Revisión integral de ABS, pastillas, discos y líquido de frenos para máxima seguridad.</p>
+</div>
+<!-- Servicio 4-->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-car-burst text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Suspensión y Dirección</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Amortiguadores, rótulas, alineación y balanceo para confort y estabilidad en ruta.</p>
+</div>
+<!-- Servicio 5-->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-snowflake text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Climatización</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Carga de gas, limpieza de conductos y reparación de compresores para confort térmico.</p>
+</div>
+<!-- Servicio 6-->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-bolt text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Electricidad Automotriz</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Diagnóstico de fallas eléctricas, baterías, alternadores y sistemas de iluminación.</p>
+</div>
+<!-- Servicio 7 -->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-wrench text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Mecánica Integral</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Reparaciones completas de motor, transmisión y sistemas mecánicos con garantía de calidad.</p>
+</div>
+<!-- Servicio 8 -->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-box-open text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Repuestos</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Amplio stock de repuestos originales y alternativos de primera calidad para todas las marcas.</p>
+</div>
+<!-- Servicio 9 -->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-magnifying-glass-chart text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Escaneo Profesional</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Lectura y borrado de códigos de falla, análisis de datos en tiempo real y programación de módulos.</p>
+</div>
+<!-- Servicio 10 -->
+<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-compass-drafting text-2xl md:text-3xl text-primary-orange"></i>
+</div>
+<h3 class="font-bold text-xl text-white mb-2.5">Alineación y Balanceo</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Equipos láser de última generación para alineación 3D y balanceo computarizado de ruedas.</p>
+</div>
+</div>
+</div>
 </section>
-
-<!-- SECCIÓN: TESTIMONIOS -->
+<!-- SECCIÓN: TESTIMONIOS-->
 <section class="py-16 md:py-24 bg-[#0D0D0D] border-t border-white/5">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-10 md:mb-14">
-      <div class="inline-block bg-primary-orange/15 border border-primary-orange/30 text-primary-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
-        <i class="fa-solid fa-comments mr-1.5" aria-hidden="true"></i> <span>Experiencias Reales</span>
-      </div>
-      <h2 class="font-display font-bold text-4xl md:text-5xl text-white uppercase glow-text tracking-tight">La Voz de Nuestros Clientes</h2>
-      <p class="text-gray-400/90 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
-        Confianza construida sobre resultados verificables y atención profesional en Santiago del Estero.
-      </p>
-    </div>
-    
-    <div class="testimonial-carousel flex gap-5 md:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide mx-2 px-2" role="list" aria-label="Testimonios de clientes">
-      <!-- Testimonio 1 -->
-      <article class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange hover-lift transition flex-shrink-0 w-[85%] md:w-1/3 snap-center card-shine" role="listitem">
-        <div class="flex justify-between items-start mb-4">
-          <div class="flex text-yellow-400 text-lg" aria-label="5 estrellas">
-            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
-          </div>
-          <i class="fa-solid fa-quote-right text-3xl text-gray-700/70" aria-hidden="true"></i>
-        </div>
-        <p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Excelente servicio en JRP Motors. Diagnóstico preciso y rápido. Me explicaron todo con claridad y profesionalismo. Totalmente recomendado."</p>
-        <div class="flex items-center pt-3 border-t border-white/10">
-          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0" aria-hidden="true">MP</div>
-          <div>
-            <p class="font-bold text-white text-sm">Martín P.</p>
-            <p class="text-xs text-gray-500">Santiago del Estero - Chevrolet Tracker 2023</p>
-          </div>
-        </div>
-      </article>
-      
-      <!-- Testimonio 2 -->
-      <article class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange hover-lift transition flex-shrink-0 w-[85%] md:w-1/3 snap-center card-shine" role="listitem">
-        <div class="flex justify-between items-start mb-4">
-          <div class="flex text-yellow-400 text-lg" aria-label="4.5 estrellas">
-            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star-half-stroke" aria-hidden="true"></i>
-          </div>
-          <i class="fa-solid fa-quote-right text-3xl text-gray-700/70" aria-hidden="true"></i>
-        </div>
-        <p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"El mejor taller de Santiago del Estero. Proceso transparente y rápido. El pre-diagnóstico online me ahorró tiempo y dinero. Volveré sin dudas a JRP Motors."</p>
-        <div class="flex items-center pt-3 border-t border-white/10">
-          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0" aria-hidden="true">AR</div>
-          <div>
-            <p class="font-bold text-white text-sm">Alejandra R.</p>
-            <p class="text-xs text-gray-500">Santiago del Estero - Renault Fluence</p>
-          </div>
-        </div>
-      </article>
-      
-      <!-- Testimonio 3 -->
-      <article class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange hover-lift transition flex-shrink-0 w-[85%] md:w-1/3 snap-center card-shine" role="listitem">
-        <div class="flex justify-between items-start mb-4">
-          <div class="flex text-yellow-400 text-lg" aria-label="5 estrellas">
-            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
-          </div>
-          <i class="fa-solid fa-quote-right text-3xl text-gray-700/70" aria-hidden="true"></i>
-        </div>
-        <p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Llevo mi flota de utilitarios a JRP Motors. Reportes detallados, atención personalizada y precios justos. Un taller de confianza."</p>
-        <div class="flex items-center pt-3 border-t border-white/10">
-          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0" aria-hidden="true">EC</div>
-          <div>
-            <p class="font-bold text-white text-sm">Esteban C.</p>
-            <p class="text-xs text-gray-500">Santiago del Estero - Flota Utilitarios</p>
-          </div>
-        </div>
-      </article>
-    </div>
-    
-    <p class="text-center text-gray-500 mt-5 text-sm flex items-center justify-center gap-1.5">
-      <i class="fa-solid fa-arrow-right text-primary-orange" aria-hidden="true"></i> <span>Desliza para más opiniones</span>
-    </p>
-  </div>
+<div class="container mx-auto px-4">
+<div class="text-center mb-10 md:mb-14">
+<div class="inline-block bg-primary-orange/15 border border-primary-orange/30 text-primary-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
+<i class="fa-solid fa-comments mr-1.5"></i> <span>Experiencias Reales</span>
+</div>
+<h2 class="font-display font-bold text-4xl md:text-5xl text-white uppercase glow-text tracking-tight">La Voz de Nuestros Clientes</h2>
+<p class="text-gray-400/90 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
+Confianza construida sobre resultados verificables y atención profesional en Santiago del Estero.
+</p>
+</div>
+<div class="testimonial-carousel flex gap-5 md:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide mx-2 px-2">
+<!-- Testimonio 1-->
+<div class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange hover-lift transition flex-shrink-0 w-[85%] md:w-1/3 snap-center card-shine">
+<div class="flex justify-between items-start mb-4">
+<div class="flex text-yellow-400 text-lg">
+<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+</div>
+<i class="fa-solid fa-quote-right text-3xl text-gray-700/70"></i>
+</div>
+<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Excelente servicio en JRP Motors. Diagnóstico preciso y rápido. Me explicaron todo con claridad y profesionalismo. Totalmente recomendado."</p>
+<div class="flex items-center pt-3 border-t border-white/10">
+<div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0">MP</div>
+<div>
+<p class="font-bold text-white text-sm">Martín P.</p>
+<p class="text-xs text-gray-500">Santiago del Estero - Chevrolet Tracker 2023</p>
+</div>
+</div>
+</div>
+<!-- Testimonio 2-->
+<div class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange hover-lift transition flex-shrink-0 w-[85%] md:w-1/3 snap-center card-shine">
+<div class="flex justify-between items-start mb-4">
+<div class="flex text-yellow-400 text-lg">
+<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+</div>
+<i class="fa-solid fa-quote-right text-3xl text-gray-700/70"></i>
+</div>
+<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"El mejor taller de Santiago del Estero. Proceso transparente y rápido. El pre-diagnóstico online me ahorró tiempo y dinero. Volveré sin dudas a JRP Motors."</p>
+<div class="flex items-center pt-3 border-t border-white/10">
+<div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0">AR</div>
+<div>
+<p class="font-bold text-white text-sm">Alejandra R.</p>
+<p class="text-xs text-gray-500">Santiago del Estero - Renault Fluence</p>
+</div>
+</div>
+</div>
+<!-- Testimonio 3-->
+<div class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange hover-lift transition flex-shrink-0 w-[85%] md:w-1/3 snap-center card-shine">
+<div class="flex justify-between items-start mb-4">
+<div class="flex text-yellow-400 text-lg">
+<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+</div>
+<i class="fa-solid fa-quote-right text-3xl text-gray-700/70"></i>
+</div>
+<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Llevo mi flota de utilitarios a JRP Motors. Reportes detallados, atención personalizada y precios justos. Un taller de confianza."</p>
+<div class="flex items-center pt-3 border-t border-white/10">
+<div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0">EC</div>
+<div>
+<p class="font-bold text-white text-sm">Esteban C.</p>
+<p class="text-xs text-gray-500">Santiago del Estero - Flota Utilitarios</p>
+</div>
+</div>
+</div>
+</div>
+<p class="text-center text-gray-500 mt-5 text-sm flex items-center justify-center gap-1.5">
+<i class="fa-solid fa-arrow-right text-primary-orange"></i> <span>Desliza para más opiniones</span>
+</p>
+</div>
 </section>
-
-<!-- SECCIÓN: FORMULARIO DE DIAGNÓSTICO -->
+<!-- SECCIÓN: FORMULARIO DE DIAGNÓSTICO-->
 <section id="diagnostico" class="py-16 md:py-24 bg-gradient-to-b from-primary-dark to-[#080808] relative overflow-hidden">
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(255,107,53,0.1),transparent_55%)]" aria-hidden="true"></div>
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-      <!-- Columna informativa -->
-      <div class="lg:w-1/3 space-y-6">
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-white mb-2 glow-text tracking-tight">
-          ACELERADOR DE<br><span class="gradient-text">DIAGNÓSTICO</span>
-        </h2>
-        <p class="text-gray-400/90 mb-6 text-base leading-relaxed">
-          Completa el formulario y nuestros técnicos prepararán el análisis previo antes de tu llegada. Optimizamos tu tiempo y recursos.
-        </p>
-        
-        <div class="space-y-5 pt-2">
-          <div class="flex items-start gap-4">
-            <div class="bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 p-3.5 rounded-xl text-primary-orange flex-shrink-0">
-              <i class="fa-solid fa-stopwatch text-xl" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-white text-base mb-1">Ahorro de Tiempo</h4>
-              <p class="text-gray-400/90 text-sm">Evita esperas innecesarias. Tu caso ya estará en análisis al llegar.</p>
-            </div>
-          </div>
-          
-          <div class="flex items-start gap-4">
-            <div class="bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 p-3.5 rounded-xl text-primary-orange flex-shrink-0">
-              <i class="fa-solid fa-file-waveform text-xl" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-white text-base mb-1">Análisis Previo</h4>
-              <p class="text-gray-400/90 text-sm">Preparamos herramientas y repuestos específicos para tu caso.</p>
-            </div>
-          </div>
-          
-          <div class="flex items-start gap-4">
-            <div class="bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 p-3.5 rounded-xl text-primary-orange flex-shrink-0">
-              <i class="fa-solid fa-shield-halved text-xl" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-white text-base mb-1">Transparencia Total</h4>
-              <p class="text-gray-400/90 text-sm">Recibirás un informe detallado con opciones de reparación y costos.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Badge de confianza -->
-        <div class="glass-card p-4 rounded-xl mt-4 flex items-center gap-3 card-shine">
-          <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center flex-shrink-0">
-            <i class="fa-solid fa-check text-orange-400" aria-hidden="true"></i>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-white">Datos 100% seguros</p>
-            <p class="text-xs text-gray-500">Tu información está protegida</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Formulario con labels debajo de los campos -->
-      <div class="lg:w-2/3 glass-card rounded-3xl shadow-card p-6 md:p-8 w-full card-shine">
-        <form id="triageForm" class="space-y-7" novalidate>
-          <!-- Sección 1: Vehículo -->
-          <div class="border-b border-white/10 pb-5">
-            <h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-              <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
-              <span>Datos del Vehículo</span>
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div class="relative">
-                <select id="inputVehicleType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none" aria-label="Tipo de vehículo">
-                  <option value="" disabled selected>Tipo de vehículo...</option>
-                  <option value="Auto">Auto</option>
-                  <option value="Moto">Moto</option>
-                  <option value="Cuatriciclo">Cuatriciclo</option>
-                </select>
-                <label for="inputVehicleType" class="label-below"><span>Tipo de Vehículo</span></label>
-                <i class="fa-solid fa-chevron-down absolute right-4 top-[6.4rem] md:top-[4.65rem] -translate-y-1/2 text-gray-500 text-xs pointer-events-none" aria-hidden="true"></i>
-              </div>
-              <div>
-                <input type="text" id="inputVehicle" placeholder="Marca y Modelo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm" aria-label="Marca y modelo del vehículo" maxlength="100">
-                <label for="inputVehicle" class="label-below"><span>Marca y Modelo</span></label>
-              </div>
-              <div>
-                <input type="number" id="inputKm" placeholder="Kilometraje" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm" aria-label="Kilometraje del vehículo" min="0" max="999999">
-                <label for="inputKm" class="label-below"><span>Kilometraje</span></label>
-              </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-              <div class="relative">
-                <select id="inputFuelType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none" aria-label="Tipo de combustible">
-                  <option value="" disabled selected>Tipo de combustible...</option>
-                  <optgroup label="ARRANQUE Y ENERGÍA" class="text-gray-300">
-                    <option value="Naftero">Naftero (Gasolina)</option>
-                    <option value="Diesel">Diesel</option>
-                    <option value="Híbrido">Híbrido</option>
-                    <option value="Eléctrico">Eléctrico</option>
-                  </optgroup>
-                </select>
-                <label for="inputFuelType" class="label-below"><span>Combustible</span></label>
-                <i class="fa-solid fa-chevron-down absolute right-4 top-[10.9rem] md:top-[4.65rem] -translate-y-1/2 text-gray-500 text-xs pointer-events-none" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Sección 2: Síntomas -->
-          <div class="border-b border-white/10 pb-5">
-            <h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-              <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
-              <span>Descripción de Fallas</span>
-            </h3>
-            <div class="mb-4">
-              <textarea id="inputSymptoms" rows="3" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..." class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm resize-none" aria-label="Descripción de síntomas" maxlength="500"></textarea>
-              <label for="inputSymptoms" class="label-below"><span>Síntomas</span></label>
-            </div>
-            <div class="relative">
-              <select id="inputContext" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none" aria-label="Contexto de la falla">
-                <option value="" disabled selected>Contexto de la falla...</option>
-                <optgroup label="ARRANQUE Y ENERGÍA" class="text-gray-300">
-                  <option value="no_arranca_gira">Gira pero no arranca</option>
-                  <option value="no_arranca_nada">No da contacto</option>
-                  <option value="arranca_lento">Arranque lento o difícil</option>
-                </optgroup>
-                <optgroup label="⚙ RENDIMIENTO" class="text-gray-300 mt-2">
-                  <option value="falla_ralenti">Inestabilidad en ralentí</option>
-                  <option value="pierde_potencia">Pérdida de potencia</option>
-                  <option value="consumo_excesivo">Consumo excesivo de combustible</option>
-                  <option value="humo_escape">Humo en escape (color)</option>
-                </optgroup>
-                <optgroup label="RUIDOS Y VIBRACIONES" class="text-gray-300 mt-2">
-                  <option value="ruido_frenar">Ruido al frenar</option>
-                  <option value="ruido_direccion">Ruido al girar dirección</option>
-                  <option value="vibracion_alta">Vibración en alta velocidad</option>
-                  <option value="ruido_motor">Ruido anormal en motor</option>
-                </optgroup>
-                <optgroup label="TEMPERATURA Y FLUIDOS" class="text-gray-300 mt-2">
-                  <option value="levanta_temp">Se calienta el motor</option>
-                  <option value="perdida_fluido">Pérdida de fluido visible</option>
-                </optgroup>
-                <option value="falla_frio">Solo falla en frío</option>
-                <option value="falla_caliente">Solo falla en caliente</option>
-                <option value="falla_intermitente">Falla intermitente</option>
-              </select>
-              <label for="inputContext" class="label-below"><span>Contexto</span></label>
-              <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none" aria-hidden="true"></i>
-            </div>
-          </div>
-          
-          <!-- Sección 3: Servicio Integral -->
-          <div class="border-b border-white/10 pb-5">
-            <h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-              <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
-              <span>Servicio Integral</span>
-            </h3>
-            <div class="relative">
-              <select id="inputService" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none" aria-label="Servicio requerido">
-                <option value="" disabled selected>Selecciona un servicio...</option>
-                <option value="diagnostico">Diagnóstico Computarizado</option>
-                <option value="mecanica_ligera">Mecánica Ligera</option>
-                <option value="frenos">Sistema de Frenos</option>
-                <option value="suspension">Suspensión</option>
-                <option value="direccion">Dirección</option>
-                <option value="climatizacion">Climatización</option>
-                <option value="electricidad">Electricidad Automotriz</option>
-                <option value="mecanica_integral">Mecánica Integral</option>
-                <option value="repuesto">Repuesto</option>
-                <option value="escaneo">Escaneo</option>
-                <option value="alineacion">Alineación</option>
-                <option value="balanceo">Balanceo</option>
-              </select>
-              <label for="inputService" class="label-below"><span>Servicio Requerido</span></label>
-              <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none" aria-hidden="true"></i>
-            </div>
-          </div>
-          
-          <!-- Sección 4: Contacto -->
-          <div>
-            <h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-              <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
-              <span>Datos de Contacto</span>
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <input type="text" id="inputName" placeholder="Tu nombre completo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm" aria-label="Nombre completo" maxlength="100" pattern="^[A-Za-zÁ-ú\s]+$">
-                <label for="inputName" class="label-below"><span>Nombre</span></label>
-              </div>
-              <div>
-                <input type="tel" id="inputPhone" placeholder="WhatsApp para contacto" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm" aria-label="Número de WhatsApp" pattern="^[0-9+\s\-()]{10,20}$" inputmode="tel">
-                <label for="inputPhone" class="label-below"><span>WhatsApp</span></label>
-              </div>
-            </div>
-            <p class="text-xs text-gray-500 mt-3 flex items-center gap-1.5">
-              <i class="fa-solid fa-lock text-primary-orange" aria-hidden="true"></i> <span>Tus datos se usarán únicamente para coordinar tu turno</span>
-            </p>
-          </div>
-          
-          <!-- Mensaje de estado del formulario -->
-          <div id="formStatus" class="hidden p-3 rounded-xl text-sm font-medium" role="alert" aria-live="polite"></div>
-          
-          <!-- Botón de envío -->
-          <button type="submit" class="btn-primary w-full font-bold uppercase text-base py-4.5 rounded-2xl hover:shadow-neon transition flex items-center justify-center gap-3 mt-2" id="submitBtn" aria-label="Enviar solicitud de diagnóstico">
-            <i class="fa-brands fa-whatsapp text-2xl" aria-hidden="true"></i> <span>Enviar Solicitud a JRP MOTORS</span>
-          </button>
-          
-          <p class="text-center text-xs text-gray-500 pt-2">
-            <span>Al enviar, aceptas nuestros</span> <a href="#" class="text-primary-orange hover:underline">términos de servicio</a>
-          </p>
-        </form>
-      </div>
-    </div>
-  </div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(255,107,53,0.1),transparent_55%)]"></div>
+<div class="container mx-auto px-4 relative z-10">
+<div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+<!-- Columna informativa-->
+<div class="lg:w-1/3 space-y-6">
+<h2 class="font-display font-bold text-4xl md:text-5xl text-white mb-2 glow-text tracking-tight">
+ACELERADOR DE<br><span class="gradient-text">DIAGNÓSTICO</span>
+</h2>
+<p class="text-gray-400/90 mb-6 text-base leading-relaxed">
+Completa el formulario y nuestros técnicos prepararán el análisis previo antes de tu llegada. Optimizamos tu tiempo y recursos.
+</p>
+<div class="space-y-5 pt-2">
+<div class="flex items-start gap-4">
+<div class="bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 p-3.5 rounded-xl text-primary-orange flex-shrink-0">
+<i class="fa-solid fa-stopwatch text-xl"></i>
+</div>
+<div>
+<h4 class="font-bold text-white text-base mb-1">Ahorro de Tiempo</h4>
+<p class="text-gray-400/90 text-sm">Evita esperas innecesarias. Tu caso ya estará en análisis al llegar.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 p-3.5 rounded-xl text-primary-orange flex-shrink-0">
+<i class="fa-solid fa-file-waveform text-xl"></i>
+</div>
+<div>
+<h4 class="font-bold text-white text-base mb-1">Análisis Previo</h4>
+<p class="text-gray-400/90 text-sm">Preparamos herramientas y repuestos específicos para tu caso.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 p-3.5 rounded-xl text-primary-orange flex-shrink-0">
+<i class="fa-solid fa-shield-halved text-xl"></i>
+</div>
+<div>
+<h4 class="font-bold text-white text-base mb-1">Transparencia Total</h4>
+<p class="text-gray-400/90 text-sm">Recibirás un informe detallado con opciones de reparación y costos.</p>
+</div>
+</div>
+</div>
+<!-- Badge de confianza-->
+<div class="glass-card p-4 rounded-xl mt-4 flex items-center gap-3 card-shine">
+<div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+<i class="fa-solid fa-check text-orange-400"></i>
+</div>
+<div>
+<p class="text-sm font-semibold text-white">Datos 100% seguros</p>
+<p class="text-xs text-gray-500">Tu información está protegida</p>
+</div>
+</div>
+</div>
+<!-- Formulario con labels debajo de los campos-->
+<div class="lg:w-2/3 glass-card rounded-3xl shadow-card p-6 md:p-8 w-full card-shine">
+<form id="triageForm" class="space-y-7">
+<!-- Sección 1: Vehículo-->
+<div class="border-b border-white/10 pb-5">
+<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+<span>Datos del Vehículo</span>
+</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<select id="inputVehicleType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
+<option value="" disabled selected>Tipo de vehículo...</option>
+<option value="Auto">Auto</option>
+<option value="Moto">Moto</option>
+<option value="Cuatriciclo">Cuatriciclo</option>
+</select>
+<label for="inputVehicleType" class="label-below"><span>Tipo de Vehículo</span></label>
+<i class="fa-solid fa-chevron-down absolute right-4 top-[6.4rem] md:top-[4.65rem] -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
+</div>
+<div>
+<input type="text" id="inputVehicle" placeholder="Marca y Modelo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
+<label for="inputVehicle" class="label-below"><span>Marca y Modelo</span></label>
+</div>
+<div>
+<input type="number" id="inputKm" placeholder="Kilometraje" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
+<label for="inputKm" class="label-below"><span>Kilometraje</span></label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+<div>
+<select id="inputFuelType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
+<option value="" disabled selected>Tipo de combustible...</option>
+<optgroup label="🔋 ARRANQUE Y ENERGÍA" class="text-gray-300">
+<option value="Naftero">Naftero(Gasolina)</option>
+<option value="Diesel">Diesel</option>
+<option value="Híbrido">Híbrido</option>
+<option value="Eléctrico">Eléctrico</option>
+</optgroup>
+</select>
+<label for="inputFuelType" class="label-below"><span>Combustible</span></label>
+<i class="fa-solid fa-chevron-down absolute right-4 top-[10.9rem] md:top-[4.65rem] -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
+</div>
+</div>
+</div>
+<!-- Sección 2: Síntomas-->
+<div class="border-b border-white/10 pb-5">
+<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+<span>Descripción de Fallas</span>
+</h3>
+<div class="mb-4">
+<textarea id="inputSymptoms" rows="3" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..." class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm resize-none"></textarea>
+<label for="inputSymptoms" class="label-below"><span>Síntomas</span></label>
+</div>
+<div>
+<select id="inputContext" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
+<option value="" disabled selected>Contexto de la falla...</option>
+<optgroup label="🔋 ARRANQUE Y ENERGÍA" class="text-gray-300">
+<option value="no_arranca_gira">Gira pero no arranca</option>
+<option value="no_arranca_nada">No da contacto</option>
+<option value="arranca_lento">Arranque lento o difícil</option>
+</optgroup>
+<optgroup label="⚙ RENDIMIENTO" class="text-gray-300 mt-2">
+<option value="falla_ralenti">Inestabilidad en ralentí</option>
+<option value="pierde_potencia">Pérdida de potencia</option>
+<option value="consumo_excesivo">Consumo excesivo de combustible</option>
+<option value="humo_escape">Humo en escape(color)</option>
+</optgroup>
+<optgroup label="🔊 RUIDOS Y VIBRACIONES" class="text-gray-300 mt-2">
+<option value="ruido_frenar">Ruido al frenar</option>
+<option value="ruido_direccion">Ruido al girar dirección</option>
+<option value="vibracion_alta">Vibración en alta velocidad</option>
+<option value="ruido_motor">Ruido anormal en motor</option>
+</optgroup>
+<optgroup label="🌡 TEMPERATURA Y FLUIDOS" class="text-gray-300 mt-2">
+<option value="levanta_temp">Se calienta el motor</option>
+<option value="perdida_fluido">Pérdida de fluido visible</option>
+</optgroup>
+<option value="falla_frio">Solo falla en frío</option>
+<option value="falla_caliente">Solo falla en caliente</option>
+<option value="falla_intermitente">Falla intermitente</option>
+</select>
+<label for="inputContext" class="label-below"><span>Contexto</span></label>
+<i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
+</div>
+</div>
+<!-- Sección 3: Servicio Integral -->
+<div class="border-b border-white/10 pb-5">
+<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+<span>Servicio Integral</span>
+</h3>
+<div>
+<select id="inputService" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
+<option value="" disabled selected>Selecciona un servicio...</option>
+<option value="diagnostico">Diagnóstico Computarizado</option>
+<option value="mecanica_ligera">Mecánica Ligera</option>
+<option value="frenos">Sistema de Frenos</option>
+<option value="suspension">Suspensión</option>
+<option value="direccion">Dirección</option>
+<option value="climatizacion">Climatización</option>
+<option value="electricidad">Electricidad Automotriz</option>
+<option value="mecanica_integral">Mecánica Integral</option>
+<option value="repuesto">Repuesto</option>
+<option value="escaneo">Escaneo</option>
+<option value="alineacion">Alineación</option>
+<option value="balanceo">Balanceo</option>
+</select>
+<label for="inputService" class="label-below"><span>Servicio Requerido</span></label>
+<i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
+</div>
+</div>
+<!-- Sección 4: Contacto-->
+<div>
+<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+<span>Datos de Contacto</span>
+</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<input type="text" id="inputName" placeholder="Tu nombre completo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
+<label for="inputName" class="label-below"><span>Nombre</span></label>
+</div>
+<div>
+<input type="tel" id="inputPhone" placeholder="WhatsApp para contacto" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
+<label for="inputPhone" class="label-below"><span>WhatsApp</span></label>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-3 flex items-center gap-1.5">
+<i class="fa-solid fa-lock text-primary-orange"></i> <span>Tus datos se usarán únicamente para coordinar tu turno</span>
+</p>
+</div>
+<!-- Botón de envío-->
+<button type="submit" class="btn-primary w-full font-bold uppercase text-base py-4.5 rounded-2xl hover:shadow-neon transition flex items-center justify-center gap-3 mt-2">
+<i class="fa-brands fa-whatsapp text-2xl"></i> <span>Enviar Solicitud a JRP MOTORS</span>
+</button>
+<p class="text-center text-xs text-gray-500 pt-2">
+<span>Al enviar, aceptas nuestros</span> <a href="#" class="text-primary-orange hover:underline">términos de servicio</a>
+</p>
+</form>
+</div>
+</div>
+</div>
 </section>
-
 <!-- SECCIÓN: UBICACIÓN Y CONFIANZA -->
 <section class="py-14 md:py-20 bg-[#0D0D0D] border-t border-white/5">
-  <div class="container mx-auto px-4 text-center">
-    <!-- Logos de marcas -->
-    <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500 mb-12 md:mb-16" aria-label="Marcas de vehículos atendidas">
-      <i class="fa-brands fa-toyota text-4xl md:text-5xl hover:text-white transition-colors" aria-hidden="true"></i>
-      <i class="fa-solid fa-car text-4xl md:text-5xl hover:text-white transition-colors" aria-hidden="true"></i>
-      <i class="fa-brands fa-honda text-4xl md:text-5xl hover:text-white transition-colors" aria-hidden="true"></i>
-      <i class="fa-brands fa-ford text-4xl md:text-5xl hover:text-white transition-colors" aria-hidden="true"></i>
-      <i class="fa-brands fa-volkswagen text-4xl md:text-5xl hover:text-white transition-colors" aria-hidden="true"></i>
-      <i class="fa-solid fa-truck-pickup text-4xl md:text-5xl hover:text-white transition-colors" aria-hidden="true"></i>
-    </div>
-    
-    <!-- Card de ubicación -->
-    <div class="glass-card rounded-3xl p-6 md:p-10 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 card-shine">
-      <div class="text-left max-w-md">
-        <h3 class="font-display font-bold text-2xl md:text-3xl text-white mb-2">¿Dónde estamos?</h3>
-        <p class="text-gray-400/90 mb-4 text-base">Visítanos para validación final y reparaciones especializadas.</p>
-        
-        <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
-          <i class="fa-regular fa-location-dot text-primary-orange text-xl mt-0.5 flex-shrink-0" aria-hidden="true"></i>
-          <div>
-            <p class="font-medium">Dirección:</p>
-            <p>Paris 147, G4200 Santiago del Estero, Santiago del Estero</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
-          <i class="fa-brands fa-whatsapp text-primary-orange text-xl mt-0.5 flex-shrink-0" aria-hidden="true"></i>
-          <div>
-            <p class="font-medium">WhatsApp:</p>
-            <p dir="ltr">+54 385 581-4187</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
-          <i class="fa-solid fa-envelope text-primary-orange text-xl mt-0.5 flex-shrink-0" aria-hidden="true"></i>
-          <div>
-            <p class="font-medium">E-mail:</p>
-            <p>jrpmotors@email.com</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-3 text-gray-300/90 text-sm">
-          <i class="fa-regular fa-clock text-primary-orange text-xl mt-0.5 flex-shrink-0" aria-hidden="true"></i>
-          <div>
-            <p class="font-medium">Horarios de atención:</p>
-            <p>Lunes a Viernes: 08:30 - 16:30</p>
-            <p>Sábados: 08:30 - 13:00</p>
-            <p>Domingos: Cerrado</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
-          <i class="fa-solid fa-map-location-dot text-lg" aria-hidden="true"></i> <span>Ver en Google Maps</span>
-        </a>
-        <a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-review px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
-          <i class="fa-solid fa-star text-lg" aria-hidden="true"></i> <span>Deja tu Reseña</span>
-        </a>
-      </div>
-    </div>
-    
-    <!-- Redes Sociales - Solo Facebook -->
-    <div class="mt-8 flex items-center justify-center gap-4">
-      <a href="https://www.facebook.com/people/Jrp-motors/61551452017701/" target="_blank" rel="noopener noreferrer" class="social-btn facebook" title="Facebook" aria-label="Visitar Facebook de JRP Motors">
-        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-      </a>
-    </div>
-    
-    <!-- Badge de garantía -->
-    <div class="mt-10 inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-full">
-      <i class="fa-solid fa-certificate text-primary-orange text-lg" aria-hidden="true"></i>
-      <span class="text-sm font-medium text-gray-300">Garantía en todos nuestros servicios</span>
-    </div>
-  </div>
+<div class="container mx-auto px-4 text-center">
+<!-- Logos de marcas(grayscale to color on hover)-->
+<div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500 mb-12 md:mb-16">
+<i class="fa-brands fa-toyota text-4xl md:text-5xl hover:text-white transition-colors"></i>
+<i class="fa-solid fa-car text-4xl md:text-5xl hover:text-white transition-colors"></i>
+<i class="fa-brands fa-honda text-4xl md:text-5xl hover:text-white transition-colors"></i>
+<i class="fa-brands fa-ford text-4xl md:text-5xl hover:text-white transition-colors"></i>
+<i class="fa-brands fa-volkswagen text-4xl md:text-5xl hover:text-white transition-colors"></i>
+<i class="fa-solid fa-truck-pickup text-4xl md:text-5xl hover:text-white transition-colors"></i>
+</div>
+<!-- Card de ubicación -->
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 card-shine">
+<div class="text-left max-w-md">
+<h3 class="font-display font-bold text-2xl md:text-3xl text-white mb-2">¿Dónde estamos?</h3>
+<p class="text-gray-400/90 mb-4 text-base">Visítanos para validación final y reparaciones especializadas.</p>
+<!-- DIRECCIÓN ACTUALIZADA -->
+<div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
+<i class="fa-regular fa-location-dot text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
+<div>
+<p class="font-medium">Dirección:</p>
+<p>Paris 147, G4200 Santiago del Estero, Santiago del Estero</p>
+</div>
+</div>
+<!-- WhatsApp -->
+<div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
+<i class="fa-brands fa-whatsapp text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
+<div>
+<p class="font-medium">WhatsApp:</p>
+<p dir="ltr">+54 385 581-4187</p>
+</div>
+</div>
+<!-- Email -->
+<div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
+<i class="fa-solid fa-envelope text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
+<div>
+<p class="font-medium">E-mail:</p>
+<p>jrpmotors@email.com</p>
+</div>
+</div>
+<!-- HORARIOS ACTUALIZADOS -->
+<div class="flex items-start gap-3 text-gray-300/90 text-sm">
+<i class="fa-regular fa-clock text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
+<div>
+<p class="font-medium">Horarios de atención:</p>
+<p>Lunes a Viernes: 08:30 - 16:30</p>
+<p>Sábados: 08:30 - 13:00</p>
+<p>Domingos: Cerrado</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-3">
+<a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
+<i class="fa-solid fa-map-location-dot text-lg"></i> <span>Ver en Google Maps</span>
+</a>
+<!-- BOTÓN DE RESEÑAS-->
+<a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-review px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
+<i class="fa-solid fa-star text-lg"></i> <span>Deja tu Reseña</span>
+</a>
+</div>
+</div>
+<!-- Redes Sociales - Solo Facebook -->
+<div class="mt-8 flex items-center justify-center gap-4">
+<a href="https://www.facebook.com/people/Jrp-motors/61551452017701/" target="_blank" rel="noopener noreferrer" class="social-btn facebook" title="Facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+</div>
+<!-- Badge de garantía-->
+<div class="mt-10 inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-full">
+<i class="fa-solid fa-certificate text-primary-orange text-lg"></i>
+<span class="text-sm font-medium text-gray-300">Garantía en todos nuestros servicios</span>
+</div>
+</div>
 </section>
-
 <!-- FOOTER -->
 <footer class="bg-primary-dark/95 text-gray-500 py-10 md:py-14 border-t border-white/10">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="text-center md:text-left">
-        <p class="mb-2 text-white font-display font-bold text-xl md:text-2xl glow-text tracking-tight">JRP MOTORS</p>
-        <p class="text-sm">De Jonas Risso Patron - Santiago del Estero</p>
-      </div>
-      
-      <div class="flex items-center gap-4">
-        <a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-primary-orange hover:text-yellow-400 transition text-sm font-semibold group">
-          <i class="fa-solid fa-star group-hover:scale-110 transition-transform" aria-hidden="true"></i>
-          <span>Deja tu Reseña</span>
-        </a>
-      </div>
-    </div>
-    
-    <div class="border-t border-white/10 mt-6 pt-4 text-center">
-      <a href="https://nexoar-art.github.io/NEXO-art/" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-1.5 text-xs text-gray-600 hover:text-primary-orange transition font-medium group">
-        <i class="fa-solid fa-pen-nib group-hover:scale-110 transition-transform" aria-hidden="true"></i>
-        Diseño: NEXO-Art
-      </a>
-      <p class="text-gray-600 mt-2 text-xs">Sitio web desarrollado con tecnología moderna</p>
-    </div>
-  </div>
-</footer>
-
-<!-- STICKY MOBILE CTA -->
-<div class="fixed bottom-0 left-0 w-full bg-gray-900/95 backdrop-blur-sm border-t border-white/10 p-4 md:hidden z-50 flex gap-3" role="navigation" aria-label="Acciones móviles">
-  <a href="#asesoramiento" class="flex-1 bg-white/5 text-white font-semibold py-3.5 rounded-xl text-center border border-white/10 hover:border-primary-orange/40 transition text-sm flex items-center justify-center gap-2">
-    <i class="fa-solid fa-book-open text-primary-orange" aria-hidden="true"></i><span>Guías</span>
-  </a>
-  <a href="#diagnostico" class="flex-[2] btn-primary font-bold py-3.5 rounded-xl text-center uppercase shadow-neon text-sm flex items-center justify-center gap-2">
-    <i class="fa-solid fa-microchip" aria-hidden="true"></i> <span>Diagnóstico</span>
-  </a>
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="text-center md:text-left">
+<p class="mb-2 text-white font-display font-bold text-xl md:text-2xl glow-text tracking-tight">JRP MOTORS</p>
+<p class="text-sm">De Jonas Risso Patron - Santiago del Estero</p>
 </div>
-
-<!-- JAVASCRIPT FUNCIONAL OPTIMIZADO -->
+<!-- Footer minimalista con botón de reseñas-->
+<div class="flex items-center gap-4">
+<!-- Botón de reseñas-->
+<a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-primary-orange hover:text-yellow-400 transition text-sm font-semibold group">
+<i class="fa-solid fa-star group-hover:scale-110 transition-transform"></i>
+<span>Deja tu Reseña</span>
+</a>
+</div>
+</div>
+<!-- Firma del diseñador NEXO-Art -->
+<div class="border-t border-white/10 mt-6 pt-4 text-center">
+<a href="https://nexoar-art.github.io/NEXO-art/" target="_blank" rel="noopener noreferrer"
+class="inline-flex items-center gap-1.5 text-xs text-gray-600 hover:text-primary-orange transition font-medium group">
+<i class="fa-solid fa-pen-nib group-hover:scale-110 transition-transform"></i>
+Diseño: NEXO-Art
+</a>
+<p class="text-gray-600 mt-2 text-xs">Sitio web desarrollado con tecnología moderna</p>
+</div>
+</div>
+</footer>
+<!-- STICKY MOBILE CTA-->
+<div class="fixed bottom-0 left-0 w-full bg-gray-900/95 backdrop-blur-sm border-t border-white/10 p-4 md:hidden z-50 flex gap-3">
+<a href="#asesoramiento" class="flex-1 bg-white/5 text-white font-semibold py-3.5 rounded-xl text-center border border-white/10 hover:border-primary-orange/40 transition text-sm flex items-center justify-center gap-2">
+<i class="fa-solid fa-book-open text-primary-orange"></i><span>Guías</span>
+</a>
+<a href="#diagnostico" class="flex-[2] btn-primary font-bold py-3.5 rounded-xl text-center uppercase shadow-neon text-sm flex items-center justify-center gap-2">
+<i class="fa-solid fa-microchip"></i> <span>Diagnóstico</span>
+</a>
+</div>
+<!-- JAVASCRIPT FUNCIONAL -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  'use strict';
-  
-  // === RELOJ DIGITAL - Optimizado ===
-  const updateClock = () => {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString('es-AR', { hour12: false });
-    const clockElements = [
-      document.getElementById('navbarClockTime'),
-      document.getElementById('navbarClockTimeMobile')
-    ];
-    clockElements.forEach(el => { if (el) el.textContent = timeString; });
-  };
-  updateClock();
-  setInterval(updateClock, 1000);
-  
-  // === EFECTO FUEGO - Activación retardada ===
-  setTimeout(() => {
-    const fireRing = document.getElementById('fireRing');
-    if (fireRing) fireRing.classList.add('active');
-  }, 5000);
-  
-  // === PARTÍCULAS - Generación eficiente ===
-  const createParticles = () => {
-    const container = document.getElementById('particles');
-    if (!container) return;
-    const fragment = document.createDocumentFragment();
-    for (let i = 0; i < 30; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = `${Math.random() * 100}%`;
-      particle.style.animationDelay = `${Math.random() * 20}s`;
-      particle.style.animationDuration = `${20 + Math.random() * 30}s`;
-      const size = 3 + Math.random() * 4;
-      particle.style.width = particle.style.height = `${size}px`;
-      fragment.appendChild(particle);
-    }
-    container.appendChild(fragment);
-  };
-  createParticles();
-  
-  // === ESTADO DEL TALLER - Lógica optimizada ===
-  const checkStatus = () => {
-    const now = new Date();
-    const currentMinutes = now.getHours() * 60 + now.getMinutes();
-    const day = now.getDay();
-    
-    const morningOpen = 510; // 08:30
-    const weekdayClose = 990; // 16:30
-    const saturdayClose = 780; // 13:00
-    
-    let isOpen = false;
-    if (day >= 1 && day <= 5) {
-      isOpen = currentMinutes >= morningOpen && currentMinutes < weekdayClose;
-    } else if (day === 6) {
-      isOpen = currentMinutes >= morningOpen && currentMinutes < saturdayClose;
-    }
-    
-    // Actualizar UI
-    const dotDesktop = document.getElementById('status-dot-desktop');
-    const textDesktop = document.getElementById('status-text-desktop');
-    const barMobile = document.getElementById('status-bar-mobile');
-    
-    if (isOpen) {
-      dotDesktop.className = 'status-dot w-2 h-2 rounded-full mr-2.5 bg-primary-orange';
-      textDesktop.textContent = 'Abierto Ahora';
-      textDesktop.className = 'text-primary-orange font-semibold';
-      barMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-white bg-gradient-to-r from-primary-orange/20 to-orange-700/20 flex items-center justify-center gap-2';
-    } else {
-      dotDesktop.className = 'w-2 h-2 rounded-full mr-2.5 bg-gray-500';
-      textDesktop.textContent = 'Cerrado';
-      textDesktop.className = 'text-gray-400';
-      barMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-gray-300 bg-gray-900/80 flex items-center justify-center gap-2';
-    }
-  };
-  checkStatus();
-  setInterval(checkStatus, 60000);
-  
-  // === CONTADORES ANIMADOS - Optimizados con IntersectionObserver ===
-  const animateCounter = (id, target, duration) => {
+document.addEventListener('DOMContentLoaded',()=>{
+// Generar partículas decorativas
+function createParticles(){
+const container= document.getElementById('particles');
+if(!container) return;
+for(let i=0; i<30; i++){
+const particle= document.createElement('div');
+particle.className='particle';
+particle.style.left= Math.random()*100+'%';
+particle.style.animationDelay= Math.random()*20+'s';
+particle.style.animationDuration=(20+ Math.random()*30)+'s';
+particle.style.width= particle.style.height=(3+ Math.random()*4)+'px';
+container.appendChild(particle);
+}
+}
+createParticles();
+
+// LÓGICA DE HORARIOS ACTUALIZADA PARA SANTIAGO DEL ESTERO
+function checkStatus(){
+const now= new Date();
+const hours= now.getHours();
+const minutes= now.getMinutes();
+const day= now.getDay(); // 0= Domingo, 1= Lunes,..., 6= Sábado
+
+const currentMinutes= hours*60+ minutes;
+
+// HORARIOS ACTUALIZADOS:
+// Lunes a Viernes: 08:30 - 16:30
+// Sábado: 08:30 - 13:00
+// Domingo: Cerrado
+const morningOpen=8*60+30;   // 510 minutos (08:30)
+const weekdayClose=16*60+30; // 990 minutos (16:30)
+const saturdayClose=13*60;    // 780 minutos (13:00)
+
+let isOpen= false;
+
+// Lunes a Viernes (1-5): 08:30 - 16:30
+if(day>=1 && day<=5){
+isOpen= currentMinutes>=morningOpen && currentMinutes<weekdayClose;
+}
+// Sábado (6): 08:30 - 13:00
+else if(day===6){
+isOpen= currentMinutes>=morningOpen && currentMinutes<saturdayClose;
+}
+// Domingo (0): Cerrado
+else{
+isOpen= false;
+}
+
+// Elementos desktop
+const dotDesktop= document.getElementById('status-dot-desktop');
+const textDesktop= document.getElementById('status-text-desktop');
+// Elementos mobile
+const barMobile= document.getElementById('status-bar-mobile');
+
+if(isOpen){
+// Estado ABIERTO
+dotDesktop.className='status-dot w-2 h-2 rounded-full mr-2.5 bg-primary-orange';
+textDesktop.textContent='Abierto Ahora';
+textDesktop.className='text-primary-orange font-semibold';
+barMobile.textContent='🟢 Abierto Ahora - Atención Inmediata';
+barMobile.className='md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-white bg-gradient-to-r from-primary-orange/20 to-orange-700/20';
+} else{
+// Estado CERRADO
+dotDesktop.className='w-2 h-2 rounded-full mr-2.5 bg-gray-500';
+textDesktop.textContent='Cerrado';
+textDesktop.className='text-gray-400';
+
+// Mostrar próximo horario de apertura
+let nextOpen='';
+if(day===0){ // Domingo: abre Lunes 08:30
+nextOpen='Abre Lunes 08:30';
+} else if(day===6){ // Sábado: cerrado, abre Lunes
+if(currentMinutes<saturdayClose){
+nextOpen='Cierra 13:00';
+}else{
+nextOpen='Abre Lunes 08:30';
+}
+} else if(day===5){ // Viernes
+if(currentMinutes>=weekdayClose){
+nextOpen='Abre Lunes 08:30';
+} else{
+nextOpen='Cierra 16:30';
+}
+} else{ // Lunes a Jueves (1-4)
+if(currentMinutes>=weekdayClose){
+nextOpen='Abre mañana 08:30';
+} else if(currentMinutes<morningOpen){
+nextOpen='Abre hoy 08:30';
+} else{
+nextOpen='Cierra 16:30';
+}
+}
+barMobile.textContent=`🔴 Cerrado - ${nextOpen}`;
+barMobile.className='md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-gray-300 bg-gray-900/80';
+}
+}
+
+// Animación de contadores MEJORADA
+function animateCounter(id, start, target, duration) {
     const obj = document.getElementById(id);
     if (!obj) return;
-    let start = null;
+    let startTimestamp = null;
     const step = (timestamp) => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const value = Math.floor(easeProgress * target);
-      obj.textContent = value.toLocaleString('es-AR');
-      if (progress < 1) requestAnimationFrame(step);
-      else obj.textContent = target.toLocaleString('es-AR');
-    };
-    requestAnimationFrame(step);
-  };
-  
-  const startCounters = () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter('counter1', 99, 1500);
-          animateCounter('counter2', 50, 1800);
-          animateCounter('counter3', 8000, 2000);
-          observer.disconnect();
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        // Easing suave: easeOutCubic
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(easeProgress * (target - start) + start);
+        // Formato locale español (Argentina) para miles (ej: 8.000)
+        obj.textContent = value.toLocaleString('es-AR');
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        } else {
+            // Asegurar valor final exacto formateado
+            obj.textContent = target.toLocaleString('es-AR');
         }
-      });
-    }, { threshold: 0.3 });
-    
+    };
+    window.requestAnimationFrame(step);
+}
+
+function startCounters() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Duraciones diferenciadas: 1.5s, 1.8s, 2s para efecto escalonado
+                animateCounter('counter1', 0, 99, 1500);   // Precisión
+                animateCounter('counter2', 0, 50, 1800);   // Ahorro
+                animateCounter('counter3', 0, 8000, 2000); // Vehículos
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.3 }); // Se activa cuando el 30% del elemento es visible
+
     const statsSection = document.querySelector('.grid.grid-cols-3');
     if (statsSection) observer.observe(statsSection);
-  };
-  startCounters();
-  
-  // === VALIDACIÓN DE INPUTS - En tiempo real ===
-  const sanitizeInput = (value) => value.replace(/[<>]/g, '').trim();
-  
-  const inputs = document.querySelectorAll('.input-modern');
-  inputs.forEach(input => {
-    input.addEventListener('input', function() {
-      const value = sanitizeInput(this.value);
-      if (value.length > 2) {
-        this.classList.add('input-valid');
-        this.classList.remove('input-invalid');
-      } else {
-        this.classList.remove('input-valid', 'input-invalid');
-      }
-    });
-  });
-  
-  // === FORMULARIO - Funcionalidad completa y optimizada ===
-  const form = document.getElementById('triageForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const formStatus = document.getElementById('formStatus');
-  
-  const validateForm = () => {
-    const phone = document.getElementById('inputPhone').value.trim();
-    const phonePattern = /^[0-9+\s\-()]{10,20}$/;
-    
-    if (phone && !phonePattern.test(phone)) {
-      const phoneInput = document.getElementById('inputPhone');
-      phoneInput.classList.add('input-invalid');
-      showFormStatus('Por favor, ingresa un número de WhatsApp válido.', 'error');
-      return false;
-    }
-    return true;
-  };
-  
-  const showFormStatus = (message, type) => {
-    formStatus.textContent = message;
-    formStatus.className = `p-3 rounded-xl text-sm font-medium ${
-      type === 'error' ? 'bg-red-500/20 text-red-300 border border-red-500/30' : 
-      'bg-green-500/20 text-green-300 border border-green-500/30'
-    }`;
-    formStatus.classList.remove('hidden');
-  };
-  
-  const generateWhatsAppMessage = () => {
-    const fields = {
-      vehicleType: document.getElementById('inputVehicleType').value || 'No especificado',
-      vehicle: sanitizeInput(document.getElementById('inputVehicle').value) || 'No especificado',
-      km: document.getElementById('inputKm').value || 'No especificado',
-      fuelType: document.getElementById('inputFuelType').value || 'No especificado',
-      symptoms: sanitizeInput(document.getElementById('inputSymptoms').value) || 'No especificado',
-      context: (() => {
-        const select = document.getElementById('inputContext');
-        return select.options[select.selectedIndex]?.text || 'No especificado';
-      })(),
-      service: (() => {
-        const select = document.getElementById('inputService');
-        return select.options[select.selectedIndex]?.text || 'No especificado';
-      })(),
-      name: sanitizeInput(document.getElementById('inputName').value) || 'Cliente',
-      phone: document.getElementById('inputPhone').value || 'No proporcionado'
-    };
-    
-    return `¡Hola JRP MOTORS!%0A%0A` +
-      `👤 Cliente: ${fields.name}%0A` +
-      `📱 Contacto: ${fields.phone}%0A%0A` +
-      `🚗 Vehículo:%0A` +
-      `   • Tipo: ${fields.vehicleType}%0A` +
-      `   • Marca/Modelo: ${fields.vehicle}%0A` +
-      `   • Km: ${fields.km}%0A` +
-      `   • Combustible: ${fields.fuelType}%0A%0A` +
-      `⚠️ Síntomas:%0A${fields.symptoms}%0A%0A` +
-      `🔍 Contexto: ${fields.context}%0A` +
-      `🔧 Servicio solicitado: ${fields.service}%0A%0A` +
-      `📍 Ubicación: Santiago del Estero%0A` +
-      `✅ Solicito turno para diagnóstico profesional.`;
-  };
-  
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    // Validar
-    if (!validateForm()) return;
-    
-    // Estado de carga
-    const originalBtnContent = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando...';
-    submitBtn.disabled = true;
-    submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
-    formStatus.classList.add('hidden');
-    
-    try {
-      // Simular procesamiento (puedes ajustar el tiempo)
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
-      // Generar y abrir WhatsApp
-      const message = generateWhatsAppMessage();
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=543855814187&text=${message}`;
-      
-      // Abrir en nueva pestaña
-      const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      
-      if (newWindow) {
-        showFormStatus('✅ ¡Solicitud enviada! Redirigiendo a WhatsApp...', 'success');
-        submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Enviado! ✅';
-        
-        // Resetear formulario después de 3 segundos
-        setTimeout(() => {
-          form.reset();
-          document.querySelectorAll('.input-modern').forEach(el => {
-            el.classList.remove('input-valid', 'input-invalid');
-          });
-          submitBtn.innerHTML = originalBtnContent;
-          submitBtn.disabled = false;
-          submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
-          formStatus.classList.add('hidden');
-        }, 3000);
-      } else {
-        throw new Error('Popup bloqueado');
-      }
-    } catch (error) {
-      console.error('Error al enviar:', error);
-      showFormStatus('⚠️ No se pudo abrir WhatsApp. Intenta nuevamente o contáctanos directamente.', 'error');
-      submitBtn.innerHTML = originalBtnContent;
-      submitBtn.disabled = false;
-      submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
-    }
-  });
-  
-  // === PARALLAX - Optimizado con throttle ===
-  const parallaxImg = document.getElementById('parallax-img');
-  if (parallaxImg) {
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          if (scrollY < window.innerHeight) {
-            parallaxImg.style.transform = `translateY(${scrollY * 0.3}px) scale(1.08)`;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-  
-  // === NAVBAR SCROLL EFFECT ===
-  const navbar = document.getElementById('navbar');
-  if (navbar) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-      if (currentScroll > 50) {
-        navbar.classList.add('shadow-lg', 'bg-gray-900/95');
-        navbar.classList.remove('glass');
-      } else {
-        navbar.classList.remove('shadow-lg', 'bg-gray-900/95');
-        navbar.classList.add('glass');
-      }
-      lastScroll = currentScroll;
-    }, { passive: true });
-  }
-  
-  // === SMOOTH SCROLL ===
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-  
-  // === ANIMACIONES DE ENTRADA ===
-  document.querySelectorAll('.fade-in-up').forEach((el, i) => {
-    el.style.animationDelay = `${0.1 + i * 0.12}s`;
-  });
+}
+
+// Validación de inputs (sin requerir campos obligatorios)
+const inputs= document.querySelectorAll('.input-modern');
+inputs.forEach(input=>{
+input.addEventListener('input', function(){
+if(this.value.trim().length>2){
+this.classList.add('input-valid');
+this.classList.remove('input-invalid');
+} else{
+this.classList.remove('input-valid','input-invalid');
+}
+});
+});
+
+// Manejo del formulario (SIN CAMPOS OBLIGATORIOS)
+document.getElementById('triageForm')?.addEventListener('submit',(e)=>{
+e.preventDefault();
+const btn= e.target.querySelector('button[type="submit"]');
+const originalBtnContent= btn.innerHTML;
+btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Procesando solicitud...';
+btn.classList.add('opacity-80','cursor-not-allowed');
+btn.disabled= true;
+const vehicleType= document.getElementById('inputVehicleType').value||'No especificado';
+const vehicle= document.getElementById('inputVehicle').value||'No especificado';
+const km= document.getElementById('inputKm').value||'No especificado';
+const fuelType= document.getElementById('inputFuelType').value||'No especificado';
+const symptoms= document.getElementById('inputSymptoms').value||'No especificado';
+const contextSelect= document.getElementById('inputContext');
+const context= contextSelect.options[contextSelect.selectedIndex]?.text||'No especificado';
+const serviceSelect= document.getElementById('inputService');
+const service= serviceSelect.options[serviceSelect.selectedIndex]?.text||'No especificado';
+const name= document.getElementById('inputName').value||'Cliente';
+const phone= document.getElementById('inputPhone').value||'No proporcionado';
+// Mensaje para WhatsApp actualizado
+const message=`🚗 *¡Hola JRP MOTORS!* 👋
+*Cliente:* ${name}
+📱 *Contacto:* ${phone}
+🚘 *Tipo de Vehículo:* ${vehicleType}
+*Vehículo:* ${vehicle}
+🛣 *Kilometraje:* ${km} km
+⛽ *Combustible:* ${fuelType}
+⚠ *Síntomas reportados:*
+${symptoms}
+🔍 *Contexto:* ${context}
+🔧 *Servicio solicitado:* ${service}
+📍 *Ubicación: Santiago del Estero*
+📅 *Solicito turno para diagnóstico profesional.* 💨`;
+// URL de WhatsApp con el número formateado para Argentina
+const whatsappUrl=`https://api.whatsapp.com/send?phone=+543855814187&text=${encodeURIComponent(message)}`;
+setTimeout(()=>{
+window.open(whatsappUrl,'_blank','noopener,noreferrer');
+btn.innerHTML='<i class="fa-solid fa-circle-check"></i> ¡Solicitud Enviada! ✅';
+btn.classList.add('bg-green-600');
+setTimeout(()=>{
+btn.innerHTML= originalBtnContent;
+btn.classList.remove('opacity-80','cursor-not-allowed','bg-green-600');
+btn.disabled= false;
+e.target.reset();
+document.querySelectorAll('.input-modern').forEach(el=>{
+el.classList.remove('input-valid','input-invalid');
+});
+}, 3500);
+}, 1200);
+});
+
+// Efecto parallax
+const parallaxImg= document.getElementById('parallax-img');
+if(parallaxImg){
+window.addEventListener('scroll',()=>{
+const scrollY= window.scrollY;
+if(scrollY< window.innerHeight){
+parallaxImg.style.transform=`translateY(${scrollY*0.3}px) scale(1.08)`;
+}
+},{passive: true});
+}
+
+// Efecto navbar al hacer scroll
+const navbar= document.getElementById('navbar');
+if(navbar){
+window.addEventListener('scroll',()=>{
+if(window.scrollY>50){
+navbar.classList.add('shadow-lg','bg-gray-900/95');
+navbar.classList.remove('glass');
+} else{
+navbar.classList.remove('shadow-lg','bg-gray-900/95');
+navbar.classList.add('glass');
+}
+},{passive: true});
+}
+
+// Inicialización
+checkStatus();
+setInterval(checkStatus, 60000);
+startCounters();
+document.querySelectorAll('.fade-in-up').forEach((el, i)=>{
+el.style.animationDelay=`${0.1+ i*0.12}s`;
+});
+
+// Smooth scroll para anclas
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+anchor.addEventListener('click', function(e){
+e.preventDefault();
+const targetId= this.getAttribute('href');
+if(targetId==='#') return;
+const targetElement= document.querySelector(targetId);
+if(targetElement){
+window.scrollTo({
+top: targetElement.offsetTop-80,
+behavior:'smooth'
+});
+}
+});
+});
 });
 </script>
 </body>
