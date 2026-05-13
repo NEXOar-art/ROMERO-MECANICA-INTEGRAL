@@ -593,34 +593,41 @@ height: 8rem;
 width: 8rem;
 }
 }
-/* Digital Clock Styles */
-.digital-clock{
+/* Digital Clock Styles - EN NAVBAR */
+.navbar-clock{
 font-family: 'Space Grotesk', monospace;
 font-weight: 700;
-font-size: 1.5rem;
+font-size: 1.15rem;
 color: #FF6B35;
-text-shadow: 0 0 20px rgba(255, 107, 53, 0.8), 0 0 40px rgba(255, 107, 53, 0.5);
+text-shadow: 0 0 15px rgba(255, 107, 53, 0.7), 0 0 30px rgba(255, 107, 53, 0.4);
 letter-spacing: 0.1em;
 background: rgba(255, 107, 53, 0.1);
-border: 2px solid rgba(255, 107, 53, 0.4);
-padding: 0.5rem 1.5rem;
-border-radius: 12px;
+border: 2px solid rgba(255, 107, 53, 0.35);
+padding: 0.3rem 0.9rem;
+border-radius: 10px;
 backdrop-filter: blur(10px);
-box-shadow: 0 0 30px rgba(255, 107, 53, 0.3), inset 0 0 20px rgba(255, 107, 53, 0.1);
+box-shadow: 0 0 20px rgba(255, 107, 53, 0.25), inset 0 0 15px rgba(255, 107, 53, 0.08);
 animation: clock-pulse 2s ease-in-out infinite;
+white-space: nowrap;
+display: flex;
+align-items: center;
+gap: 0.4rem;
+}
+.navbar-clock i{
+font-size: 0.95rem;
 }
 @keyframes clock-pulse{
 0%, 100%{
-box-shadow: 0 0 30px rgba(255, 107, 53, 0.3), inset 0 0 20px rgba(255, 107, 53, 0.1);
+box-shadow: 0 0 20px rgba(255, 107, 53, 0.25), inset 0 0 15px rgba(255, 107, 53, 0.08);
 }
 50%{
-box-shadow: 0 0 40px rgba(255, 107, 53, 0.5), inset 0 0 30px rgba(255, 107, 53, 0.2);
+box-shadow: 0 0 35px rgba(255, 107, 53, 0.45), inset 0 0 25px rgba(255, 107, 53, 0.15);
 }
 }
-@media(max-width: 640px){
-.digital-clock{
-font-size: 1.2rem;
-padding: 0.4rem 1rem;
+@media(max-width: 768px){
+.navbar-clock{
+font-size: 0.95rem;
+padding: 0.25rem 0.7rem;
 }
 }
 /* Language Switcher Styles */
@@ -730,6 +737,13 @@ animation: badge-pulse 2s ease-in-out infinite;
 <a href="#" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 md:ml-auto md:mr-auto font-display font-bold text-lg sm:text-xl md:text-2xl gradient-text tracking-tight uppercase text-center md:text-left drop-shadow-lg">
 JRP MOTORS
 </a>
+<!-- RELOJ DIGITAL EN NAVBAR DESPUES DEL TITULO -->
+<div id="navbarClock" class="hidden md:flex items-center ml-4">
+<div class="navbar-clock">
+<i class="fa-regular fa-clock"></i>
+<span id="navbarClockTime">00:00:00</span>
+</div>
+</div>
 <div class="ml-auto flex items-center gap-3 md:gap-5">
 <div id="status-badge-desktop" class="hidden md:flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-semibold uppercase tracking-wide bg-white/5 border border-white/10 hover:border-primary-orange/40 transition-all">
 <span id="status-dot-desktop" class="status-dot w-2 h-2 rounded-full mr-2.5 bg-gray-500"></span>
@@ -746,7 +760,11 @@ Pre-Diagnóstico
 </div>
 </div>
 </div>
-<div id="status-bar-mobile" class="md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-gray-900/80 border-t border-white/10">Verificando estado...</div>
+<div id="status-bar-mobile" class="md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-gray-900/80 border-t border-white/10 flex items-center justify-center gap-2">
+<span id="navbarClockTimeMobile" style="font-family:'Space Grotesk',monospace;color:#FF6B35;text-shadow:0 0 10px rgba(255,107,53,0.6);">00:00:00</span>
+<span>|</span>
+<span>Verificando estado...</span>
+</div>
 </nav>
 <!-- Botones flotantes premium -->
 <div class="fixed bottom-24 md:bottom-8 right-4 z-50 animate-float flex flex-col gap-3">
@@ -789,12 +807,6 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 <h1 class="font-display font-black text-4xl md:text-5xl lg:text-7xl leading-tight glow-text main-title fade-in-up" style="animation-delay: 0.2s;">
 JRP MOTORS<br><span class="gradient-text">DE JONAS RISSO PATRON</span>
 </h1>
-<!-- RELOJ DIGITAL -->
-<div class="fade-in-up flex justify-center" style="animation-delay: 0.22s;">
-<div id="digitalClock" class="digital-clock">
-<i class="fa-regular fa-clock mr-2"></i><span id="clockTime">00:00:00</span>
-</div>
-</div>
 <!-- Logo centrado en el hero CON EFECTOS DE REFLEJO - MOVIDO HACIA ARRIBA -->
 <div class="fade-in-up flex justify-center" style="animation-delay: 0.25s; margin-top: -1rem;">
 <div class="relative">
@@ -1204,7 +1216,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <option value="vibracion_alta">Vibración en alta velocidad</option>
 <option value="ruido_motor">Ruido anormal en motor</option>
 </optgroup>
-<optgroup label="🌡 TEMPERATURA Y FLUIDOS" class="text-gray-300 mt-2">
+<optgroup label=" TEMPERATURA Y FLUIDOS" class="text-gray-300 mt-2">
 <option value="levanta_temp">Se calienta el motor</option>
 <option value="perdida_fluido">Pérdida de fluido visible</option>
 </optgroup>
@@ -1389,16 +1401,22 @@ Diseño: NEXO-Art
 <!-- JAVASCRIPT FUNCIONAL -->
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
-// Digital Clock Function
+// Digital Clock Function - NAVBAR
 function updateClock(){
 const now= new Date();
 const hours= String(now.getHours()).padStart(2,'0');
 const minutes= String(now.getMinutes()).padStart(2,'0');
 const seconds= String(now.getSeconds()).padStart(2,'0');
 const timeString=`${hours}:${minutes}:${seconds}`;
-const clockElement= document.getElementById('clockTime');
+// Desktop clock in navbar
+const clockElement= document.getElementById('navbarClockTime');
 if(clockElement){
 clockElement.textContent= timeString;
+}
+// Mobile clock in status bar
+const clockMobile= document.getElementById('navbarClockTimeMobile');
+if(clockMobile){
+clockMobile.textContent= timeString;
 }
 }
 // Update clock immediately and then every second
@@ -1464,8 +1482,7 @@ if(isOpen){
 dotDesktop.className='status-dot w-2 h-2 rounded-full mr-2.5 bg-primary-orange';
 textDesktop.textContent='Abierto Ahora';
 textDesktop.className='text-primary-orange font-semibold';
-barMobile.textContent='🟢 Abierto Ahora - Atención Inmediata';
-barMobile.className='md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-white bg-gradient-to-r from-primary-orange/20 to-orange-700/20';
+barMobile.className='md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-white bg-gradient-to-r from-primary-orange/20 to-orange-700/20 flex items-center justify-center gap-2';
 } else{
 // Estado CERRADO
 dotDesktop.className='w-2 h-2 rounded-full mr-2.5 bg-gray-500';
@@ -1497,8 +1514,7 @@ nextOpen='Abre hoy 08:30';
 nextOpen='Cierra 16:30';
 }
 }
-barMobile.textContent=`🔴 Cerrado - ${nextOpen}`;
-barMobile.className='md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-gray-300 bg-gray-900/80';
+barMobile.className='md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-gray-300 bg-gray-900/80 flex items-center justify-center gap-2';
 }
 }
 
