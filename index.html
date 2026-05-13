@@ -95,7 +95,6 @@ font-feature-settings:"cv02","cv03","cv04","cv11";
 overflow-x: hidden;
 position: relative;
 }
-/* Background Image with Animation - AUTOMOTIVE PREMIUM */
 body::before{
 content:'';
 position: fixed;
@@ -112,7 +111,6 @@ z-index: -2;
 animation: backgroundMove 40s ease-in-out infinite;
 filter: brightness(0.5) contrast(1.3);
 }
-/* Capa adicional con gradiente animado */
 body::after{
 content:'';
 position: fixed;
@@ -128,20 +126,11 @@ animation: gradient 15s ease infinite;
 pointer-events: none;
 }
 @keyframes backgroundMove{
-0%, 100%{
-transform: scale(1) translate(0, 0);
+0%, 100%{transform: scale(1) translate(0, 0);}
+25%{transform: scale(1.08) translate(-2%, -2%);}
+50%{transform: scale(1) translate(0, -3%);}
+75%{transform: scale(1.08) translate(2%, -2%);}
 }
-25%{
-transform: scale(1.08) translate(-2%, -2%);
-}
-50%{
-transform: scale(1) translate(0, -3%);
-}
-75%{
-transform: scale(1.08) translate(2%, -2%);
-}
-}
-/* Glassmorphism premium mejorado */
 .glass{
 background: rgba(26, 26, 26, 0.75);
 backdrop-filter: blur(20px) saturate(180%);
@@ -154,30 +143,16 @@ background: linear-gradient(145deg, rgba(45, 45, 45, 0.85), rgba(26, 26, 26, 0.9
 backdrop-filter: blur(20px) saturate(180%);
 border: 1px solid rgba(255, 255, 255, 0.08);
 border-radius: 24px;
-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 position: relative;
 overflow: hidden;
 }
-.glass-card::before{
-content:'';
-position: absolute;
-top: 0;
-left: -100%;
-width: 100%;
-height: 100%;
-background: linear-gradient(90deg, transparent, rgba(255,107,53,0.1), transparent);
-transition: left 0.7s ease;
-}
-.glass-card:hover::before{
-left: 100%;
-}
 .glass-card:hover{
-border-color: rgba(255, 107, 53, 0.5);
-transform: translateY(-8px) scale(1.01);
-box-shadow: var(--shadow-premium), 0 0 50px rgba(255, 107, 53, 0.2);
+border-color: rgba(255, 107, 53, 0.4);
+transform: translateY(-4px);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 107, 53, 0.15);
 }
-/* Textos y efectos mejorados */
 .glow-text{
 text-shadow: 0 0 30px rgba(255, 107, 53, 0.7), 0 0 60px rgba(247, 147, 30, 0.4), 0 0 90px rgba(255, 107, 53, 0.2);
 letter-spacing:-0.02em;
@@ -190,12 +165,6 @@ background-clip: text;
 background-size: 200% auto;
 animation: shimmer 3s linear infinite;
 }
-.metallic-text{
-background: var(--gradient-metallic);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
 .pulse-glow{
 animation: pulse-glow 3s ease-in-out infinite;
 }
@@ -203,7 +172,6 @@ animation: pulse-glow 3s ease-in-out infinite;
 0%, 100%{opacity: 1; box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);}
 50%{opacity: 0.85; box-shadow: 0 0 50px rgba(255, 107, 53, 0.8);}
 }
-/* Animaciones de entrada mejoradas */
 .fade-in-up{
 opacity: 0;
 transform: translateY(40px);
@@ -212,35 +180,6 @@ animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 @keyframes fadeInUp{
 to{opacity: 1; transform: translateY(0);}
 }
-/* Hover effects profesionales premium */
-.hover-lift{
-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-.hover-lift:hover{
-transform: translateY(-10px);
-box-shadow: var(--shadow-glow), var(--shadow-card);
-}
-.hover-glow{
-transition: all 0.5s ease;
-position: relative;
-overflow: hidden;
-}
-.hover-glow::before{
-content:'';
-position: absolute;
-top: 0; left:-100%;
-width: 100%; height: 100%;
-background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
-transition: left 0.8s ease;
-}
-.hover-glow:hover::before{
-left: 100%;
-}
-.hover-glow:hover{
-box-shadow: 0 0 50px rgba(255, 107, 53, 0.4);
-transform: translateY(-8px);
-}
-/* Parallax suave mejorado */
 .parallax-image{
 transition: transform 0.5s ease-out;
 will-change: transform;
@@ -254,7 +193,6 @@ animation: subtle-move 30s ease-in-out infinite alternate;
 50%{transform: translate(5%, 3%) scale(1.1);}
 100%{transform: translate(0, 0) scale(1.05);}
 }
-/* Inputs modernos mejorados */
 .input-modern{
 background: rgba(26, 26, 26, 0.85);
 border: 2px solid rgba(255, 255, 255, 0.12);
@@ -262,34 +200,29 @@ border-radius: 16px;
 transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 color:#fff;
 position: relative;
+width: 100%;
+-webkit-appearance: none;
+appearance: none;
+font-family: 'Manrope', sans-serif;
+font-size: 0.9rem;
 }
 .input-modern:focus{
 border-color:#FF6B35;
 box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2), 0 0 30px rgba(255, 107, 53, 0.2);
 outline: none;
 background: rgba(26, 26, 26, 0.95);
-transform: translateY(-2px);
 }
 .input-modern::placeholder{
-color: rgba(226, 232, 240, 0.5);
+color: rgba(226, 232, 240, 0.4);
 }
-.input-valid{
-border-color:#FF6B35!important;
-background-image: url("image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23FF6B35'%3e%3cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3e%3c/svg%3e");
-background-repeat: no-repeat;
-background-position: right 1rem center;
-background-size: 1.3em;
+.input-modern option{
+background: #1A1A1A;
+color: #E2E8F0;
+padding: 0.5rem;
 }
-.input-invalid{
-border-color:#EF4444!important;
-animation: shake 0.5s ease-in-out;
+.input-modern:focus::placeholder{
+color: rgba(255, 107, 53, 0.5);
 }
-@keyframes shake{
-0%, 100%{transform: translateX(0);}
-25%{transform: translateX(-4px);}
-75%{transform: translateX(4px);}
-}
-/* Botones premium mejorados */
 .btn-primary{
 background: var(--gradient-primary);
 color:#fff;
@@ -299,6 +232,8 @@ position: relative;
 overflow: hidden;
 transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+border: none;
+cursor: pointer;
 }
 .btn-primary::before{
 content:'';
@@ -311,6 +246,7 @@ border-radius: 50%;
 background: rgba(255,255,255,0.3);
 transform: translate(-50%, -50%);
 transition: width 0.6s, height 0.6s;
+pointer-events: none;
 }
 .btn-primary:hover::before{
 width: 300px;
@@ -329,26 +265,12 @@ transition: all 0.4s ease;
 position: relative;
 overflow: hidden;
 }
-.btn-outline::before{
-content:'';
-position: absolute;
-top: 0;
-left: 0;
-width: 0;
-height: 100%;
-background: rgba(255, 107, 53, 0.1);
-transition: width 0.4s ease;
-z-index: -1;
-}
-.btn-outline:hover::before{
-width: 100%;
-}
 .btn-outline:hover{
 border-color:#FF6B35;
+background: rgba(255, 107, 53, 0.1);
 transform: translateY(-4px);
 box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
 }
-/* Botón de reseñas - estilo especial dorado mejorado */
 .btn-review{
 background: linear-gradient(135deg,#FFD700 0%,#FFA500 50%,#FF8C00 100%);
 color:#0A0A0A;
@@ -358,40 +280,16 @@ position: relative;
 overflow: hidden;
 transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-}
-.btn-review::after{
-content:'';
-position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(255,255,255,0.2) 100%);
-opacity: 0;
-transition: opacity 0.4s ease;
+border: none;
+cursor: pointer;
 }
 .btn-review:hover{
 transform: translateY(-4px) scale(1.02);
 box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 165, 0, 0.4);
 }
-.btn-review:hover::after{
-opacity: 1;
-}
-/* Scrollbar personalizado mejorado */
-::-webkit-scrollbar{
-width: 10px; height: 10px;
-}
-::-webkit-scrollbar-track{
-background: rgba(26, 26, 26, 0.6);
-border-radius: 8px;
-}
-::-webkit-scrollbar-thumb{
-background: linear-gradient(180deg,#FF6B35,#F7931E);
-border-radius: 8px;
-border: 2px solid transparent;
-background-clip: content-box;
-}
-::-webkit-scrollbar-thumb:hover{
-background: linear-gradient(180deg,#F7931E,#FF6B35);
-}
-/* Responsive typography */
+::-webkit-scrollbar{width: 10px; height: 10px;}
+::-webkit-scrollbar-track{background: rgba(26, 26, 26, 0.6);border-radius: 8px;}
+::-webkit-scrollbar-thumb{background: linear-gradient(180deg,#FF6B35,#F7931E);border-radius: 8px;border: 2px solid transparent;background-clip: content-box;}
 @media(max-width: 640px){
 .text-5xl{font-size: 2.25rem; line-height: 1.15;}
 .text-7xl{font-size: 2.75rem; line-height: 1.1;}
@@ -403,65 +301,19 @@ h1{font-size: 2.3rem;}
 .py-24{padding-top: 3.5rem; padding-bottom: 3.5rem;}
 .glass-card{border-radius: 18px;}
 }
-/* Badge de estado animado mejorado */
-.status-dot{
-position: relative;
-}
+.status-dot{position: relative;}
 .status-dot::after{
-content:'';
-position: absolute;
-top:-2px; left:-2px; right:-2px; bottom:-2px;
-border-radius: 50%;
-background: inherit;
-filter: blur(6px);
-opacity: 0.7;
-animation: pulse 2s infinite;
+content:'';position: absolute;top:-2px; left:-2px; right:-2px; bottom:-2px;
+border-radius: 50%;background: inherit;filter: blur(6px);opacity: 0.7;animation: pulse 2s infinite;
 }
-/* Separador decorativo mejorado */
-.divider{
-height: 2px;
-background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.5), rgba(255, 107, 53, 0.3), transparent);
-margin: 2.5rem 0;
-position: relative;
-}
-.divider::before{
-content:'';
-position: absolute;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-width: 8px;
-height: 8px;
-background: #FF6B35;
-border-radius: 50%;
-box-shadow: 0 0 20px rgba(255, 107, 53, 0.8);
-}
-/* Animación de carga sutil mejorada */
-.loading-skeleton{
-background: linear-gradient(90deg, rgba(45,45,45,0.3) 25%, rgba(60,60,60,0.5) 50%, rgba(45,45,45,0.3) 75%);
-background-size: 200% 100%;
-animation: loading 1.5s infinite;
-border-radius: 12px;
-}
-@keyframes loading{
-0%{background-position: 200% 0;}
-100%{background-position:-200% 0;}
-}
-/* Efecto de partículas mejorado */
 .particles{
-position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-pointer-events: none;
-overflow: hidden;
-z-index: 0;
+position: absolute;top: 0; left: 0; right: 0; bottom: 0;
+pointer-events: none;overflow: hidden;z-index: 0;
 }
 .particle{
-position: absolute;
-width: 4px; height: 4px;
-background: rgba(255, 107, 53, 0.7);
-border-radius: 50%;
-animation: float-particle 20s infinite linear;
-opacity: 0.6;
+position: absolute;width: 4px; height: 4px;
+background: rgba(255, 107, 53, 0.7);border-radius: 50%;
+animation: float-particle 20s infinite linear;opacity: 0.6;
 box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
 }
 @keyframes float-particle{
@@ -470,22 +322,16 @@ box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
 90%{opacity: 0.8;}
 100%{transform: translateY(-20px) translateX(100px); opacity: 0;}
 }
-/* Labels debajo de inputs - ESTILO MEJORADO */
 .label-below{
 display: block;
-margin-top: 0.6rem;
+margin-top: 0.5rem;
 margin-left: 0.25rem;
-font-size: 0.8rem;
+font-size: 0.75rem;
 font-weight: 600;
 color: #FF6B35;
 text-transform: uppercase;
-letter-spacing: 0.05em;
+letter-spacing: 0.08em;
 }
-.label-below span.required{
-color: #EF4444;
-margin-left: 2px;
-}
-/* Logo styles - ACTUALIZADO: CIRCULAR Y MÁS VISIBLE */
 .navbar-logo{
 height: 70px;
 width: 70px;
@@ -494,141 +340,314 @@ border-radius: 50%;
 border: 3px solid #FF6B35;
 box-shadow: 0 0 25px rgba(255, 107, 53, 0.6), inset 0 0 20px rgba(255, 107, 53, 0.2);
 transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+position: relative;
 }
 .navbar-logo:hover{
-transform: scale(1.15) rotate(5deg);
+transform: scale(1.15);
 box-shadow: 0 0 40px rgba(255, 107, 53, 0.9), inset 0 0 30px rgba(255, 107, 53, 0.3);
 }
-/* Hero Logo - Grande y Circular CENTRADO MEJORADO */
+
+/* ============================== */
+/* HERO LOGO - EFECTO FUEGO PARTICULAR */
+/* ============================== */
 .hero-logo{
 height: 12rem;
 width: 12rem;
 object-fit: cover;
 border-radius: 50%;
-border: 6px solid #FF6B35;
-box-shadow: 0 0 60px rgba(255, 107, 53, 0.7), 0 0 100px rgba(255, 107, 53, 0.4), inset 0 0 40px rgba(255, 107, 53, 0.2);
-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-animation: pulse-glow 4s ease-in-out infinite;
+border: 5px solid #FF6B35;
+box-shadow: 0 0 40px rgba(255, 107, 53, 0.5), 0 0 80px rgba(255, 107, 53, 0.3), inset 0 0 30px rgba(255, 107, 53, 0.15);
+transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 display: block;
 margin: 0 auto;
 position: relative;
+overflow: visible;
+background: #0A0A0A;
 }
 .hero-logo::before{
 content:'';
 position: absolute;
-inset: -10px;
+top: 0;left: 0;right: 0;
+height: 55%;
+background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.15) 25%, rgba(255,255,255,0.03) 50%, transparent 100%);
+border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+opacity: 0.7;
+pointer-events: none;
+z-index: 2;
+}
+.hero-logo::after{
+content:'';
+position: absolute;
+inset: -8px;
 border-radius: 50%;
-border: 2px solid rgba(255, 107, 53, 0.3);
+border: 2px solid rgba(255, 107, 53, 0.25);
 animation: rotate 10s linear infinite;
+pointer-events: none;
+z-index: 3;
+}
+.hero-logo .shine-effect{
+position: absolute;
+top: 0;left: -100%;
+width: 100%;height: 100%;
+background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+transition: left 0.8s ease;
+pointer-events: none;
+z-index: 4;
+}
+.hero-logo:hover .shine-effect{
+left: 100%;
+}
+
+/* EFECTO FUEGO MEJORADO */
+.fire-ring{
+position: absolute;
+inset: -14px;
+border-radius: 50%;
+pointer-events: none;
+z-index: 1;
+opacity: 0;
+transition: opacity 0.8s ease;
+}
+.fire-ring.active{
+opacity: 1;
+}
+/* Llamas ascendentes */
+.fire-ring .flame{
+position: absolute;
+bottom: -4px;
+width: 100%;
+height: 100%;
+pointer-events: none;
+}
+.fire-ring .flame::before{
+content: '';
+position: absolute;
+bottom: -12px;
+left: 50%;
+transform: translateX(-50%);
+width: 85%;
+height: 70%;
+background: radial-gradient(ellipse at center bottom, 
+  rgba(255,215,0,0.9) 0%, 
+  rgba(255,107,53,0.8) 25%, 
+  rgba(255,69,0,0.6) 50%, 
+  rgba(255,0,0,0.3) 75%, 
+  transparent 100%);
+filter: blur(6px);
+animation: flames-rise 1.5s ease-in-out infinite alternate;
+border-radius: 50% 50% 30% 30%;
+}
+.fire-ring .flame::after{
+content: '';
+position: absolute;
+bottom: -8px;
+left: 50%;
+transform: translateX(-50%);
+width: 90%;
+height: 55%;
+background: radial-gradient(ellipse at center bottom,
+  rgba(255,255,200,0.95) 0%,
+  rgba(255,200,50,0.7) 20%,
+  rgba(255,107,53,0.5) 50%,
+  transparent 80%);
+filter: blur(4px);
+animation: flames-rise 1s ease-in-out infinite alternate-reverse;
+border-radius: 50% 50% 30% 30%;
+}
+/* Partículas de chispas */
+.fire-ring .spark{
+position: absolute;
+width: 3px;
+height: 3px;
+background: #FFD700;
+border-radius: 50%;
+box-shadow: 0 0 6px 2px rgba(255,165,0,0.8);
+opacity: 0;
+}
+.fire-ring.active .spark{
+animation: spark-rise 2s ease-out infinite;
+}
+.fire-ring .spark:nth-child(1){ left: 20%; animation-delay: 0s; }
+.fire-ring .spark:nth-child(2){ left: 40%; animation-delay: 0.4s; }
+.fire-ring .spark:nth-child(3){ left: 60%; animation-delay: 0.8s; }
+.fire-ring .spark:nth-child(4){ left: 80%; animation-delay: 1.2s; }
+.fire-ring .spark:nth-child(5){ left: 30%; animation-delay: 0.6s; }
+.fire-ring .spark:nth-child(6){ left: 50%; animation-delay: 1s; }
+.fire-ring .spark:nth-child(7){ left: 70%; animation-delay: 1.4s; }
+.fire-ring .spark:nth-child(8){ left: 15%; animation-delay: 0.3s; }
+
+@keyframes flames-rise{
+0%{transform: translateX(-50%) scaleY(1); opacity: 0.8;}
+100%{transform: translateX(-50%) scaleY(1.3); opacity: 1;}
+}
+@keyframes spark-rise{
+0%{
+bottom: 0;
+opacity: 0;
+transform: translateX(0) scale(1);
+}
+20%{
+opacity: 1;
+}
+100%{
+bottom: 160px;
+opacity: 0;
+transform: translateX(calc((var(--spark-x, 0)) * 1px)) scale(0.2);
+}
+}
+/* Efecto de resplandor pulsante */
+.fire-ring .glow-pulse{
+position: absolute;
+inset: -20px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(255,69,0,0.3) 0%, rgba(255,107,53,0.1) 40%, transparent 70%);
+animation: glow-pulse 2s ease-in-out infinite;
+pointer-events: none;
+}
+@keyframes glow-pulse{
+0%, 100%{transform: scale(1); opacity: 0.6;}
+50%{transform: scale(1.15); opacity: 1;}
+}
+
+.hero-logo:hover{
+transform: scale(1.08);
+box-shadow: 0 0 80px rgba(255, 107, 53, 0.8), 0 0 120px rgba(255, 107, 53, 0.5), inset 0 0 50px rgba(255, 107, 53, 0.3);
+}
+
+.hero-logo-wrapper{
+display: flex;
+justify-content: center;
+align-items: center;
+width: fit-content;
+margin: 0 auto;
+padding: 0.75rem;
+position: relative;
+z-index: 10;
+}
+.hero-logo-inner{
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 @keyframes rotate{
 from{transform: rotate(0deg);}
 to{transform: rotate(360deg);}
 }
-.hero-logo:hover{
-transform: scale(1.08);
-box-shadow: 0 0 80px rgba(255, 107, 53, 0.9), 0 0 120px rgba(255, 107, 53, 0.5), inset 0 0 50px rgba(255, 107, 53, 0.3);
+@media(max-width: 768px){
+.navbar-logo{height: 55px; width: 55px;}
+.hero-logo{height: 8rem; width: 8rem;}
+.hero-logo-wrapper{padding: 0.5rem;}
+}
+.navbar-clock{
+font-family: 'Space Grotesk', monospace;
+font-weight: 700;
+font-size: 1.15rem;
+color: #FF6B35;
+text-shadow: 0 0 15px rgba(255, 107, 53, 0.7), 0 0 30px rgba(255, 107, 53, 0.4);
+letter-spacing: 0.1em;
+background: rgba(255, 107, 53, 0.1);
+border: 2px solid rgba(255, 107, 53, 0.35);
+padding: 0.3rem 0.9rem;
+border-radius: 10px;
+backdrop-filter: blur(10px);
+box-shadow: 0 0 20px rgba(255, 107, 53, 0.25), inset 0 0 15px rgba(255, 107, 53, 0.08);
+animation: clock-pulse 2s ease-in-out infinite;
+white-space: nowrap;
+display: flex;
+align-items: center;
+gap: 0.4rem;
+}
+.navbar-clock i{font-size: 0.95rem;}
+@keyframes clock-pulse{
+0%, 100%{box-shadow: 0 0 20px rgba(255, 107, 53, 0.25), inset 0 0 15px rgba(255, 107, 53, 0.08);}
+50%{box-shadow: 0 0 35px rgba(255, 107, 53, 0.45), inset 0 0 25px rgba(255, 107, 53, 0.15);}
 }
 @media(max-width: 768px){
-.navbar-logo{
-height: 55px;
-width: 55px;
+.navbar-clock{font-size: 0.95rem; padding: 0.25rem 0.7rem;}
 }
-.hero-logo{
-height: 8rem;
-width: 8rem;
-}
-}
-/* Language Switcher Styles */
-.lang-switcher{
-background: rgba(255, 107, 53, 0.15);
-border: 2px solid rgba(255, 107, 53, 0.4);
-color: #fff;
-font-weight: 600;
-padding: 0.5rem 1rem;
-border-radius: 10px;
-cursor: pointer;
-transition: all 0.3s ease;
-font-size: 0.875rem;
-}
-.lang-switcher:hover{
-background: rgba(255, 107, 53, 0.25);
-border-color: #FF6B35;
-transform: translateY(-2px);
-}
-/* Social Media Buttons mejorados */
 .social-btn{
-display: inline-flex;
-align-items: center;
-justify-content: center;
-width: 50px;
-height: 50px;
-border-radius: 50%;
-background: rgba(255, 255, 255, 0.05);
-border: 2px solid rgba(255, 255, 255, 0.15);
-color: #fff;
-font-size: 1.4rem;
-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-position: relative;
-overflow: hidden;
-}
-.social-btn::before{
-content:'';
-position: absolute;
-top: 50%;
-left: 50%;
-width: 0;
-height: 0;
-border-radius: 50%;
-transform: translate(-50%, -50%);
-transition: width 0.5s, height 0.5s;
-}
-.social-btn:hover::before{
-width: 100%;
-height: 100%;
+display: inline-flex;align-items: center;justify-content: center;
+width: 50px;height: 50px;border-radius: 50%;
+background: rgba(255, 255, 255, 0.05);border: 2px solid rgba(255, 255, 255, 0.15);
+color: #fff;font-size: 1.4rem;
+transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);position: relative;overflow: hidden;
 }
 .social-btn:hover{
-transform: translateY(-5px) scale(1.1);
-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+transform: translateY(-5px) scale(1.1);box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
-.social-btn.facebook:hover{
-background: #1877F2;
-border-color: transparent;
+.social-btn.facebook:hover{background: #1877F2;border-color: transparent;}
+.social-btn.whatsapp:hover{background: #25D366;border-color: transparent;}
+.badge-animated{position: relative;animation: badge-pulse 2s ease-in-out infinite;}
+@keyframes badge-pulse{0%, 100%{transform: scale(1);}50%{transform: scale(1.05);}}
+
+/* Select wrapper para flecha personalizada */
+.select-wrapper{position: relative;}
+.select-wrapper::after{
+content:'';position: absolute;right: 1rem;top: 50%;transform: translateY(-50%);
+width: 0;height: 0;border-left: 5px solid transparent;border-right: 5px solid transparent;
+border-top: 6px solid #FF6B35;pointer-events: none;z-index: 5;
 }
-.social-btn.facebook::before{
-background: rgba(255,255,255,0.2);
-}
-/* Efecto de brillo en tarjetas */
-.card-shine{
+.select-wrapper select{padding-right: 2.5rem;}
+
+/* Estilos para el formulario - inputs funcionales */
+.form-field{
 position: relative;
-overflow: hidden;
+margin-bottom: 0;
 }
-.card-shine::after{
-content:'';
-position: absolute;
-top: -50%;
-left: -50%;
-width: 200%;
-height: 200%;
-background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
-transform: rotate(45deg);
-transition: all 0.6s;
+.form-field .field-label{
+display: block;
+font-size: 0.7rem;
+font-weight: 700;
+color: #FF6B35;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+margin-bottom: 0.4rem;
 }
-.card-shine:hover::after{
-animation: shine 0.6s ease-in-out;
+.form-field .field-input{
+width: 100%;
+background: rgba(26, 26, 26, 0.85);
+border: 2px solid rgba(255, 255, 255, 0.12);
+border-radius: 14px;
+padding: 0.9rem 1rem;
+color: #E2E8F0;
+font-size: 0.9rem;
+font-family: 'Manrope', sans-serif;
+transition: all 0.3s ease;
+outline: none;
+-webkit-appearance: none;
+appearance: none;
 }
-@keyframes shine{
-0%{transform: translateX(-100%) translateY(-100%) rotate(45deg);}
-100%{transform: translateX(100%) translateY(100%) rotate(45deg);}
+.form-field .field-input::placeholder{
+color: rgba(226, 232, 240, 0.35);
 }
-/* Badge animado */
-.badge-animated{
-position: relative;
-animation: badge-pulse 2s ease-in-out infinite;
+.form-field .field-input:focus{
+border-color: #FF6B35;
+box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15), 0 0 20px rgba(255, 107, 53, 0.1);
+background: rgba(26, 26, 26, 0.95);
 }
-@keyframes badge-pulse{
-0%, 100%{transform: scale(1);}
-50%{transform: scale(1.05);}
+.form-field .field-input:focus::placeholder{
+color: rgba(255, 107, 53, 0.4);
+}
+.form-field select.field-input{
+cursor: pointer;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FF6B35' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-position: right 1rem center;
+background-size: 12px;
+padding-right: 2.5rem;
+}
+.form-field select.field-input option{
+background: #1A1A1A;
+color: #E2E8F0;
+padding: 0.5rem;
+}
+.form-field textarea.field-input{
+resize: vertical;
+min-height: 80px;
+}
+.form-field .field-input.has-value{
+border-color: rgba(255, 107, 53, 0.5);
 }
 </style>
 </head>
@@ -638,14 +657,18 @@ animation: badge-pulse 2s ease-in-out infinite;
 <!-- NAVBAR-->
 <nav class="fixed w-full z-50 top-0 glass border-b border-white/10 transition-all duration-300" id="navbar">
 <div class="container mx-auto px-4 h-16 md:h-20 flex items-center relative">
-<!-- LOGO - Izquierda superior (CIRCULAR Y MÁS VISIBLE) -->
 <a href="#" class="flex items-center md:absolute md:left-4 md:translate-x-0">
 <img src="JRPLOGO.png" alt="JRP Motors Logo" class="navbar-logo">
 </a>
-<!-- Título centrado -->
 <a href="#" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 md:ml-auto md:mr-auto font-display font-bold text-lg sm:text-xl md:text-2xl gradient-text tracking-tight uppercase text-center md:text-left drop-shadow-lg">
 JRP MOTORS
 </a>
+<div id="navbarClock" class="hidden md:flex items-center ml-4">
+<div class="navbar-clock">
+<i class="fa-regular fa-clock"></i>
+<span id="navbarClockTime">00:00:00</span>
+</div>
+</div>
 <div class="ml-auto flex items-center gap-3 md:gap-5">
 <div id="status-badge-desktop" class="hidden md:flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-semibold uppercase tracking-wide bg-white/5 border border-white/10 hover:border-primary-orange/40 transition-all">
 <span id="status-dot-desktop" class="status-dot w-2 h-2 rounded-full mr-2.5 bg-gray-500"></span>
@@ -662,11 +685,14 @@ Pre-Diagnóstico
 </div>
 </div>
 </div>
-<div id="status-bar-mobile" class="md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-gray-900/80 border-t border-white/10">Verificando estado...</div>
+<div id="status-bar-mobile" class="md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-gray-900/80 border-t border-white/10 flex items-center justify-center gap-2">
+<span id="navbarClockTimeMobile" style="font-family:'Space Grotesk',monospace;color:#FF6B35;text-shadow:0 0 10px rgba(255,107,53,0.6);">00:00:00</span>
+<span>|</span>
+<span>Verificando estado...</span>
+</div>
 </nav>
 <!-- Botones flotantes premium -->
 <div class="fixed bottom-24 md:bottom-8 right-4 z-50 animate-float flex flex-col gap-3">
-<!-- Botón flotante de WhatsApp directo -->
 <a href="https://api.whatsapp.com/send?phone=543855814187" target="_blank" rel="noopener noreferrer"
 class="bg-[#25D366] hover:bg-[#128C7E] text-white p-3.5 md:p-4 rounded-full shadow-lg transition-all hover:scale-110 flex items-center justify-center gap-2 group"
 title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinite;">
@@ -678,19 +704,16 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 <span class="hidden xs:inline">Pedir Turno</span>
 <i class="fa-solid fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
 </a>
-<!-- Botón flotante de reseñas-->
 <a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-review px-4 py-2.5 md:px-5 md:py-3 rounded-xl shadow-lg transition flex items-center gap-2 text-xs md:text-sm font-semibold group animate-float" style="animation-delay: 0.5s;">
 <i class="fa-solid fa-star text-lg"></i>
 <span class="hidden xs:inline">Deja tu Reseña</span>
 </a>
 </div>
-<!-- HERO SECTION CON FONDO COMPLETO MEJORADO-->
+<!-- HERO SECTION -->
 <header class="relative pt-20 pb-20 md:pt-32 md:pb-32 lg:pt-40 lg:pb-40 min-h-screen flex items-center overflow-hidden">
-<!-- Fondo con gradiente y partículas mejorado-->
 <div class="absolute inset-0 bg-gradient-to-br from-primary-dark via-[#0D0D0D] to-[#0A0A0A]">
 <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 20% 35%, rgba(255,107,53, 0.2) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(247,147,30, 0.15) 0%, transparent 45%)"></div>
 </div>
-<!-- Imagen de fondo completa y visible -->
 <div id="parallax-container" class="absolute inset-0 overflow-hidden">
 <img id="parallax-img" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1974&auto=format&fit=crop" alt="Taller mecánico profesional" class="parallax-image w-full h-full object-cover opacity-50 parallax-bg">
 <div class="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/70 to-transparent"></div>
@@ -705,30 +728,43 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 <h1 class="font-display font-black text-4xl md:text-5xl lg:text-7xl leading-tight glow-text main-title fade-in-up" style="animation-delay: 0.2s;">
 JRP MOTORS<br><span class="gradient-text">DE JONAS RISSO PATRON</span>
 </h1>
-<!-- Logo centrado en el hero -->
-<div class="fade-in-up flex justify-center" style="animation-delay: 0.25s;">
-<img src="JRPLOGO.png" alt="JRP Motors Logo" class="hero-logo">
+<!-- LOGO CENTRADO -->
+<div class="hero-logo-wrapper fade-in-up" style="animation-delay: 0.25s;">
+<div class="hero-logo-inner">
+<img src="JRPLOGO.png" alt="JRP Motors Logo" class="hero-logo" id="heroLogo">
+<div class="shine-effect"></div>
+<!-- EFECTO FUEGO -->
+<div class="fire-ring" id="fireRing">
+<div class="glow-pulse"></div>
+<div class="flame"></div>
+<div class="spark" style="--spark-x: -20;"></div>
+<div class="spark" style="--spark-x: 15;"></div>
+<div class="spark" style="--spark-x: -10;"></div>
+<div class="spark" style="--spark-x: 25;"></div>
+<div class="spark" style="--spark-x: 5;"></div>
+<div class="spark" style="--spark-x: -30;"></div>
+<div class="spark" style="--spark-x: 20;"></div>
+<div class="spark" style="--spark-x: -5;"></div>
 </div>
-<!-- DESCRIPCIÓN ACTUALIZADA -->
+</div>
+</div>
 <p class="text-gray-300/90 text-base md:text-lg max-w-3xl mx-auto description-text fade-in-up leading-relaxed" style="animation-delay: 0.3s;">
 En JRP Motors de Jonas Risso Patron, entendemos que tu auto es una inversión importante y tu seguridad es primordial. Somos un taller de reparación de automóviles con años de experiencia en Santiago del Estero, dedicados a brindarte un servicio de calidad, confiable y transparente. Nos especializamos en mantener tu vehículo en óptimas condiciones para que disfrutes de cada viaje con total tranquilidad.
 </p>
-<!-- Stats animados-->
 <div class="grid grid-cols-3 gap-3 md:gap-5 pt-2 md:pt-4 fade-in-up" style="animation-delay: 0.5s;">
-<div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-orange/40 transition card-shine">
+<div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 transition">
 <span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter1" data-target="99">0</span>%</span>
 <span class="text-xs text-gray-400 mt-1 block">Precisión</span>
 </div>
-<div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-orange/40 transition card-shine">
+<div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 transition">
 <span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter2" data-target="50">0</span>min</span>
 <span class="text-xs text-gray-400 mt-1 block">Ahorro</span>
 </div>
-<div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-orange/40 transition card-shine">
+<div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 transition">
 <span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter3" data-target="8000">0</span>+</span>
 <span class="text-xs text-gray-400 mt-1 block">Vehículos</span>
 </div>
 </div>
-<!-- CTAs-->
 <div class="flex flex-col sm:flex-row gap-3.5 pt-2 justify-center fade-in-up" style="animation-delay: 0.6s;">
 <a href="#diagnostico" class="btn-primary px-6 py-3.5 rounded-xl uppercase tracking-wide flex items-center justify-center gap-2.5 group text-sm font-semibold shadow-neon">
 <span>Iniciar Diagnóstico</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -740,7 +776,7 @@ En JRP Motors de Jonas Risso Patron, entendemos que tu auto es una inversión im
 </div>
 </div>
 </header>
-<!-- SECCIÓN: CENTRO DE ASESORAMIENTO-->
+<!-- SECCIÓN: CENTRO DE ASESORAMIENTO -->
 <section id="asesoramiento" class="py-16 md:py-24 bg-[#0D0D0D] relative">
 <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,107,53,0.1),_transparent_60%)]"></div>
 <div class="container mx-auto px-4 relative z-10">
@@ -754,8 +790,7 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 </p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7">
-<!-- Card 1-->
-<div class="glass-card hover-lift card-shine">
+<div class="glass-card">
 <div class="relative h-44 md:h-48 overflow-hidden rounded-t-2xl">
 <img src="https://placehold.co/600x400/FF6B35/0A0A0A?text=FRENOS" alt="Sistema de frenos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
 <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent"></div>
@@ -772,8 +807,7 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 </a>
 </div>
 </div>
-<!-- Card 2-->
-<div class="glass-card hover-lift card-shine">
+<div class="glass-card">
 <div class="relative h-44 md:h-48 overflow-hidden rounded-t-2xl">
 <img src="https://placehold.co/600x400/2D2D2D/FF6B35?text=BATERIA" alt="Sistema eléctrico" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
 <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent"></div>
@@ -790,8 +824,7 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 </a>
 </div>
 </div>
-<!-- Card 3-->
-<div class="glass-card hover-lift card-shine">
+<div class="glass-card">
 <div class="relative h-44 md:h-48 overflow-hidden rounded-t-2xl">
 <img src="https://placehold.co/600x400/F7931E/0A0A0A?text=FLUIDOS" alt="Fluidos críticos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
 <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent"></div>
@@ -816,7 +849,7 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 </div>
 </div>
 </section>
-<!-- SECCIÓN: SERVICIOS INTEGRALES (AMPLIADA)-->
+<!-- SECCIÓN: SERVICIOS INTEGRALES -->
 <section class="py-16 md:py-24 bg-primary-dark relative">
 <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 10% 20%, rgba(255,107,53, 0.08) 0%, transparent 25%), radial-gradient(circle at 90% 80%, rgba(247,147,30, 0.08) 0%, transparent 25%)"></div>
 <div class="container mx-auto px-4 relative z-10">
@@ -830,80 +863,70 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 </p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-<!-- Servicio 1-->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-laptop-code text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Diagnóstico Computarizado</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Escaneo avanzado de ECU, sensores y sistemas electrónicos con equipos de última generación.</p>
 </div>
-<!-- Servicio 2-->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-oil-can text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Mecánica Ligera</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Cambios de aceite, filtros, bujías y services programados con repuestos de calidad certificada.</p>
 </div>
-<!-- Servicio 3-->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-circle-stop text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Sistema de Frenos</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Revisión integral de ABS, pastillas, discos y líquido de frenos para máxima seguridad.</p>
 </div>
-<!-- Servicio 4-->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-car-burst text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Suspensión y Dirección</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Amortiguadores, rótulas, alineación y balanceo para confort y estabilidad en ruta.</p>
 </div>
-<!-- Servicio 5-->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-snowflake text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Climatización</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Carga de gas, limpieza de conductos y reparación de compresores para confort térmico.</p>
 </div>
-<!-- Servicio 6-->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-bolt text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Electricidad Automotriz</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Diagnóstico de fallas eléctricas, baterías, alternadores y sistemas de iluminación.</p>
 </div>
-<!-- Servicio 7 -->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-wrench text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Mecánica Integral</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Reparaciones completas de motor, transmisión y sistemas mecánicos con garantía de calidad.</p>
 </div>
-<!-- Servicio 8 -->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-box-open text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Repuestos</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Amplio stock de repuestos originales y alternativos de primera calidad para todas las marcas.</p>
 </div>
-<!-- Servicio 9 -->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-magnifying-glass-chart text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Escaneo Profesional</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Lectura y borrado de códigos de falla, análisis de datos en tiempo real y programación de módulos.</p>
 </div>
-<!-- Servicio 10 -->
-<div class="glass-card p-6 md:p-7 hover-lift group card-shine">
+<div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-compass-drafting text-2xl md:text-3xl text-primary-orange"></i>
 </div>
@@ -913,7 +936,7 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 </div>
 </div>
 </section>
-<!-- SECCIÓN: TESTIMONIOS-->
+<!-- SECCIÓN: TESTIMONIOS -->
 <section class="py-16 md:py-24 bg-[#0D0D0D] border-t border-white/5">
 <div class="container mx-auto px-4">
 <div class="text-center mb-10 md:mb-14">
@@ -926,8 +949,7 @@ Confianza construida sobre resultados verificables y atención profesional en Sa
 </p>
 </div>
 <div class="testimonial-carousel flex gap-5 md:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide mx-2 px-2">
-<!-- Testimonio 1-->
-<div class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange hover-lift transition flex-shrink-0 w-[85%] md:w-1/3 snap-center card-shine">
+<div class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange transition flex-shrink-0 w-[85%] md:w-1/3 snap-center">
 <div class="flex justify-between items-start mb-4">
 <div class="flex text-yellow-400 text-lg">
 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -943,8 +965,7 @@ Confianza construida sobre resultados verificables y atención profesional en Sa
 </div>
 </div>
 </div>
-<!-- Testimonio 2-->
-<div class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange hover-lift transition flex-shrink-0 w-[85%] md:w-1/3 snap-center card-shine">
+<div class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange transition flex-shrink-0 w-[85%] md:w-1/3 snap-center">
 <div class="flex justify-between items-start mb-4">
 <div class="flex text-yellow-400 text-lg">
 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
@@ -960,8 +981,7 @@ Confianza construida sobre resultados verificables y atención profesional en Sa
 </div>
 </div>
 </div>
-<!-- Testimonio 3-->
-<div class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange hover-lift transition flex-shrink-0 w-[85%] md:w-1/3 snap-center card-shine">
+<div class="testimonial-card glass-card p-6 md:p-7 rounded-2xl border-t-4 border-primary-orange transition flex-shrink-0 w-[85%] md:w-1/3 snap-center">
 <div class="flex justify-between items-start mb-4">
 <div class="flex text-yellow-400 text-lg">
 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -983,12 +1003,12 @@ Confianza construida sobre resultados verificables y atención profesional en Sa
 </p>
 </div>
 </section>
-<!-- SECCIÓN: FORMULARIO DE DIAGNÓSTICO-->
+<!-- SECCIÓN: FORMULARIO DE DIAGNÓSTICO - COMPLETAMENTE FUNCIONAL -->
 <section id="diagnostico" class="py-16 md:py-24 bg-gradient-to-b from-primary-dark to-[#080808] relative overflow-hidden">
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(255,107,53,0.1),transparent_55%)]"></div>
 <div class="container mx-auto px-4 relative z-10">
 <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-<!-- Columna informativa-->
+<!-- Columna informativa -->
 <div class="lg:w-1/3 space-y-6">
 <h2 class="font-display font-bold text-4xl md:text-5xl text-white mb-2 glow-text tracking-tight">
 ACELERADOR DE<br><span class="gradient-text">DIAGNÓSTICO</span>
@@ -1025,8 +1045,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 </div>
 </div>
-<!-- Badge de confianza-->
-<div class="glass-card p-4 rounded-xl mt-4 flex items-center gap-3 card-shine">
+<div class="glass-card p-4 rounded-xl mt-4 flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center flex-shrink-0">
 <i class="fa-solid fa-check text-orange-400"></i>
 </div>
@@ -1036,82 +1055,85 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 </div>
 </div>
-<!-- Formulario con labels debajo de los campos-->
-<div class="lg:w-2/3 glass-card rounded-3xl shadow-card p-6 md:p-8 w-full card-shine">
-<form id="triageForm" class="space-y-7">
-<!-- Sección 1: Vehículo-->
-<div class="border-b border-white/10 pb-5">
-<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+<!-- Formulario FUNCIONAL -->
+<div class="lg:w-2/3 glass-card rounded-3xl shadow-card p-6 md:p-8 w-full">
+<form id="triageForm" novalidate>
+<!-- Sección 1: Vehículo -->
+<div class="border-b border-white/10 pb-6 mb-6">
+<h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
 <span>Datos del Vehículo</span>
 </h3>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-<div>
-<select id="inputVehicleType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
-<option value="" disabled selected>Tipo de vehículo...</option>
-<option value="Auto">Auto</option>
-<option value="Moto">Moto</option>
-<option value="Cuatriciclo">Cuatriciclo</option>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Tipo de Vehículo -->
+<div class="form-field select-wrapper">
+<label for="inputVehicleType" class="field-label">Tipo de Vehículo</label>
+<select id="inputVehicleType" class="field-input">
+<option value="" disabled selected>Seleccionar tipo...</option>
+<option value="Auto">🚗 Auto</option>
+<option value="Moto">🏍️ Moto</option>
+<option value="Cuatriciclo">🏎️ Cuatriciclo</option>
 </select>
-<label for="inputVehicleType" class="label-below"><span>Tipo de Vehículo</span></label>
-<i class="fa-solid fa-chevron-down absolute right-4 top-[6.4rem] md:top-[4.65rem] -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
 </div>
-<div>
-<input type="text" id="inputVehicle" placeholder="Marca y Modelo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
-<label for="inputVehicle" class="label-below"><span>Marca y Modelo</span></label>
+<!-- Marca y Modelo -->
+<div class="form-field">
+<label for="inputVehicle" class="field-label">Marca y Modelo</label>
+<input type="text" id="inputVehicle" class="field-input" placeholder="Ej: Toyota Corolla 2020" autocomplete="off">
 </div>
-<div>
-<input type="number" id="inputKm" placeholder="Kilometraje" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
-<label for="inputKm" class="label-below"><span>Kilometraje</span></label>
+<!-- Kilometraje -->
+<div class="form-field">
+<label for="inputKm" class="field-label">Kilometraje</label>
+<input type="number" id="inputKm" class="field-input" placeholder="Ej: 85000" autocomplete="off">
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-<div>
-<select id="inputFuelType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
-<option value="" disabled selected>Tipo de combustible...</option>
-<optgroup label="🔋 ARRANQUE Y ENERGÍA" class="text-gray-300">
-<option value="Naftero">Naftero(Gasolina)</option>
-<option value="Diesel">Diesel</option>
-<option value="Híbrido">Híbrido</option>
-<option value="Eléctrico">Eléctrico</option>
-</optgroup>
+<!-- Combustible -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+<div class="form-field select-wrapper">
+<label for="inputFuelType" class="field-label">Combustible</label>
+<select id="inputFuelType" class="field-input">
+<option value="" disabled selected>Seleccionar...</option>
+<option value="Naftero">⛽ Nafta / Gasolina</option>
+<option value="Diesel">🛢️ Diesel</option>
+<option value="Híbrido">🔋 Híbrido</option>
+<option value="Eléctrico">⚡ Eléctrico</option>
 </select>
-<label for="inputFuelType" class="label-below"><span>Combustible</span></label>
-<i class="fa-solid fa-chevron-down absolute right-4 top-[10.9rem] md:top-[4.65rem] -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
 </div>
 </div>
 </div>
-<!-- Sección 2: Síntomas-->
-<div class="border-b border-white/10 pb-5">
-<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+<!-- Sección 2: Síntomas -->
+<div class="border-b border-white/10 pb-6 mb-6">
+<h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
 <span>Descripción de Fallas</span>
 </h3>
-<div class="mb-4">
-<textarea id="inputSymptoms" rows="3" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..." class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm resize-none"></textarea>
-<label for="inputSymptoms" class="label-below"><span>Síntomas</span></label>
+<!-- Síntomas -->
+<div class="form-field mb-5">
+<label for="inputSymptoms" class="field-label">Síntomas</label>
+<textarea id="inputSymptoms" class="field-input" rows="4" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..."></textarea>
 </div>
-<div>
-<select id="inputContext" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
-<option value="" disabled selected>Contexto de la falla...</option>
-<optgroup label="🔋 ARRANQUE Y ENERGÍA" class="text-gray-300">
+<!-- Contexto de la falla -->
+<div class="form-field select-wrapper">
+<label for="inputContext" class="field-label">Contexto de la falla</label>
+<select id="inputContext" class="field-input">
+<option value="" disabled selected>Seleccionar contexto...</option>
+<optgroup label="🔋 ARRANQUE Y ENERGÍA" class="font-bold">
 <option value="no_arranca_gira">Gira pero no arranca</option>
 <option value="no_arranca_nada">No da contacto</option>
 <option value="arranca_lento">Arranque lento o difícil</option>
 </optgroup>
-<optgroup label="⚙ RENDIMIENTO" class="text-gray-300 mt-2">
+<optgroup label="⚙️ RENDIMIENTO" class="font-bold">
 <option value="falla_ralenti">Inestabilidad en ralentí</option>
 <option value="pierde_potencia">Pérdida de potencia</option>
 <option value="consumo_excesivo">Consumo excesivo de combustible</option>
-<option value="humo_escape">Humo en escape(color)</option>
+<option value="humo_escape">Humo en escape (color)</option>
 </optgroup>
-<optgroup label="🔊 RUIDOS Y VIBRACIONES" class="text-gray-300 mt-2">
+<optgroup label="🔊 RUIDOS Y VIBRACIONES" class="font-bold">
 <option value="ruido_frenar">Ruido al frenar</option>
 <option value="ruido_direccion">Ruido al girar dirección</option>
 <option value="vibracion_alta">Vibración en alta velocidad</option>
 <option value="ruido_motor">Ruido anormal en motor</option>
 </optgroup>
-<optgroup label="🌡 TEMPERATURA Y FLUIDOS" class="text-gray-300 mt-2">
+<optgroup label="🌡️ TEMPERATURA Y FLUIDOS" class="font-bold">
 <option value="levanta_temp">Se calienta el motor</option>
 <option value="perdida_fluido">Pérdida de fluido visible</option>
 </optgroup>
@@ -1119,61 +1141,58 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <option value="falla_caliente">Solo falla en caliente</option>
 <option value="falla_intermitente">Falla intermitente</option>
 </select>
-<label for="inputContext" class="label-below"><span>Contexto</span></label>
-<i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
 </div>
 </div>
 <!-- Sección 3: Servicio Integral -->
-<div class="border-b border-white/10 pb-5">
-<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+<div class="border-b border-white/10 pb-6 mb-6">
+<h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
 <span>Servicio Integral</span>
 </h3>
-<div>
-<select id="inputService" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
+<div class="form-field select-wrapper">
+<label for="inputService" class="field-label">Servicio Requerido</label>
+<select id="inputService" class="field-input">
 <option value="" disabled selected>Selecciona un servicio...</option>
-<option value="diagnostico">Diagnóstico Computarizado</option>
-<option value="mecanica_ligera">Mecánica Ligera</option>
-<option value="frenos">Sistema de Frenos</option>
-<option value="suspension">Suspensión</option>
-<option value="direccion">Dirección</option>
-<option value="climatizacion">Climatización</option>
-<option value="electricidad">Electricidad Automotriz</option>
-<option value="mecanica_integral">Mecánica Integral</option>
-<option value="repuesto">Repuesto</option>
-<option value="escaneo">Escaneo</option>
-<option value="alineacion">Alineación</option>
-<option value="balanceo">Balanceo</option>
+<option value="diagnostico">🔍 Diagnóstico Computarizado</option>
+<option value="mecanica_ligera">🔧 Mecánica Ligera</option>
+<option value="frenos">🛑 Sistema de Frenos</option>
+<option value="suspension">🔩 Suspensión</option>
+<option value="direccion">🔄 Dirección</option>
+<option value="climatizacion">❄️ Climatización</option>
+<option value="electricidad">⚡ Electricidad Automotriz</option>
+<option value="mecanica_integral">🛠️ Mecánica Integral</option>
+<option value="repuesto">📦 Repuesto</option>
+<option value="escaneo">💻 Escaneo</option>
+<option value="alineacion">🎯 Alineación</option>
+<option value="balanceo">⚖️ Balanceo</option>
 </select>
-<label for="inputService" class="label-below"><span>Servicio Requerido</span></label>
-<i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
 </div>
 </div>
-<!-- Sección 4: Contacto-->
-<div>
-<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+<!-- Sección 4: Contacto -->
+<div class="mb-6">
+<h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
 <span>Datos de Contacto</span>
 </h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div>
-<input type="text" id="inputName" placeholder="Tu nombre completo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
-<label for="inputName" class="label-below"><span>Nombre</span></label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div class="form-field">
+<label for="inputName" class="field-label">Nombre</label>
+<input type="text" id="inputName" class="field-input" placeholder="Tu nombre completo" autocomplete="name">
 </div>
-<div>
-<input type="tel" id="inputPhone" placeholder="WhatsApp para contacto" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
-<label for="inputPhone" class="label-below"><span>WhatsApp</span></label>
+<div class="form-field">
+<label for="inputPhone" class="field-label">WhatsApp</label>
+<input type="tel" id="inputPhone" class="field-input" placeholder="Tu número de WhatsApp" autocomplete="tel">
 </div>
 </div>
-<p class="text-xs text-gray-500 mt-3 flex items-center gap-1.5">
+<p class="text-xs text-gray-500 mt-4 flex items-center gap-1.5">
 <i class="fa-solid fa-lock text-primary-orange"></i> <span>Tus datos se usarán únicamente para coordinar tu turno</span>
 </p>
 </div>
-<!-- Botón de envío-->
-<button type="submit" class="btn-primary w-full font-bold uppercase text-base py-4.5 rounded-2xl hover:shadow-neon transition flex items-center justify-center gap-3 mt-2">
+<!-- Botón de envío -->
+<button type="submit" id="submitBtn" class="btn-primary w-full font-bold uppercase text-base py-5 rounded-2xl hover:shadow-neon transition flex items-center justify-center gap-3">
 <i class="fa-brands fa-whatsapp text-2xl"></i> <span>Enviar Solicitud a JRP MOTORS</span>
 </button>
-<p class="text-center text-xs text-gray-500 pt-2">
+<p class="text-center text-xs text-gray-500 pt-3">
 <span>Al enviar, aceptas nuestros</span> <a href="#" class="text-primary-orange hover:underline">términos de servicio</a>
 </p>
 </form>
@@ -1184,7 +1203,6 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <!-- SECCIÓN: UBICACIÓN Y CONFIANZA -->
 <section class="py-14 md:py-20 bg-[#0D0D0D] border-t border-white/5">
 <div class="container mx-auto px-4 text-center">
-<!-- Logos de marcas(grayscale to color on hover)-->
 <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500 mb-12 md:mb-16">
 <i class="fa-brands fa-toyota text-4xl md:text-5xl hover:text-white transition-colors"></i>
 <i class="fa-solid fa-car text-4xl md:text-5xl hover:text-white transition-colors"></i>
@@ -1193,12 +1211,10 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-brands fa-volkswagen text-4xl md:text-5xl hover:text-white transition-colors"></i>
 <i class="fa-solid fa-truck-pickup text-4xl md:text-5xl hover:text-white transition-colors"></i>
 </div>
-<!-- Card de ubicación -->
-<div class="glass-card rounded-3xl p-6 md:p-10 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 card-shine">
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
 <div class="text-left max-w-md">
 <h3 class="font-display font-bold text-2xl md:text-3xl text-white mb-2">¿Dónde estamos?</h3>
 <p class="text-gray-400/90 mb-4 text-base">Visítanos para validación final y reparaciones especializadas.</p>
-<!-- DIRECCIÓN ACTUALIZADA -->
 <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
 <i class="fa-regular fa-location-dot text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
@@ -1206,7 +1222,6 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <p>Paris 147, G4200 Santiago del Estero, Santiago del Estero</p>
 </div>
 </div>
-<!-- WhatsApp -->
 <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
 <i class="fa-brands fa-whatsapp text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
@@ -1214,7 +1229,6 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <p dir="ltr">+54 385 581-4187</p>
 </div>
 </div>
-<!-- Email -->
 <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
 <i class="fa-solid fa-envelope text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
@@ -1222,13 +1236,12 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <p>jrpmotors@email.com</p>
 </div>
 </div>
-<!-- HORARIOS ACTUALIZADOS -->
 <div class="flex items-start gap-3 text-gray-300/90 text-sm">
 <i class="fa-regular fa-clock text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
 <p class="font-medium">Horarios de atención:</p>
-<p>Lunes a Viernes: 08:00 - 13:00 / 16:30 - 20:00</p>
-<p>Sábados: Consultar por WhatsApp</p>
+<p>Lunes a Viernes: 08:30 - 16:30</p>
+<p>Sábados: 08:30 - 13:00</p>
 <p>Domingos: Cerrado</p>
 </div>
 </div>
@@ -1237,19 +1250,16 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
 <i class="fa-solid fa-map-location-dot text-lg"></i> <span>Ver en Google Maps</span>
 </a>
-<!-- BOTÓN DE RESEÑAS-->
 <a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-review px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
 <i class="fa-solid fa-star text-lg"></i> <span>Deja tu Reseña</span>
 </a>
 </div>
 </div>
-<!-- Redes Sociales - Solo Facebook -->
 <div class="mt-8 flex items-center justify-center gap-4">
 <a href="https://www.facebook.com/people/Jrp-motors/61551452017701/" target="_blank" rel="noopener noreferrer" class="social-btn facebook" title="Facebook">
 <i class="fa-brands fa-facebook-f"></i>
 </a>
 </div>
-<!-- Badge de garantía-->
 <div class="mt-10 inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-full">
 <i class="fa-solid fa-certificate text-primary-orange text-lg"></i>
 <span class="text-sm font-medium text-gray-300">Garantía en todos nuestros servicios</span>
@@ -1264,16 +1274,13 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <p class="mb-2 text-white font-display font-bold text-xl md:text-2xl glow-text tracking-tight">JRP MOTORS</p>
 <p class="text-sm">De Jonas Risso Patron - Santiago del Estero</p>
 </div>
-<!-- Footer minimalista con botón de reseñas-->
 <div class="flex items-center gap-4">
-<!-- Botón de reseñas-->
 <a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-primary-orange hover:text-yellow-400 transition text-sm font-semibold group">
 <i class="fa-solid fa-star group-hover:scale-110 transition-transform"></i>
 <span>Deja tu Reseña</span>
 </a>
 </div>
 </div>
-<!-- Firma del diseñador NEXO-Art -->
 <div class="border-t border-white/10 mt-6 pt-4 text-center">
 <a href="https://nexoar-art.github.io/NEXO-art/" target="_blank" rel="noopener noreferrer"
 class="inline-flex items-center gap-1.5 text-xs text-gray-600 hover:text-primary-orange transition font-medium group">
@@ -1284,7 +1291,7 @@ Diseño: NEXO-Art
 </div>
 </div>
 </footer>
-<!-- STICKY MOBILE CTA-->
+<!-- STICKY MOBILE CTA -->
 <div class="fixed bottom-0 left-0 w-full bg-gray-900/95 backdrop-blur-sm border-t border-white/10 p-4 md:hidden z-50 flex gap-3">
 <a href="#asesoramiento" class="flex-1 bg-white/5 text-white font-semibold py-3.5 rounded-xl text-center border border-white/10 hover:border-primary-orange/40 transition text-sm flex items-center justify-center gap-2">
 <i class="fa-solid fa-book-open text-primary-orange"></i><span>Guías</span>
@@ -1295,250 +1302,252 @@ Diseño: NEXO-Art
 </div>
 <!-- JAVASCRIPT FUNCIONAL -->
 <script>
-document.addEventListener('DOMContentLoaded',()=>{
-// Generar partículas decorativas
+document.addEventListener('DOMContentLoaded', function(){
+// ========== RELOJ DIGITAL ==========
+function updateClock(){
+const now = new Date();
+const hours = String(now.getHours()).padStart(2,'0');
+const minutes = String(now.getMinutes()).padStart(2,'0');
+const seconds = String(now.getSeconds()).padStart(2,'0');
+const timeString = hours + ':' + minutes + ':' + seconds;
+const clockElement = document.getElementById('navbarClockTime');
+if(clockElement) clockElement.textContent = timeString;
+const clockMobile = document.getElementById('navbarClockTimeMobile');
+if(clockMobile) clockMobile.textContent = timeString;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// ========== EFECTO FUEGO - Activa después de 5 segundos ==========
+setTimeout(function(){
+const fireRing = document.getElementById('fireRing');
+if(fireRing) fireRing.classList.add('active');
+}, 5000);
+
+// ========== PARTÍCULAS ==========
 function createParticles(){
-const container= document.getElementById('particles');
+const container = document.getElementById('particles');
 if(!container) return;
-for(let i=0; i<30; i++){
-const particle= document.createElement('div');
-particle.className='particle';
-particle.style.left= Math.random()*100+'%';
-particle.style.animationDelay= Math.random()*20+'s';
-particle.style.animationDuration=(20+ Math.random()*30)+'s';
-particle.style.width= particle.style.height=(3+ Math.random()*4)+'px';
+for(let i = 0; i < 30; i++){
+const particle = document.createElement('div');
+particle.className = 'particle';
+particle.style.left = Math.random()*100 + '%';
+particle.style.animationDelay = Math.random()*20 + 's';
+particle.style.animationDuration = (20 + Math.random()*30) + 's';
+particle.style.width = particle.style.height = (3 + Math.random()*4) + 'px';
 container.appendChild(particle);
 }
 }
 createParticles();
 
-// LÓGICA DE HORARIOS ACTUALIZADA PARA SANTIAGO DEL ESTERO
+// ========== ESTADO DEL NEGOCIO ==========
 function checkStatus(){
-const now= new Date();
-const hours= now.getHours();
-const minutes= now.getMinutes();
-const day= now.getDay(); // 0= Domingo, 1= Lunes,..., 6= Sábado
-
-const currentMinutes= hours*60+ minutes;
-
-// HORARIOS: Lunes a Viernes 08:00 - 13:00 / 16:30 - 20:00
-const morningOpen=8*60;     // 480 minutos (08:00)
-const morningClose=13*60;   // 780 minutos (13:00)
-const afternoonOpen=16*60+30;   // 990 minutos (16:30)
-const afternoonClose=20*60;     // 1200 minutos (20:00)
-
-let isOpen= false;
-
-// Lunes a Viernes (1-5): Turno mañana y tarde
-if(day>=1 && day<=5){
-isOpen= (currentMinutes>=morningOpen && currentMinutes<morningClose) ||
-(currentMinutes>=afternoonOpen && currentMinutes<afternoonClose);
+const now = new Date();
+const hours = now.getHours();
+const minutes = now.getMinutes();
+const day = now.getDay();
+const currentMinutes = hours * 60 + minutes;
+const morningOpen = 8*60+30;
+const weekdayClose = 16*60+30;
+const saturdayClose = 13*60;
+let isOpen = false;
+if(day >= 1 && day <= 5){
+isOpen = currentMinutes >= morningOpen && currentMinutes < weekdayClose;
+} else if(day === 6){
+isOpen = currentMinutes >= morningOpen && currentMinutes < saturdayClose;
 }
-// Sábado (6) y Domingo (0): Cerrado
-else{
-isOpen= false;
-}
-
-// Elementos desktop
-const dotDesktop= document.getElementById('status-dot-desktop');
-const textDesktop= document.getElementById('status-text-desktop');
-// Elementos mobile
-const barMobile= document.getElementById('status-bar-mobile');
-
+const dotDesktop = document.getElementById('status-dot-desktop');
+const textDesktop = document.getElementById('status-text-desktop');
+const barMobile = document.getElementById('status-bar-mobile');
 if(isOpen){
-// Estado ABIERTO
-dotDesktop.className='status-dot w-2 h-2 rounded-full mr-2.5 bg-primary-orange';
-textDesktop.textContent='Abierto Ahora';
-textDesktop.className='text-primary-orange font-semibold';
-barMobile.textContent='🟢 Abierto Ahora - Atención Inmediata';
-barMobile.className='md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-white bg-gradient-to-r from-primary-orange/20 to-orange-700/20';
-} else{
-// Estado CERRADO
-dotDesktop.className='w-2 h-2 rounded-full mr-2.5 bg-gray-500';
-textDesktop.textContent='Cerrado';
-textDesktop.className='text-gray-400';
+dotDesktop.className = 'status-dot w-2 h-2 rounded-full mr-2.5 bg-primary-orange';
+textDesktop.textContent = 'Abierto Ahora';
+textDesktop.className = 'text-primary-orange font-semibold';
+barMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-white bg-gradient-to-r from-primary-orange/20 to-orange-700/20 flex items-center justify-center gap-2';
+} else {
+dotDesktop.className = 'w-2 h-2 rounded-full mr-2.5 bg-gray-500';
+textDesktop.textContent = 'Cerrado';
+textDesktop.className = 'text-gray-400';
+barMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-gray-300 bg-gray-900/80 flex items-center justify-center gap-2';
+}
+}
+checkStatus();
+setInterval(checkStatus, 60000);
 
-// Mostrar próximo horario de apertura
-let nextOpen='';
-if(day===0){ // Domingo: abre Lunes 08:00
-nextOpen='Abre Lunes 08:00';
-} else if(day===6){ // Sábado: cerrado, abre Lunes
-nextOpen='Abre Lunes 08:00';
-} else if(day===5){ // Viernes
-if(currentMinutes>=afternoonClose){
-nextOpen='Abre Lunes 08:00';
-} else if(currentMinutes>=morningClose && currentMinutes<afternoonOpen){
-nextOpen='Abre 16:30';
-} else{
-nextOpen='Cierra 20:00';
+// ========== ANIMACIÓN DE CONTADORES ==========
+function animateCounter(id, start, target, duration){
+const obj = document.getElementById(id);
+if(!obj) return;
+let startTimestamp = null;
+const step = function(timestamp){
+if(!startTimestamp) startTimestamp = timestamp;
+const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+const easeProgress = 1 - Math.pow(1 - progress, 3);
+const value = Math.floor(easeProgress * (target - start) + start);
+obj.textContent = value.toLocaleString('es-AR');
+if(progress < 1){
+window.requestAnimationFrame(step);
+} else {
+obj.textContent = target.toLocaleString('es-AR');
 }
-} else{ // Lunes a Jueves (1-4)
-if(currentMinutes>=afternoonClose){
-nextOpen='Abre mañana 08:00';
-} else if(currentMinutes>=morningClose && currentMinutes<afternoonOpen){
-nextOpen='Abre 16:30';
-} else if(currentMinutes<morningOpen){
-nextOpen='Abre hoy 08:00';
-} else{
-nextOpen='Cierra 20:00';
+};
+window.requestAnimationFrame(step);
 }
-}
-barMobile.textContent=`🔴 Cerrado - ${nextOpen}`;
-barMobile.className='md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-gray-300 bg-gray-900/80';
-}
-}
-
-// Animación de contadores MEJORADA
-function animateCounter(id, start, target, duration) {
-    const obj = document.getElementById(id);
-    if (!obj) return;
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        // Easing suave: easeOutCubic
-        const easeProgress = 1 - Math.pow(1 - progress, 3);
-        const value = Math.floor(easeProgress * (target - start) + start);
-        // Formato locale español (Argentina) para miles (ej: 8.000)
-        obj.textContent = value.toLocaleString('es-AR');
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        } else {
-            // Asegurar valor final exacto formateado
-            obj.textContent = target.toLocaleString('es-AR');
-        }
-    };
-    window.requestAnimationFrame(step);
-}
-
-function startCounters() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Duraciones diferenciadas: 1.5s, 1.8s, 2s para efecto escalonado
-                animateCounter('counter1', 0, 99, 1500);   // Precisión
-                animateCounter('counter2', 0, 50, 1800);   // Ahorro
-                animateCounter('counter3', 0, 8000, 2000); // Vehículos
-                observer.disconnect();
-            }
-        });
-    }, { threshold: 0.3 }); // Se activa cuando el 30% del elemento es visible
-
-    const statsSection = document.querySelector('.grid.grid-cols-3');
-    if (statsSection) observer.observe(statsSection);
-}
-
-// Validación de inputs (sin requerir campos obligatorios)
-const inputs= document.querySelectorAll('.input-modern');
-inputs.forEach(input=>{
-input.addEventListener('input', function(){
-if(this.value.trim().length>2){
-this.classList.add('input-valid');
-this.classList.remove('input-invalid');
-} else{
-this.classList.remove('input-valid','input-invalid');
+function startCounters(){
+const observer = new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+animateCounter('counter1', 0, 99, 1500);
+animateCounter('counter2', 0, 50, 1800);
+animateCounter('counter3', 0, 8000, 2000);
+observer.disconnect();
 }
 });
+}, {threshold: 0.3});
+const statsSection = document.querySelector('.grid.grid-cols-3');
+if(statsSection) observer.observe(statsSection);
+}
+startCounters();
+
+// ========== FORMULARIO FUNCIONAL ==========
+const form = document.getElementById('triageForm');
+const submitBtn = document.getElementById('submitBtn');
+
+// Marcar campos cuando tienen valor
+const allFields = document.querySelectorAll('.field-input');
+allFields.forEach(function(field){
+field.addEventListener('input', function(){
+if(this.value.trim().length > 0){
+this.classList.add('has-value');
+} else {
+this.classList.remove('has-value');
+}
+});
+// También para selects
+if(this.tagName === 'SELECT'){
+this.addEventListener('change', function(){
+if(this.value){
+this.classList.add('has-value');
+} else {
+this.classList.remove('has-value');
+}
+});
+}
 });
 
-// Manejo del formulario (SIN CAMPOS OBLIGATORIOS)
-document.getElementById('triageForm')?.addEventListener('submit',(e)=>{
+// Submit del formulario
+if(form){
+form.addEventListener('submit', function(e){
 e.preventDefault();
-const btn= e.target.querySelector('button[type="submit"]');
-const originalBtnContent= btn.innerHTML;
-btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Procesando solicitud...';
-btn.classList.add('opacity-80','cursor-not-allowed');
-btn.disabled= true;
-const vehicleType= document.getElementById('inputVehicleType').value||'No especificado';
-const vehicle= document.getElementById('inputVehicle').value||'No especificado';
-const km= document.getElementById('inputKm').value||'No especificado';
-const fuelType= document.getElementById('inputFuelType').value||'No especificado';
-const symptoms= document.getElementById('inputSymptoms').value||'No especificado';
-const contextSelect= document.getElementById('inputContext');
-const context= contextSelect.options[contextSelect.selectedIndex]?.text||'No especificado';
-const serviceSelect= document.getElementById('inputService');
-const service= serviceSelect.options[serviceSelect.selectedIndex]?.text||'No especificado';
-const name= document.getElementById('inputName').value||'Cliente';
-const phone= document.getElementById('inputPhone').value||'No proporcionado';
-// Mensaje para WhatsApp actualizado
-const message=`🚗 *¡Hola JRP MOTORS!* 👋
-*Cliente:* ${name}
-📱 *Contacto:* ${phone}
-🚘 *Tipo de Vehículo:* ${vehicleType}
-*Vehículo:* ${vehicle}
-🛣 *Kilometraje:* ${km} km
-⛽ *Combustible:* ${fuelType}
-⚠ *Síntomas reportados:*
-${symptoms}
-🔍 *Contexto:* ${context}
-🔧 *Servicio solicitado:* ${service}
-📍 *Ubicación: Santiago del Estero*
-📅 *Solicito turno para diagnóstico profesional.* 💨`;
-// URL de WhatsApp con el número formateado para Argentina
-const whatsappUrl=`https://api.whatsapp.com/send?phone=+543855814187&text=${encodeURIComponent(message)}`;
-setTimeout(()=>{
-window.open(whatsappUrl,'_blank','noopener,noreferrer');
-btn.innerHTML='<i class="fa-solid fa-circle-check"></i> ¡Solicitud Enviada! ✅';
-btn.classList.add('bg-green-600');
-setTimeout(()=>{
-btn.innerHTML= originalBtnContent;
-btn.classList.remove('opacity-80','cursor-not-allowed','bg-green-600');
-btn.disabled= false;
-e.target.reset();
-document.querySelectorAll('.input-modern').forEach(el=>{
-el.classList.remove('input-valid','input-invalid');
+
+// Obtener todos los valores
+var vehicleTypeEl = document.getElementById('inputVehicleType');
+var vehicleType = vehicleTypeEl && vehicleTypeEl.value ? vehicleTypeEl.value : 'No especificado';
+
+var vehicle = document.getElementById('inputVehicle').value.trim() || 'No especificado';
+var km = document.getElementById('inputKm').value.trim() || 'No especificado';
+
+var fuelTypeEl = document.getElementById('inputFuelType');
+var fuelType = fuelTypeEl && fuelTypeEl.value ? fuelTypeEl.value : 'No especificado';
+
+var symptoms = document.getElementById('inputSymptoms').value.trim() || 'No especificado';
+
+var contextEl = document.getElementById('inputContext');
+var context = contextEl && contextEl.value ? contextEl.options[contextEl.selectedIndex].text : 'No especificado';
+
+var serviceEl = document.getElementById('inputService');
+var service = serviceEl && serviceEl.value ? serviceEl.options[serviceEl.selectedIndex].text : 'No especificado';
+
+var name = document.getElementById('inputName').value.trim() || 'Cliente';
+var phone = document.getElementById('inputPhone').value.trim() || 'No proporcionado';
+
+// Construir mensaje de WhatsApp
+var message = '🚗 ¡Hola JRP MOTORS! 👋\n';
+message += '*Cliente:* ' + name + '\n';
+message += '📱 *Contacto:* ' + phone + '\n';
+message += '🚘 *Tipo de Vehículo:* ' + vehicleType + '\n';
+message += '🚙 *Vehículo:* ' + vehicle + '\n';
+message += '🛣 *Kilometraje:* ' + km + ' km\n';
+message += '⛽ *Combustible:* ' + fuelType + '\n';
+message += '⚠️ *Síntomas reportados:*\n' + symptoms + '\n';
+message += '🔍 *Contexto:* ' + context + '\n';
+message += '🔧 *Servicio solicitado:* ' + service + '\n';
+message += '📍 *Ubicación: Santiago del Estero*\n';
+message += '📅 *Solicito turno para diagnóstico profesional.* 💨';
+
+// Mostrar estado de carga
+var originalBtnContent = submitBtn.innerHTML;
+submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando solicitud...';
+submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
+submitBtn.disabled = true;
+
+// Abrir WhatsApp
+setTimeout(function(){
+var whatsappUrl = 'https://api.whatsapp.com/send?phone=543855814187&text=' + encodeURIComponent(message);
+window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+// Éxito
+submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Solicitud Enviada! ✅';
+submitBtn.classList.add('bg-green-600');
+
+// Reset después de 3.5 segundos
+setTimeout(function(){
+submitBtn.innerHTML = originalBtnContent;
+submitBtn.classList.remove('opacity-80', 'cursor-not-allowed', 'bg-green-600');
+submitBtn.disabled = false;
+form.reset();
+allFields.forEach(function(el){
+el.classList.remove('has-value');
 });
 }, 3500);
 }, 1200);
 });
+}
 
-// Efecto parallax
-const parallaxImg= document.getElementById('parallax-img');
+// ========== PARALLAX ==========
+const parallaxImg = document.getElementById('parallax-img');
 if(parallaxImg){
-window.addEventListener('scroll',()=>{
-const scrollY= window.scrollY;
-if(scrollY< window.innerHeight){
-parallaxImg.style.transform=`translateY(${scrollY*0.3}px) scale(1.08)`;
+window.addEventListener('scroll', function(){
+const scrollY = window.scrollY;
+if(scrollY < window.innerHeight){
+parallaxImg.style.transform = 'translateY(' + (scrollY * 0.3) + 'px) scale(1.08)';
 }
-},{passive: true});
+}, {passive: true});
 }
 
-// Efecto navbar al hacer scroll
-const navbar= document.getElementById('navbar');
+// ========== NAVBAR SCROLL ==========
+const navbar = document.getElementById('navbar');
 if(navbar){
-window.addEventListener('scroll',()=>{
-if(window.scrollY>50){
-navbar.classList.add('shadow-lg','bg-gray-900/95');
+window.addEventListener('scroll', function(){
+if(window.scrollY > 50){
+navbar.classList.add('shadow-lg', 'bg-gray-900/95');
 navbar.classList.remove('glass');
-} else{
-navbar.classList.remove('shadow-lg','bg-gray-900/95');
+} else {
+navbar.classList.remove('shadow-lg', 'bg-gray-900/95');
 navbar.classList.add('glass');
 }
-},{passive: true});
+}, {passive: true});
 }
 
-// Inicialización
-checkStatus();
-setInterval(checkStatus, 60000);
-startCounters();
-document.querySelectorAll('.fade-in-up').forEach((el, i)=>{
-el.style.animationDelay=`${0.1+ i*0.12}s`;
-});
-
-// Smooth scroll para anclas
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+// ========== SMOOTH SCROLL ==========
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
 anchor.addEventListener('click', function(e){
 e.preventDefault();
-const targetId= this.getAttribute('href');
-if(targetId==='#') return;
-const targetElement= document.querySelector(targetId);
+const targetId = this.getAttribute('href');
+if(targetId === '#') return;
+const targetElement = document.querySelector(targetId);
 if(targetElement){
 window.scrollTo({
-top: targetElement.offsetTop-80,
-behavior:'smooth'
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
 });
 }
 });
+});
+
+// ========== FADE IN UP ==========
+document.querySelectorAll('.fade-in-up').forEach(function(el, i){
+el.style.animationDelay = (0.1 + i * 0.12) + 's';
 });
 });
 </script>
