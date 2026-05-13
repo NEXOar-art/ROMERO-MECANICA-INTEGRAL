@@ -518,7 +518,7 @@ box-shadow: 0 0 40px rgba(255, 107, 53, 0.9), inset 0 0 30px rgba(255, 107, 53, 
 }
 
 /* ============================== */
-/* HERO LOGO - CENTRADO PERFECTO CON EFECTO FUEGO (SIN BORDE CUADRADO) */
+/* HERO LOGO - CONTENEDOR AJUSTADO AL TAMAÑO DEL LOGO */
 /* ============================== */
 .hero-logo{
 height: 12rem;
@@ -531,7 +531,7 @@ transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 display: block;
 margin: 0 auto;
 position: relative;
-overflow: hidden;
+overflow: visible;
 background: #0A0A0A;
 }
 
@@ -669,13 +669,21 @@ transform: scale(1.08);
 box-shadow: 0 0 80px rgba(255, 107, 53, 0.8), 0 0 120px rgba(255, 107, 53, 0.5), inset 0 0 50px rgba(255, 107, 53, 0.3);
 }
 
-/* Contenedor del logo - CENTRADO PERFECTO */
+/* Contenedor del logo - AJUSTADO AL TAMAÑO DEL LOGO */
 .hero-logo-wrapper{
 display: flex;
 justify-content: center;
 align-items: center;
-padding: 1rem 0;
-width: 100%;
+width: fit-content;
+margin: 0 auto;
+padding: 0.5rem;
+}
+
+.hero-logo-inner{
+position: relative;
+display: inline-flex;
+justify-content: center;
+align-items: center;
 }
 
 @keyframes rotate{
@@ -691,6 +699,9 @@ width: 55px;
 .hero-logo{
 height: 8rem;
 width: 8rem;
+}
+.hero-logo-wrapper{
+padding: 0.3rem;
 }
 }
 
@@ -909,9 +920,9 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 JRP MOTORS<br><span class="gradient-text">DE JONAS RISSO PATRON</span>
 </h1>
 
-<!-- LOGO CENTRADO CON EFECTO FUEGO - Contenedor centrado perfecto -->
+<!-- LOGO CENTRADO - CONTENEDOR AJUSTADO AL TAMAÑO DEL LOGO -->
 <div class="hero-logo-wrapper fade-in-up" style="animation-delay: 0.25s;">
-<div class="relative" style="display:inline-block;">
+<div class="hero-logo-inner">
 <img src="JRPLOGO.png" alt="JRP Motors Logo" class="hero-logo" id="heroLogo">
 <div class="shine-effect"></div>
 <div class="fire-ring" id="fireRing"></div>
