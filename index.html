@@ -518,15 +518,14 @@ box-shadow: 0 0 40px rgba(255, 107, 53, 0.9), inset 0 0 30px rgba(255, 107, 53, 
 }
 
 /* ============================== */
-/* HERO LOGO - CENTRADO PERFECTO CON EFECTO FUEGO */
+/* HERO LOGO - CENTRADO PERFECTO CON EFECTO FUEGO (SIN BORDE CUADRADO) */
 /* ============================== */
 .hero-logo{
 height: 12rem;
 width: 12rem;
 object-fit: cover;
 border-radius: 50%;
-border: 5px solid transparent;
-border-image: linear-gradient(135deg, #FF6B35, #F7931E, #FF8C42, #FF6B35) 1;
+border: 5px solid #FF6B35;
 box-shadow: 0 0 40px rgba(255, 107, 53, 0.5), 0 0 80px rgba(255, 107, 53, 0.3), inset 0 0 30px rgba(255, 107, 53, 0.15);
 transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 display: block;
@@ -1315,7 +1314,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <option value="consumo_excesivo">Consumo excesivo de combustible</option>
 <option value="humo_escape">Humo en escape(color)</option>
 </optgroup>
-<optgroup label="🔊 RUIDOS Y VIBRACIONES" class="text-gray-300 mt-2">
+<optgroup label=" RUIDOS Y VIBRACIONES" class="text-gray-300 mt-2">
 <option value="ruido_frenar">Ruido al frenar</option>
 <option value="ruido_direccion">Ruido al girar dirección</option>
 <option value="vibracion_alta">Vibración en alta velocidad</option>
@@ -1704,19 +1703,19 @@ const service= serviceSelect.options[serviceSelect.selectedIndex]?.text||'No esp
 const name= document.getElementById('inputName').value||'Cliente';
 const phone= document.getElementById('inputPhone').value||'No proporcionado';
 // Mensaje para WhatsApp actualizado
-const message=`🚗 *¡Hola JRP MOTORS!* 👋
-*Cliente:* ${name}
-📱 *Contacto:* ${phone}
-🚘 *Tipo de Vehículo:* ${vehicleType}
-*Vehículo:* ${vehicle}
-🛣 *Kilometraje:* ${km} km
-⛽ *Combustible:* ${fuelType}
-⚠ *Síntomas reportados:*
+const message=`¡Hola JRP MOTORS! 
+Cliente: ${name}
+ Contacto: ${phone}
+ Tipo de Vehículo: ${vehicleType}
+Vehículo: ${vehicle}
+ Kilometraje: ${km} km
+ Combustible: ${fuelType}
+ Síntomas reportados:
 ${symptoms}
- *Contexto:* ${context}
- *Servicio solicitado:* ${service}
- *Ubicación: Santiago del Estero*
- *Solicito turno para diagnóstico profesional.* `;
+Contexto: ${context}
+ Servicio solicitado: ${service}
+ Ubicación: Santiago del Estero
+ Solicito turno para diagnóstico profesional. `;
 // URL de WhatsApp con el número formateado para Argentina
 const whatsappUrl=`https://api.whatsapp.com/send?phone=+543855814187&text=${encodeURIComponent(message)}`;
 setTimeout(()=>{
