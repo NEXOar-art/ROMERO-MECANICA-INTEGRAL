@@ -516,47 +516,57 @@ opacity: 1;
 transform: scale(1.15) rotate(5deg);
 box-shadow: 0 0 40px rgba(255, 107, 53, 0.9), inset 0 0 30px rgba(255, 107, 53, 0.3);
 }
-/* Hero Logo - Grande, Circular, CENTRADO Y CON EFECTOS DE REFLEJO PREMIUM */
+
+/* ============================== */
+/* HERO LOGO - CENTRADO PERFECTO CON EFECTO FUEGO */
+/* ============================== */
 .hero-logo{
 height: 12rem;
 width: 12rem;
 object-fit: cover;
 border-radius: 50%;
-border: 6px solid #FF6B35;
-box-shadow: 0 0 60px rgba(255, 107, 53, 0.7), 0 0 100px rgba(255, 107, 53, 0.4), inset 0 0 40px rgba(255, 107, 53, 0.2);
+border: 5px solid transparent;
+border-image: linear-gradient(135deg, #FF6B35, #F7931E, #FF8C42, #FF6B35) 1;
+box-shadow: 0 0 40px rgba(255, 107, 53, 0.5), 0 0 80px rgba(255, 107, 53, 0.3), inset 0 0 30px rgba(255, 107, 53, 0.15);
 transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-animation: pulse-glow 4s ease-in-out infinite;
 display: block;
 margin: 0 auto;
 position: relative;
 overflow: hidden;
+background: #0A0A0A;
 }
+
+/* Efecto de reflejo/brillo superior permanente */
 .hero-logo::before{
-content:'';
-position: absolute;
-inset: -10px;
-border-radius: 50%;
-border: 2px solid rgba(255, 107, 53, 0.3);
-animation: rotate 10s linear infinite;
-pointer-events: none;
-}
-/* Efecto de reflejo/brillo superior */
-.hero-logo::after{
 content:'';
 position: absolute;
 top: 0;
 left: 0;
 right: 0;
 height: 55%;
-background: linear-gradient(180deg, 
-  rgba(255,255,255,0.4) 0%, 
-  rgba(255,255,255,0.2) 25%, 
-  rgba(255,255,255,0.05) 50%, 
+background: linear-gradient(180deg,
+  rgba(255,255,255,0.35) 0%,
+  rgba(255,255,255,0.15) 25%,
+  rgba(255,255,255,0.03) 50%,
   transparent 100%);
 border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
 opacity: 0.7;
 pointer-events: none;
+z-index: 2;
 }
+
+/* ANILLO EXTERIOR ROTATIVO */
+.hero-logo::after{
+content:'';
+position: absolute;
+inset: -8px;
+border-radius: 50%;
+border: 2px solid rgba(255, 107, 53, 0.25);
+animation: rotate 10s linear infinite;
+pointer-events: none;
+z-index: 3;
+}
+
 /* Brillo animado en hover */
 .hero-logo .shine-effect{
 position: absolute;
@@ -564,25 +574,116 @@ top: 0;
 left: -100%;
 width: 100%;
 height: 100%;
-background: linear-gradient(90deg, 
-  transparent 0%, 
-  rgba(255,255,255,0.4) 50%, 
+background: linear-gradient(90deg,
+  transparent 0%,
+  rgba(255,255,255,0.35) 50%,
   transparent 100%);
 transition: left 0.8s ease;
 pointer-events: none;
+z-index: 4;
 }
 .hero-logo:hover .shine-effect{
 left: 100%;
 }
-.hero-logo:hover{
-transform: scale(1.1) rotate(2deg);
-box-shadow: 0 0 100px rgba(255, 107, 53, 0.9), 0 0 150px rgba(255, 107, 53, 0.6), inset 0 0 60px rgba(255, 107, 53, 0.4);
-border-color: #FF8C42;
+
+/* EFECTO FUEGO - Se activa después de 5 segundos */
+.fire-ring{
+position: absolute;
+inset: -10px;
+border-radius: 50%;
+pointer-events: none;
+z-index: 1;
+opacity: 0;
+transition: opacity 1.5s ease;
 }
+.fire-ring.active{
+opacity: 1;
+animation: fire-pulse 2s ease-in-out infinite;
+}
+.fire-ring::before{
+content:'';
+position: absolute;
+inset: 0;
+border-radius: 50%;
+border: 4px solid transparent;
+background: conic-gradient(
+  from 0deg,
+  #FF4500,
+  #FF6B35,
+  #FFA500,
+  #FFD700,
+  #FF6B35,
+  #FF4500,
+  #FF0000,
+  #FF4500
+) border-box;
+-webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+animation: fire-rotate 3s linear infinite;
+box-shadow:
+  0 0 15px rgba(255, 69, 0, 0.8),
+  0 0 30px rgba(255, 107, 53, 0.6),
+  0 0 45px rgba(255, 165, 0, 0.4),
+  0 0 60px rgba(255, 0, 0, 0.3);
+}
+.fire-ring::after{
+content:'';
+position: absolute;
+inset: -5px;
+border-radius: 50%;
+background: conic-gradient(
+  from 180deg,
+  transparent,
+  rgba(255, 69, 0, 0.3),
+  rgba(255, 107, 53, 0.5),
+  rgba(255, 215, 0, 0.3),
+  transparent,
+  rgba(255, 0, 0, 0.4),
+  transparent
+);
+filter: blur(8px);
+animation: fire-rotate-reverse 4s linear infinite;
+}
+
+@keyframes fire-rotate{
+0%{transform: rotate(0deg);}
+100%{transform: rotate(360deg);}
+}
+@keyframes fire-rotate-reverse{
+0%{transform: rotate(0deg);}
+100%{transform: rotate(-360deg);}
+}
+@keyframes fire-pulse{
+0%, 100%{
+  transform: scale(1);
+  filter: brightness(1);
+}
+50%{
+  transform: scale(1.03);
+  filter: brightness(1.2);
+}
+}
+
+.hero-logo:hover{
+transform: scale(1.08);
+box-shadow: 0 0 80px rgba(255, 107, 53, 0.8), 0 0 120px rgba(255, 107, 53, 0.5), inset 0 0 50px rgba(255, 107, 53, 0.3);
+}
+
+/* Contenedor del logo - CENTRADO PERFECTO */
+.hero-logo-wrapper{
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 1rem 0;
+width: 100%;
+}
+
 @keyframes rotate{
 from{transform: rotate(0deg);}
 to{transform: rotate(360deg);}
 }
+
 @media(max-width: 768px){
 .navbar-logo{
 height: 55px;
@@ -593,6 +694,7 @@ height: 8rem;
 width: 8rem;
 }
 }
+
 /* Digital Clock Styles - EN NAVBAR */
 .navbar-clock{
 font-family: 'Space Grotesk', monospace;
@@ -807,13 +909,16 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 <h1 class="font-display font-black text-4xl md:text-5xl lg:text-7xl leading-tight glow-text main-title fade-in-up" style="animation-delay: 0.2s;">
 JRP MOTORS<br><span class="gradient-text">DE JONAS RISSO PATRON</span>
 </h1>
-<!-- Logo centrado en el hero CON EFECTOS DE REFLEJO - MOVIDO HACIA ARRIBA -->
-<div class="fade-in-up flex justify-center" style="animation-delay: 0.25s; margin-top: -1rem;">
-<div class="relative">
-<img src="JRPLOGO.png" alt="JRP Motors Logo" class="hero-logo">
+
+<!-- LOGO CENTRADO CON EFECTO FUEGO - Contenedor centrado perfecto -->
+<div class="hero-logo-wrapper fade-in-up" style="animation-delay: 0.25s;">
+<div class="relative" style="display:inline-block;">
+<img src="JRPLOGO.png" alt="JRP Motors Logo" class="hero-logo" id="heroLogo">
 <div class="shine-effect"></div>
+<div class="fire-ring" id="fireRing"></div>
 </div>
 </div>
+
 <!-- DESCRIPCIÓN ACTUALIZADA -->
 <p class="text-gray-300/90 text-base md:text-lg max-w-3xl mx-auto description-text fade-in-up leading-relaxed" style="animation-delay: 0.3s;">
 En JRP Motors de Jonas Risso Patron, entendemos que tu auto es una inversión importante y tu seguridad es primordial. Somos un taller de reparación de automóviles con años de experiencia en Santiago del Estero, dedicados a brindarte un servicio de calidad, confiable y transparente. Nos especializamos en mantener tu vehículo en óptimas condiciones para que disfrutes de cada viaje con total tranquilidad.
@@ -1174,7 +1279,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <div>
 <select id="inputFuelType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
 <option value="" disabled selected>Tipo de combustible...</option>
-<optgroup label="🔋 ARRANQUE Y ENERGÍA" class="text-gray-300">
+<optgroup label=" ARRANQUE Y ENERGÍA" class="text-gray-300">
 <option value="Naftero">Naftero(Gasolina)</option>
 <option value="Diesel">Diesel</option>
 <option value="Híbrido">Híbrido</option>
@@ -1199,7 +1304,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <div>
 <select id="inputContext" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
 <option value="" disabled selected>Contexto de la falla...</option>
-<optgroup label="🔋 ARRANQUE Y ENERGÍA" class="text-gray-300">
+<optgroup label=" ARRANQUE Y ENERGÍA" class="text-gray-300">
 <option value="no_arranca_gira">Gira pero no arranca</option>
 <option value="no_arranca_nada">No da contacto</option>
 <option value="arranca_lento">Arranque lento o difícil</option>
@@ -1423,6 +1528,14 @@ clockMobile.textContent= timeString;
 updateClock();
 setInterval(updateClock, 1000);
 
+// EFECTO FUEGO - Se activa después de 5 segundos
+setTimeout(()=>{
+const fireRing= document.getElementById('fireRing');
+if(fireRing){
+fireRing.classList.add('active');
+}
+}, 5000);
+
 // Generar partículas decorativas
 function createParticles(){
 const container= document.getElementById('particles');
@@ -1600,10 +1713,10 @@ const message=`🚗 *¡Hola JRP MOTORS!* 👋
 ⛽ *Combustible:* ${fuelType}
 ⚠ *Síntomas reportados:*
 ${symptoms}
-🔍 *Contexto:* ${context}
-🔧 *Servicio solicitado:* ${service}
-📍 *Ubicación: Santiago del Estero*
-📅 *Solicito turno para diagnóstico profesional.* 💨`;
+ *Contexto:* ${context}
+ *Servicio solicitado:* ${service}
+ *Ubicación: Santiago del Estero*
+ *Solicito turno para diagnóstico profesional.* `;
 // URL de WhatsApp con el número formateado para Argentina
 const whatsappUrl=`https://api.whatsapp.com/send?phone=+543855814187&text=${encodeURIComponent(message)}`;
 setTimeout(()=>{
