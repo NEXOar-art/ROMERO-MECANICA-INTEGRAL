@@ -262,6 +262,9 @@ border-radius: 16px;
 transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 color:#fff;
 position: relative;
+width: 100%;
+-webkit-appearance: none;
+appearance: none;
 }
 .input-modern:focus{
 border-color:#FF6B35;
@@ -273,12 +276,13 @@ transform: translateY(-2px);
 .input-modern::placeholder{
 color: rgba(226, 232, 240, 0.5);
 }
+.input-modern option{
+background: #1A1A1A;
+color: #E2E8F0;
+padding: 0.5rem;
+}
 .input-valid{
 border-color:#FF6B35!important;
-background-image: url("image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23FF6B35'%3e%3cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3e%3c/svg%3e");
-background-repeat: no-repeat;
-background-position: right 1rem center;
-background-size: 1.3em;
 }
 .input-invalid{
 border-color:#EF4444!important;
@@ -299,6 +303,8 @@ position: relative;
 overflow: hidden;
 transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+border: none;
+cursor: pointer;
 }
 .btn-primary::before{
 content:'';
@@ -311,6 +317,7 @@ border-radius: 50%;
 background: rgba(255,255,255,0.3);
 transform: translate(-50%, -50%);
 transition: width 0.6s, height 0.6s;
+pointer-events: none;
 }
 .btn-primary:hover::before{
 width: 300px;
@@ -358,6 +365,8 @@ position: relative;
 overflow: hidden;
 transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+border: none;
+cursor: pointer;
 }
 .btn-review::after{
 content:'';
@@ -676,12 +685,14 @@ justify-content: center;
 align-items: center;
 width: fit-content;
 margin: 0 auto;
-padding: 0.5rem;
+padding: 0.75rem;
+position: relative;
+z-index: 10;
 }
 
 .hero-logo-inner{
 position: relative;
-display: inline-flex;
+display: flex;
 justify-content: center;
 align-items: center;
 }
@@ -701,7 +712,7 @@ height: 8rem;
 width: 8rem;
 }
 .hero-logo-wrapper{
-padding: 0.3rem;
+padding: 0.5rem;
 }
 }
 
@@ -832,6 +843,27 @@ animation: badge-pulse 2s ease-in-out infinite;
 @keyframes badge-pulse{
 0%, 100%{transform: scale(1);}
 50%{transform: scale(1.05);}
+}
+
+/* Select wrapper para flecha personalizada */
+.select-wrapper{
+position: relative;
+}
+.select-wrapper::after{
+content:'';
+position: absolute;
+right: 1rem;
+top: 50%;
+transform: translateY(-50%);
+width: 0;
+height: 0;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-top: 6px solid #FF6B35;
+pointer-events: none;
+}
+.select-wrapper select{
+padding-right: 2.5rem;
 }
 </style>
 </head>
@@ -1203,7 +1235,7 @@ Confianza construida sobre resultados verificables y atención profesional en Sa
 </p>
 </div>
 </section>
-<!-- SECCIÓN: FORMULARIO DE DIAGNÓSTICO-->
+<!-- SECCIÓN: FORMULARIO DE DIAGNÓSTICO - CORREGIDO Y FUNCIONAL -->
 <section id="diagnostico" class="py-16 md:py-24 bg-gradient-to-b from-primary-dark to-[#080808] relative overflow-hidden">
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(255,107,53,0.1),transparent_55%)]"></div>
 <div class="container mx-auto px-4 relative z-10">
@@ -1256,82 +1288,85 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 </div>
 </div>
-<!-- Formulario con labels debajo de los campos-->
+<!-- Formulario corregido -->
 <div class="lg:w-2/3 glass-card rounded-3xl shadow-card p-6 md:p-8 w-full card-shine">
-<form id="triageForm" class="space-y-7">
-<!-- Sección 1: Vehículo-->
-<div class="border-b border-white/10 pb-5">
-<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+<form id="triageForm" class="space-y-8" novalidate>
+<!-- Sección 1: Vehículo -->
+<div class="border-b border-white/10 pb-6">
+<h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
 <span>Datos del Vehículo</span>
 </h3>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-<div>
-<select id="inputVehicleType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
-<option value="" disabled selected>Tipo de vehículo...</option>
-<option value="Auto">Auto</option>
-<option value="Moto">Moto</option>
-<option value="Cuatriciclo">Cuatriciclo</option>
-</select>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Tipo de Vehículo -->
+<div class="select-wrapper">
 <label for="inputVehicleType" class="label-below"><span>Tipo de Vehículo</span></label>
-<i class="fa-solid fa-chevron-down absolute right-4 top-[6.4rem] md:top-[4.65rem] -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
-</div>
-<div>
-<input type="text" id="inputVehicle" placeholder="Marca y Modelo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
-<label for="inputVehicle" class="label-below"><span>Marca y Modelo</span></label>
-</div>
-<div>
-<input type="number" id="inputKm" placeholder="Kilometraje" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
-<label for="inputKm" class="label-below"><span>Kilometraje</span></label>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-<div>
-<select id="inputFuelType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
-<option value="" disabled selected>Tipo de combustible...</option>
-<optgroup label=" ARRANQUE Y ENERGÍA" class="text-gray-300">
-<option value="Naftero">Naftero(Gasolina)</option>
-<option value="Diesel">Diesel</option>
-<option value="Híbrido">Híbrido</option>
-<option value="Eléctrico">Eléctrico</option>
-</optgroup>
+<select id="inputVehicleType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm mt-1">
+<option value="" disabled selected>Seleccionar tipo...</option>
+<option value="Auto">🚗 Auto</option>
+<option value="Moto">🏍️ Moto</option>
+<option value="Cuatriciclo">🏎️ Cuatriciclo</option>
 </select>
+</div>
+<!-- Marca y Modelo -->
+<div>
+<label for="inputVehicle" class="label-below"><span>Marca y Modelo</span></label>
+<input type="text" id="inputVehicle" placeholder="Ej: Toyota Corolla 2020" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm mt-1">
+</div>
+<!-- Kilometraje -->
+<div>
+<label for="inputKm" class="label-below"><span>Kilometraje</span></label>
+<input type="number" id="inputKm" placeholder="Ej: 85000" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm mt-1">
+</div>
+</div>
+<!-- Combustible -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+<div class="select-wrapper">
 <label for="inputFuelType" class="label-below"><span>Combustible</span></label>
-<i class="fa-solid fa-chevron-down absolute right-4 top-[10.9rem] md:top-[4.65rem] -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
+<select id="inputFuelType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm mt-1">
+<option value="" disabled selected>Seleccionar...</option>
+<option value="Naftero">⛽ Nafta / Gasolina</option>
+<option value="Diesel">🛢️ Diesel</option>
+<option value="Híbrido">🔋 Híbrido</option>
+<option value="Eléctrico">⚡ Eléctrico</option>
+</select>
 </div>
 </div>
 </div>
-<!-- Sección 2: Síntomas-->
-<div class="border-b border-white/10 pb-5">
-<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+<!-- Sección 2: Síntomas -->
+<div class="border-b border-white/10 pb-6">
+<h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
 <span>Descripción de Fallas</span>
 </h3>
-<div class="mb-4">
-<textarea id="inputSymptoms" rows="3" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..." class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm resize-none"></textarea>
+<!-- Síntomas -->
+<div class="mb-5">
 <label for="inputSymptoms" class="label-below"><span>Síntomas</span></label>
+<textarea id="inputSymptoms" rows="4" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..." class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm resize-none mt-1"></textarea>
 </div>
-<div>
-<select id="inputContext" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
-<option value="" disabled selected>Contexto de la falla...</option>
-<optgroup label=" ARRANQUE Y ENERGÍA" class="text-gray-300">
+<!-- Contexto de la falla -->
+<div class="select-wrapper">
+<label for="inputContext" class="label-below"><span>Contexto de la falla</span></label>
+<select id="inputContext" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm mt-1">
+<option value="" disabled selected>Seleccionar contexto...</option>
+<optgroup label="🔋 ARRANQUE Y ENERGÍA" class="text-gray-300 font-bold">
 <option value="no_arranca_gira">Gira pero no arranca</option>
 <option value="no_arranca_nada">No da contacto</option>
 <option value="arranca_lento">Arranque lento o difícil</option>
 </optgroup>
-<optgroup label="⚙ RENDIMIENTO" class="text-gray-300 mt-2">
+<optgroup label="⚙️ RENDIMIENTO" class="text-gray-300 font-bold">
 <option value="falla_ralenti">Inestabilidad en ralentí</option>
 <option value="pierde_potencia">Pérdida de potencia</option>
 <option value="consumo_excesivo">Consumo excesivo de combustible</option>
-<option value="humo_escape">Humo en escape(color)</option>
+<option value="humo_escape">Humo en escape (color)</option>
 </optgroup>
-<optgroup label=" RUIDOS Y VIBRACIONES" class="text-gray-300 mt-2">
+<optgroup label="🔊 RUIDOS Y VIBRACIONES" class="text-gray-300 font-bold">
 <option value="ruido_frenar">Ruido al frenar</option>
 <option value="ruido_direccion">Ruido al girar dirección</option>
 <option value="vibracion_alta">Vibración en alta velocidad</option>
 <option value="ruido_motor">Ruido anormal en motor</option>
 </optgroup>
-<optgroup label=" TEMPERATURA Y FLUIDOS" class="text-gray-300 mt-2">
+<optgroup label="🌡️ TEMPERATURA Y FLUIDOS" class="text-gray-300 font-bold">
 <option value="levanta_temp">Se calienta el motor</option>
 <option value="perdida_fluido">Pérdida de fluido visible</option>
 </optgroup>
@@ -1339,61 +1374,60 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <option value="falla_caliente">Solo falla en caliente</option>
 <option value="falla_intermitente">Falla intermitente</option>
 </select>
-<label for="inputContext" class="label-below"><span>Contexto</span></label>
-<i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
 </div>
 </div>
 <!-- Sección 3: Servicio Integral -->
-<div class="border-b border-white/10 pb-5">
-<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+<div class="border-b border-white/10 pb-6">
+<h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
 <span>Servicio Integral</span>
 </h3>
-<div>
-<select id="inputService" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
-<option value="" disabled selected>Selecciona un servicio...</option>
-<option value="diagnostico">Diagnóstico Computarizado</option>
-<option value="mecanica_ligera">Mecánica Ligera</option>
-<option value="frenos">Sistema de Frenos</option>
-<option value="suspension">Suspensión</option>
-<option value="direccion">Dirección</option>
-<option value="climatizacion">Climatización</option>
-<option value="electricidad">Electricidad Automotriz</option>
-<option value="mecanica_integral">Mecánica Integral</option>
-<option value="repuesto">Repuesto</option>
-<option value="escaneo">Escaneo</option>
-<option value="alineacion">Alineación</option>
-<option value="balanceo">Balanceo</option>
-</select>
+<div class="select-wrapper">
 <label for="inputService" class="label-below"><span>Servicio Requerido</span></label>
-<i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
+<select id="inputService" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm mt-1">
+<option value="" disabled selected>Selecciona un servicio...</option>
+<option value="diagnostico">🔍 Diagnóstico Computarizado</option>
+<option value="mecanica_ligera">🔧 Mecánica Ligera</option>
+<option value="frenos">🛑 Sistema de Frenos</option>
+<option value="suspension">🔩 Suspensión</option>
+<option value="direccion">🔄 Dirección</option>
+<option value="climatizacion">❄️ Climatización</option>
+<option value="electricidad">⚡ Electricidad Automotriz</option>
+<option value="mecanica_integral">🛠️ Mecánica Integral</option>
+<option value="repuesto">📦 Repuesto</option>
+<option value="escaneo">💻 Escaneo</option>
+<option value="alineacion">🎯 Alineación</option>
+<option value="balanceo">⚖️ Balanceo</option>
+</select>
 </div>
 </div>
-<!-- Sección 4: Contacto-->
+<!-- Sección 4: Contacto -->
 <div>
-<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+<h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
+<span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
 <span>Datos de Contacto</span>
 </h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Nombre -->
 <div>
-<input type="text" id="inputName" placeholder="Tu nombre completo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
 <label for="inputName" class="label-below"><span>Nombre</span></label>
+<input type="text" id="inputName" placeholder="Tu nombre completo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm mt-1">
 </div>
+<!-- WhatsApp -->
 <div>
-<input type="tel" id="inputPhone" placeholder="WhatsApp para contacto" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
 <label for="inputPhone" class="label-below"><span>WhatsApp</span></label>
+<input type="tel" id="inputPhone" placeholder="Tu número de WhatsApp" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm mt-1">
 </div>
 </div>
-<p class="text-xs text-gray-500 mt-3 flex items-center gap-1.5">
+<p class="text-xs text-gray-500 mt-4 flex items-center gap-1.5">
 <i class="fa-solid fa-lock text-primary-orange"></i> <span>Tus datos se usarán únicamente para coordinar tu turno</span>
 </p>
 </div>
-<!-- Botón de envío-->
-<button type="submit" class="btn-primary w-full font-bold uppercase text-base py-4.5 rounded-2xl hover:shadow-neon transition flex items-center justify-center gap-3 mt-2">
+<!-- Botón de envío -->
+<button type="submit" id="submitBtn" class="btn-primary w-full font-bold uppercase text-base py-5 rounded-2xl hover:shadow-neon transition flex items-center justify-center gap-3 mt-4">
 <i class="fa-brands fa-whatsapp text-2xl"></i> <span>Enviar Solicitud a JRP MOTORS</span>
 </button>
-<p class="text-center text-xs text-gray-500 pt-2">
+<p class="text-center text-xs text-gray-500 pt-3">
 <span>Al enviar, aceptas nuestros</span> <a href="#" class="text-primary-orange hover:underline">términos de servicio</a>
 </p>
 </form>
@@ -1681,11 +1715,11 @@ function startCounters() {
     if (statsSection) observer.observe(statsSection);
 }
 
-// Validación de inputs (sin requerir campos obligatorios)
+// Validación de inputs
 const inputs= document.querySelectorAll('.input-modern');
 inputs.forEach(input=>{
 input.addEventListener('input', function(){
-if(this.value.trim().length>2){
+if(this.value.trim().length>0){
 this.classList.add('input-valid');
 this.classList.remove('input-invalid');
 } else{
@@ -1694,41 +1728,54 @@ this.classList.remove('input-valid','input-invalid');
 });
 });
 
-// Manejo del formulario (SIN CAMPOS OBLIGATORIOS)
-document.getElementById('triageForm')?.addEventListener('submit',(e)=>{
+// Manejo del formulario CORREGIDO
+document.getElementById('triageForm')?.addEventListener('submit',function(e){
 e.preventDefault();
-const btn= e.target.querySelector('button[type="submit"]');
+const btn= document.getElementById('submitBtn');
 const originalBtnContent= btn.innerHTML;
 btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Procesando solicitud...';
 btn.classList.add('opacity-80','cursor-not-allowed');
 btn.disabled= true;
-const vehicleType= document.getElementById('inputVehicleType').value||'No especificado';
-const vehicle= document.getElementById('inputVehicle').value||'No especificado';
-const km= document.getElementById('inputKm').value||'No especificado';
-const fuelType= document.getElementById('inputFuelType').value||'No especificado';
-const symptoms= document.getElementById('inputSymptoms').value||'No especificado';
-const contextSelect= document.getElementById('inputContext');
-const context= contextSelect.options[contextSelect.selectedIndex]?.text||'No especificado';
-const serviceSelect= document.getElementById('inputService');
-const service= serviceSelect.options[serviceSelect.selectedIndex]?.text||'No especificado';
-const name= document.getElementById('inputName').value||'Cliente';
-const phone= document.getElementById('inputPhone').value||'No proporcionado';
-// Mensaje para WhatsApp actualizado
-const message=`¡Hola JRP MOTORS! 
-Cliente: ${name}
- Contacto: ${phone}
- Tipo de Vehículo: ${vehicleType}
-Vehículo: ${vehicle}
- Kilometraje: ${km} km
- Combustible: ${fuelType}
- Síntomas reportados:
+
+// Obtener valores de todos los campos
+const vehicleTypeEl= document.getElementById('inputVehicleType');
+const vehicleType= vehicleTypeEl && vehicleTypeEl.value ? vehicleTypeEl.value : 'No especificado';
+
+const vehicle= document.getElementById('inputVehicle').value.trim() || 'No especificado';
+const km= document.getElementById('inputKm').value.trim() || 'No especificado';
+
+const fuelTypeEl= document.getElementById('inputFuelType');
+const fuelType= fuelTypeEl && fuelTypeEl.value ? fuelTypeEl.value : 'No especificado';
+
+const symptoms= document.getElementById('inputSymptoms').value.trim() || 'No especificado';
+
+const contextEl= document.getElementById('inputContext');
+const context= contextEl && contextEl.value ? contextEl.options[contextEl.selectedIndex].text : 'No especificado';
+
+const serviceEl= document.getElementById('inputService');
+const service= serviceEl && serviceEl.value ? serviceEl.options[serviceEl.selectedIndex].text : 'No especificado';
+
+const name= document.getElementById('inputName').value.trim() || 'Cliente';
+const phone= document.getElementById('inputPhone').value.trim() || 'No proporcionado';
+
+// Mensaje para WhatsApp
+const message=`🚗 *¡Hola JRP MOTORS!* 👋
+*Cliente:* ${name}
+📱 *Contacto:* ${phone}
+🚘 *Tipo de Vehículo:* ${vehicleType}
+🚙 *Vehículo:* ${vehicle}
+🛣 *Kilometraje:* ${km} km
+⛽ *Combustible:* ${fuelType}
+⚠️ *Síntomas reportados:*
 ${symptoms}
-Contexto: ${context}
- Servicio solicitado: ${service}
- Ubicación: Santiago del Estero
- Solicito turno para diagnóstico profesional. `;
+🔍 *Contexto:* ${context}
+🔧 *Servicio solicitado:* ${service}
+📍 *Ubicación: Santiago del Estero*
+📅 *Solicito turno para diagnóstico profesional.* 💨`;
+
 // URL de WhatsApp con el número formateado para Argentina
-const whatsappUrl=`https://api.whatsapp.com/send?phone=+543855814187&text=${encodeURIComponent(message)}`;
+const whatsappUrl=`https://api.whatsapp.com/send?phone=543855814187&text=${encodeURIComponent(message)}`;
+
 setTimeout(()=>{
 window.open(whatsappUrl,'_blank','noopener,noreferrer');
 btn.innerHTML='<i class="fa-solid fa-circle-check"></i> ¡Solicitud Enviada! ✅';
@@ -1737,7 +1784,7 @@ setTimeout(()=>{
 btn.innerHTML= originalBtnContent;
 btn.classList.remove('opacity-80','cursor-not-allowed','bg-green-600');
 btn.disabled= false;
-e.target.reset();
+document.getElementById('triageForm').reset();
 document.querySelectorAll('.input-modern').forEach(el=>{
 el.classList.remove('input-valid','input-invalid');
 });
