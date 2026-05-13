@@ -485,7 +485,7 @@ letter-spacing: 0.05em;
 color: #EF4444;
 margin-left: 2px;
 }
-/* Logo styles - ACTUALIZADO: CIRCULAR, CENTRADO Y CON EFECTOS DE REFLEJO */
+/* Logo styles - ACTUALIZADO: CIRCULAR Y MÁS VISIBLE */
 .navbar-logo{
 height: 70px;
 width: 70px;
@@ -494,29 +494,12 @@ border-radius: 50%;
 border: 3px solid #FF6B35;
 box-shadow: 0 0 25px rgba(255, 107, 53, 0.6), inset 0 0 20px rgba(255, 107, 53, 0.2);
 transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-position: relative;
-}
-.navbar-logo::before{
-content:'';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 50%;
-background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
-border-radius: 50% 50% 0 0;
-opacity: 0;
-transition: opacity 0.4s ease;
-pointer-events: none;
-}
-.navbar-logo:hover::before{
-opacity: 1;
 }
 .navbar-logo:hover{
 transform: scale(1.15) rotate(5deg);
 box-shadow: 0 0 40px rgba(255, 107, 53, 0.9), inset 0 0 30px rgba(255, 107, 53, 0.3);
 }
-/* Hero Logo - Grande, Circular, CENTRADO Y CON EFECTOS DE REFLEJO PREMIUM */
+/* Hero Logo - Grande y Circular CENTRADO MEJORADO */
 .hero-logo{
 height: 12rem;
 width: 12rem;
@@ -524,12 +507,11 @@ object-fit: cover;
 border-radius: 50%;
 border: 6px solid #FF6B35;
 box-shadow: 0 0 60px rgba(255, 107, 53, 0.7), 0 0 100px rgba(255, 107, 53, 0.4), inset 0 0 40px rgba(255, 107, 53, 0.2);
-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 animation: pulse-glow 4s ease-in-out infinite;
 display: block;
 margin: 0 auto;
 position: relative;
-overflow: hidden;
 }
 .hero-logo::before{
 content:'';
@@ -538,50 +520,14 @@ inset: -10px;
 border-radius: 50%;
 border: 2px solid rgba(255, 107, 53, 0.3);
 animation: rotate 10s linear infinite;
-pointer-events: none;
-}
-/* Efecto de reflejo/brillo superior */
-.hero-logo::after{
-content:'';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 55%;
-background: linear-gradient(180deg, 
-  rgba(255,255,255,0.4) 0%, 
-  rgba(255,255,255,0.2) 25%, 
-  rgba(255,255,255,0.05) 50%, 
-  transparent 100%);
-border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
-opacity: 0.7;
-pointer-events: none;
-}
-/* Brillo animado en hover */
-.hero-logo .shine-effect{
-position: absolute;
-top: 0;
-left: -100%;
-width: 100%;
-height: 100%;
-background: linear-gradient(90deg, 
-  transparent 0%, 
-  rgba(255,255,255,0.4) 50%, 
-  transparent 100%);
-transition: left 0.8s ease;
-pointer-events: none;
-}
-.hero-logo:hover .shine-effect{
-left: 100%;
-}
-.hero-logo:hover{
-transform: scale(1.1) rotate(2deg);
-box-shadow: 0 0 100px rgba(255, 107, 53, 0.9), 0 0 150px rgba(255, 107, 53, 0.6), inset 0 0 60px rgba(255, 107, 53, 0.4);
-border-color: #FF8C42;
 }
 @keyframes rotate{
 from{transform: rotate(0deg);}
 to{transform: rotate(360deg);}
+}
+.hero-logo:hover{
+transform: scale(1.08);
+box-shadow: 0 0 80px rgba(255, 107, 53, 0.9), 0 0 120px rgba(255, 107, 53, 0.5), inset 0 0 50px rgba(255, 107, 53, 0.3);
 }
 @media(max-width: 768px){
 .navbar-logo{
@@ -759,12 +705,9 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 <h1 class="font-display font-black text-4xl md:text-5xl lg:text-7xl leading-tight glow-text main-title fade-in-up" style="animation-delay: 0.2s;">
 JRP MOTORS<br><span class="gradient-text">DE JONAS RISSO PATRON</span>
 </h1>
-<!-- Logo centrado en el hero CON EFECTOS DE REFLEJO -->
+<!-- Logo centrado en el hero -->
 <div class="fade-in-up flex justify-center" style="animation-delay: 0.25s;">
-<div class="relative">
 <img src="JRPLOGO.png" alt="JRP Motors Logo" class="hero-logo">
-<div class="shine-effect"></div>
-</div>
 </div>
 <!-- DESCRIPCIÓN ACTUALIZADA -->
 <p class="text-gray-300/90 text-base md:text-lg max-w-3xl mx-auto description-text fade-in-up leading-relaxed" style="animation-delay: 0.3s;">
@@ -1284,8 +1227,8 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-regular fa-clock text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
 <p class="font-medium">Horarios de atención:</p>
-<p>Lunes a Viernes: 08:30 - 16:30</p>
-<p>Sábados: 08:30 - 13:00</p>
+<p>Lunes a Viernes: 08:00 - 13:00 / 16:30 - 20:00</p>
+<p>Sábados: Consultar por WhatsApp</p>
 <p>Domingos: Cerrado</p>
 </div>
 </div>
@@ -1378,25 +1321,20 @@ const day= now.getDay(); // 0= Domingo, 1= Lunes,..., 6= Sábado
 
 const currentMinutes= hours*60+ minutes;
 
-// HORARIOS ACTUALIZADOS:
-// Lunes a Viernes: 08:30 - 16:30
-// Sábado: 08:30 - 13:00
-// Domingo: Cerrado
-const morningOpen=8*60+30;   // 510 minutos (08:30)
-const weekdayClose=16*60+30; // 990 minutos (16:30)
-const saturdayClose=13*60;    // 780 minutos (13:00)
+// HORARIOS: Lunes a Viernes 08:00 - 13:00 / 16:30 - 20:00
+const morningOpen=8*60;     // 480 minutos (08:00)
+const morningClose=13*60;   // 780 minutos (13:00)
+const afternoonOpen=16*60+30;   // 990 minutos (16:30)
+const afternoonClose=20*60;     // 1200 minutos (20:00)
 
 let isOpen= false;
 
-// Lunes a Viernes (1-5): 08:30 - 16:30
+// Lunes a Viernes (1-5): Turno mañana y tarde
 if(day>=1 && day<=5){
-isOpen= currentMinutes>=morningOpen && currentMinutes<weekdayClose;
+isOpen= (currentMinutes>=morningOpen && currentMinutes<morningClose) ||
+(currentMinutes>=afternoonOpen && currentMinutes<afternoonClose);
 }
-// Sábado (6): 08:30 - 13:00
-else if(day===6){
-isOpen= currentMinutes>=morningOpen && currentMinutes<saturdayClose;
-}
-// Domingo (0): Cerrado
+// Sábado (6) y Domingo (0): Cerrado
 else{
 isOpen= false;
 }
@@ -1422,27 +1360,27 @@ textDesktop.className='text-gray-400';
 
 // Mostrar próximo horario de apertura
 let nextOpen='';
-if(day===0){ // Domingo: abre Lunes 08:30
-nextOpen='Abre Lunes 08:30';
+if(day===0){ // Domingo: abre Lunes 08:00
+nextOpen='Abre Lunes 08:00';
 } else if(day===6){ // Sábado: cerrado, abre Lunes
-if(currentMinutes<saturdayClose){
-nextOpen='Cierra 13:00';
-}else{
-nextOpen='Abre Lunes 08:30';
-}
+nextOpen='Abre Lunes 08:00';
 } else if(day===5){ // Viernes
-if(currentMinutes>=weekdayClose){
-nextOpen='Abre Lunes 08:30';
+if(currentMinutes>=afternoonClose){
+nextOpen='Abre Lunes 08:00';
+} else if(currentMinutes>=morningClose && currentMinutes<afternoonOpen){
+nextOpen='Abre 16:30';
 } else{
-nextOpen='Cierra 16:30';
+nextOpen='Cierra 20:00';
 }
 } else{ // Lunes a Jueves (1-4)
-if(currentMinutes>=weekdayClose){
-nextOpen='Abre mañana 08:30';
+if(currentMinutes>=afternoonClose){
+nextOpen='Abre mañana 08:00';
+} else if(currentMinutes>=morningClose && currentMinutes<afternoonOpen){
+nextOpen='Abre 16:30';
 } else if(currentMinutes<morningOpen){
-nextOpen='Abre hoy 08:30';
+nextOpen='Abre hoy 08:00';
 } else{
-nextOpen='Cierra 16:30';
+nextOpen='Cierra 20:00';
 }
 }
 barMobile.textContent=`🔴 Cerrado - ${nextOpen}`;
