@@ -1240,7 +1240,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-regular fa-clock text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
 <p class="font-medium">Horarios de atención:</p>
-<p>Lunes a Viernes: 08:30 - 16:30</p>
+<p>Lunes a Viernes: 08:00 - 20:00 hs</p>
 <p>Sábados: 08:30 - 13:00</p>
 <p>Domingos: Cerrado</p>
 </div>
@@ -1342,34 +1342,45 @@ createParticles();
 
 // ========== ESTADO DEL NEGOCIO ==========
 function checkStatus(){
-const now = new Date();
-const hours = now.getHours();
-const minutes = now.getMinutes();
-const day = now.getDay();
-const currentMinutes = hours * 60 + minutes;
-const morningOpen = 8*60+30;
-const weekdayClose = 16*60+30;
-const saturdayClose = 13*60;
-let isOpen = false;
-if(day >= 1 && day <= 5){
-isOpen = currentMinutes >= morningOpen && currentMinutes < weekdayClose;
-} else if(day === 6){
-isOpen = currentMinutes >= morningOpen && currentMinutes < saturdayClose;
-}
-const dotDesktop = document.getElementById('status-dot-desktop');
-const textDesktop = document.getElementById('status-text-desktop');
-const barMobile = document.getElementById('status-bar-mobile');
-if(isOpen){
-dotDesktop.className = 'status-dot w-2 h-2 rounded-full mr-2.5 bg-primary-orange';
-textDesktop.textContent = 'Abierto Ahora';
-textDesktop.className = 'text-primary-orange font-semibold';
-barMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-white bg-gradient-to-r from-primary-orange/20 to-orange-700/20 flex items-center justify-center gap-2';
-} else {
-dotDesktop.className = 'w-2 h-2 rounded-full mr-2.5 bg-gray-500';
-textDesktop.textContent = 'Cerrado';
-textDesktop.className = 'text-gray-400';
-barMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-gray-300 bg-gray-900/80 flex items-center justify-center gap-2';
-}
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const day = now.getDay(); // 0=Domingo, 1=Lunes, ..., 6=Sábado
+    const currentMinutes = hours * 60 + minutes;
+    
+    // HORARIOS CORREGIDOS SEGÚN SOLICITUD:
+    const weekdayOpen = 8 * 60;        // Lunes a Viernes: 08:00 hs
+    const weekdayClose = 20 * 60;      // Lunes a Viernes: 20:00 hs
+    const saturdayOpen = 8 * 60 + 30;  // Sábados: 08:30 hs
+    const saturdayClose = 13 * 60;     // Sábados: 13:00 hs
+    
+    let isOpen = false;
+    
+    // Lunes a Viernes (1-5)
+    if(day >= 1 && day <= 5){
+        isOpen = currentMinutes >= weekdayOpen && currentMinutes < weekdayClose;
+    } 
+    // Sábado (6)
+    else if(day === 6){
+        isOpen = currentMinutes >= saturdayOpen && currentMinutes < saturdayClose;
+    }
+    // Domingo (0): siempre cerrado
+    
+    const dotDesktop = document.getElementById('status-dot-desktop');
+    const textDesktop = document.getElementById('status-text-desktop');
+    const barMobile = document.getElementById('status-bar-mobile');
+    
+    if(isOpen){
+        dotDesktop.className = 'status-dot w-2 h-2 rounded-full mr-2.5 bg-primary-orange';
+        textDesktop.textContent = 'Abierto Ahora';
+        textDesktop.className = 'text-primary-orange font-semibold';
+        barMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-white bg-gradient-to-r from-primary-orange/20 to-orange-700/20 flex items-center justify-center gap-2';
+    } else {
+        dotDesktop.className = 'w-2 h-2 rounded-full mr-2.5 bg-gray-500';
+        textDesktop.textContent = 'Cerrado';
+        textDesktop.className = 'text-gray-400';
+        barMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase tracking-wide text-gray-300 bg-gray-900/80 flex items-center justify-center gap-2';
+    }
 }
 checkStatus();
 setInterval(checkStatus, 60000);
