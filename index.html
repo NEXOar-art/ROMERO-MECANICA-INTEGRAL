@@ -58,7 +58,7 @@ animation:{
 'pulse-slow':'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 'shimmer':'shimmer 2s linear infinite',
 'gradient':'gradient 8s ease infinite',
-'scroll-banner':'scroll-banner 70s linear infinite',
+'scroll-banner':'scroll-banner 35s linear infinite',
 },
 keyframes:{
 float:{
@@ -665,7 +665,7 @@ min-height: 80px;
 border-color: rgba(255, 107, 53, 0.5);
 }
 
-/* ✅ Banner superior estilo Market Data Feeds - SCROLL DERECHA A IZQUIERDA */
+/* ✅ Banner superior estilo Wall Street - SCROLL AUTOMÁTICO VISIBLE AL CARGAR */
 .top-banner{
 position: fixed;
 top: 0;
@@ -684,8 +684,9 @@ box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
 display: flex;
 align-items: center;
 white-space: nowrap;
-animation: scroll-banner 70s linear infinite;
-/* ✅ Animación optimizada: se mueve de derecha a izquierda automáticamente */
+animation: scroll-banner 35s linear infinite;
+/* ✅ Sin padding-left: ahora el contenido comienza visible inmediatamente */
+min-width: max-content;
 }
 .banner-item{
 display: inline-flex;
@@ -725,9 +726,10 @@ font-weight: 700;
 </head>
 <body class="antialiased relative">
 
-<!-- ✅ Banner superior estilo Market Data Feeds - SCROLL AUTOMÁTICO DERECHA → IZQUIERDA -->
+<!-- ✅ Banner superior estilo Wall Street - SCROLL AUTOMÁTICO AL CARGAR -->
 <div class="top-banner">
 <div class="banner-track">
+<!-- === CONJUNTO 1: Contenido original === -->
 <!-- Mensaje 1 -->
 <span class="banner-item">
 <i class="fa-solid fa-droplet"></i>
@@ -771,7 +773,7 @@ font-weight: 700;
 </span>
 <!-- Separador -->
 <span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<!-- === DUPLICADO PARA LOOP INFINITO SUAVE === -->
+<!-- === CONJUNTO 2: Duplicado exacto para loop infinito perfecto === -->
 <span class="banner-item">
 <i class="fa-solid fa-droplet"></i>
 <span>LIMPIEZA DE INYECTORES CADA 6 MESES</span>
