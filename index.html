@@ -58,7 +58,7 @@ animation:{
 'pulse-slow':'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 'shimmer':'shimmer 2s linear infinite',
 'gradient':'gradient 8s ease infinite',
-'scroll-banner':'scroll-banner 60s linear infinite',
+'scroll-banner':'scroll-banner 70s linear infinite',
 },
 keyframes:{
 float:{
@@ -684,14 +684,14 @@ box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
 display: flex;
 align-items: center;
 white-space: nowrap;
-animation: scroll-banner 60s linear infinite;
+animation: scroll-banner 70s linear infinite;
 padding-left: 100%;
 }
 .banner-item{
 display: inline-flex;
 align-items: center;
 gap: 0.5rem;
-padding: 0 2rem;
+padding: 0 1.5rem;
 color: #E2E8F0;
 font-size: 0.85rem;
 font-weight: 500;
@@ -704,7 +704,7 @@ animation: pulse-icon 2s ease-in-out infinite;
 .banner-separator{
 color: #FF6B35;
 font-weight: 700;
-margin: 0 0.5rem;
+margin: 0 0.3rem;
 }
 .banner-cta{
 background: var(--gradient-primary);
@@ -718,7 +718,7 @@ font-weight: 700;
 }
 @media(max-width: 640px){
 .top-banner{height: 40px;}
-.banner-item{font-size: 0.75rem; padding: 0 1.5rem;}
+.banner-item{font-size: 0.75rem; padding: 0 1rem;}
 .banner-item i{font-size: 0.8rem;}
 }
 </style>
@@ -736,76 +736,72 @@ font-weight: 700;
 <span>MOTOR MAS EFICIENTE</span>
 </span>
 <!-- Separador -->
-<span class="banner-item"><i class="fa-solid fa-circle-dot text-primary-orange"></i></span>
+<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
 <!-- Mensaje 2 -->
 <span class="banner-item">
 <i class="fa-solid fa-oil-can"></i>
-<span>ACEITE DE CALIDAD CADA 10.000 KM</span>
+<span>ACEITE DE CALIDAD CADA 6 KM</span>
 <span class="banner-separator">=</span>
-<span>VIDA ÚTIL PROLONGADA</span>
+<span>VIDA UTIL Y PROLONGADA</span>
 </span>
 <!-- Separador -->
-<span class="banner-item"><i class="fa-solid fa-circle-dot text-primary-orange"></i></span>
+<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
 <!-- Mensaje 3 -->
 <span class="banner-item">
 <i class="fa-solid fa-gas-pump"></i>
 <span>USAR NAFTA PREMIUM</span>
 <span class="banner-separator">=</span>
-<span>MÁS POTENCIA, MENOS DESGASTE</span>
+<span>MAS POTENCIA MENOS DESGASTE</span>
 </span>
 <!-- Separador -->
-<span class="banner-item"><i class="fa-solid fa-circle-dot text-primary-orange"></i></span>
+<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
 <!-- Mensaje 4 -->
 <span class="banner-item">
 <i class="fa-solid fa-heart-pulse"></i>
-<span>TRES SIMPLES HÁBITOS</span>
+<span>TRES SIMPLE HABITOS</span>
 <span class="banner-separator">=</span>
-<span>MENOS CONSUMO, MENOS FALLAS, MÁS AÑOS DE MOTOR</span>
+<span>MENOS CONSUMO MENOS FALLAS MAS AÑOS DE MOTOR</span>
 </span>
 <!-- Separador -->
-<span class="banner-item"><i class="fa-solid fa-circle-dot text-primary-orange"></i></span>
+<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
 <!-- CTA Final -->
 <span class="banner-item banner-cta">
 <i class="fa-brands fa-whatsapp"></i>
-<span>¡SACA UN TURNO! NO LO DEJES PASAR</span>
-<span class="banner-separator">→</span>
-<span dir="ltr">+598 98 680 159</span>
+<span>SACA UN TURNO NO LO DEJES PASAR WHATSAPP +59898680159</span>
 </span>
 <!-- Duplicado para loop infinito -->
-<span class="banner-item"><i class="fa-solid fa-circle-dot text-primary-orange"></i></span>
+<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
 <span class="banner-item">
 <i class="fa-solid fa-droplet"></i>
 <span>LIMPIEZA DE INYECTORES CADA 6 MESES</span>
 <span class="banner-separator">=</span>
 <span>MOTOR MAS EFICIENTE</span>
 </span>
-<span class="banner-item"><i class="fa-solid fa-circle-dot text-primary-orange"></i></span>
+<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
 <span class="banner-item">
 <i class="fa-solid fa-oil-can"></i>
-<span>ACEITE DE CALIDAD CADA 10.000 KM</span>
+<span>ACEITE DE CALIDAD CADA 6 KM</span>
 <span class="banner-separator">=</span>
-<span>VIDA ÚTIL PROLONGADA</span>
+<span>VIDA UTIL Y PROLONGADA</span>
 </span>
-<span class="banner-item"><i class="fa-solid fa-circle-dot text-primary-orange"></i></span>
+<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
 <span class="banner-item">
 <i class="fa-solid fa-gas-pump"></i>
 <span>USAR NAFTA PREMIUM</span>
 <span class="banner-separator">=</span>
-<span>MÁS POTENCIA, MENOS DESGASTE</span>
+<span>MAS POTENCIA MENOS DESGASTE</span>
 </span>
-<span class="banner-item"><i class="fa-solid fa-circle-dot text-primary-orange"></i></span>
+<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
 <span class="banner-item">
 <i class="fa-solid fa-heart-pulse"></i>
-<span>TRES SIMPLES HÁBITOS</span>
+<span>TRES SIMPLE HABITOS</span>
 <span class="banner-separator">=</span>
-<span>MENOS CONSUMO, MENOS FALLAS, MÁS AÑOS DE MOTOR</span>
+<span>MENOS CONSUMO MENOS FALLAS MAS AÑOS DE MOTOR</span>
 </span>
-<span class="banner-item"><i class="fa-solid fa-circle-dot text-primary-orange"></i></span>
+<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
 <span class="banner-item banner-cta">
 <i class="fa-brands fa-whatsapp"></i>
-<span>¡SACA UN TURNO! NO LO DEJES PASAR</span>
-<span class="banner-separator">→</span>
-<span dir="ltr">+598 98 680 159</span>
+<span>SACA UN TURNO NO LO DEJES PASAR WHATSAPP +59898680159</span>
 </span>
 </div>
 </div>
@@ -1012,7 +1008,7 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 </div>
 </section>
 
-<!-- SECCIÓN: SERVICIOS INTEGRALES (MODIFICADO - SIN ESCANEO PROFESIONAL) -->
+<!-- SECCIÓN: SERVICIOS INTEGRALES (MODIFICADO - SIN MECÁNICA LIGERA) -->
 <section class="py-16 md:py-24 bg-primary-dark relative">
 <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 10% 20%, rgba(255,107,53, 0.08) 0%, transparent 25%), radial-gradient(circle at 90% 80%, rgba(247,147,30, 0.08) 0%, transparent 25%)"></div>
 <div class="container mx-auto px-4 relative z-10">
@@ -1032,13 +1028,6 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Diagnóstico Computarizado</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Escaneo avanzado de ECU, sensores y sistemas electrónicos con equipos de última generación.</p>
-</div>
-<div class="glass-card p-6 md:p-7 group">
-<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-<i class="fa-solid fa-oil-can text-2xl md:text-3xl text-primary-orange"></i>
-</div>
-<h3 class="font-bold text-xl text-white mb-2.5">Mecánica Ligera</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Cambios de aceite, filtros, bujías y services programados con repuestos de calidad certificada.</p>
 </div>
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
@@ -1068,7 +1057,7 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 <h3 class="font-bold text-xl text-white mb-2.5">Mecánica Integral</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Reparaciones completas de motor, transmisión y sistemas mecánicos con garantía de calidad.</p>
 </div>
-<!-- NUEVA TARJETA: CAJA DE CAMBIO -->
+<!-- TARJETA: CAJA DE CAMBIO -->
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-gears text-2xl md:text-3xl text-primary-orange"></i>
@@ -1299,7 +1288,6 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <select id="inputService" class="field-input">
 <option value="" disabled selected>Selecciona un servicio...</option>
 <option value="diagnostico">🔍 Diagnóstico Computarizado</option>
-<option value="mecanica_ligera">🔧 Mecánica Ligera</option>
 <option value="frenos">🛑 Sistema de Frenos</option>
 <option value="suspension">🔩 Suspensión</option>
 <option value="direccion">🔄 Dirección</option>
@@ -1694,7 +1682,7 @@ if(targetId === '#') return;
 const targetElement = document.querySelector(targetId);
 if(targetElement){
 window.scrollTo({
-top: targetElement.offsetTop - 120, // Ajustado para considerar el banner superior
+top: targetElement.offsetTop - 120,
 behavior: 'smooth'
 });
 }
