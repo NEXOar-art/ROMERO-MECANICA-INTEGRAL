@@ -74,8 +74,8 @@ gradient:{
 '50%':{backgroundPosition:'100% 50%'},
 },
 'scroll-banner':{
-'0%':{transform:'translateX(100%)'},
-'100%':{transform:'translateX(-100%)'}
+'0%':{transform:'translateX(0)'},
+'100%':{transform:'translateX(-50%)'}
 }
 }
 }
@@ -665,7 +665,7 @@ min-height: 80px;
 border-color: rgba(255, 107, 53, 0.5);
 }
 
-/* Banner superior estilo Market Data Feeds */
+/* ✅ Banner superior estilo Market Data Feeds - SCROLL DERECHA A IZQUIERDA */
 .top-banner{
 position: fixed;
 top: 0;
@@ -685,7 +685,7 @@ display: flex;
 align-items: center;
 white-space: nowrap;
 animation: scroll-banner 70s linear infinite;
-padding-left: 100%;
+/* ✅ Animación optimizada: se mueve de derecha a izquierda automáticamente */
 }
 .banner-item{
 display: inline-flex;
@@ -725,7 +725,7 @@ font-weight: 700;
 </head>
 <body class="antialiased relative">
 
-<!-- Banner superior estilo Market Data Feeds -->
+<!-- ✅ Banner superior estilo Market Data Feeds - SCROLL AUTOMÁTICO DERECHA → IZQUIERDA -->
 <div class="top-banner">
 <div class="banner-track">
 <!-- Mensaje 1 -->
@@ -769,8 +769,9 @@ font-weight: 700;
 <i class="fa-brands fa-whatsapp"></i>
 <span>SACA UN TURNO NO LO DEJES PASAR WHATSAPP +59898680159</span>
 </span>
-<!-- Duplicado para loop infinito -->
+<!-- Separador -->
 <span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
+<!-- === DUPLICADO PARA LOOP INFINITO SUAVE === -->
 <span class="banner-item">
 <i class="fa-solid fa-droplet"></i>
 <span>LIMPIEZA DE INYECTORES CADA 6 MESES</span>
