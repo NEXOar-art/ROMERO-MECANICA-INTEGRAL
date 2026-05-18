@@ -665,155 +665,65 @@ min-height: 80px;
 border-color: rgba(255, 107, 53, 0.5);
 }
 
-/* ✅ Banner superior estilo Wall Street - SCROLL AUTOMÁTICO VISIBLE AL CARGAR */
-.top-banner{
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(26,26,26,0.95) 100%);
-border-bottom: 2px solid #FF6B35;
-z-index: 100;
-overflow: hidden;
-height: 44px;
-display: flex;
-align-items: center;
-box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+/* ✅ Banner Automático Taller - EJEMPLO PROPORCIONADO */
+.banner {
+  width: 100%;
+  background: #111;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  border-top: 3px solid #FF6B35;
+  border-bottom: 3px solid #FF6B35;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
-.banner-track{
-display: flex;
-align-items: center;
-white-space: nowrap;
-animation: scroll-banner 35s linear infinite;
-/* ✅ Sin padding-left: ahora el contenido comienza visible inmediatamente */
-min-width: max-content;
+.banner-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-banner 25s linear infinite;
 }
-.banner-item{
-display: inline-flex;
-align-items: center;
-gap: 0.5rem;
-padding: 0 1.5rem;
-color: #E2E8F0;
-font-size: 0.85rem;
-font-weight: 500;
+.banner-track span {
+  margin: 0 50px;
 }
-.banner-item i{
-color: #FF6B35;
-font-size: 0.9rem;
-animation: pulse-icon 2s ease-in-out infinite;
-}
-.banner-separator{
-color: #FF6B35;
-font-weight: 700;
-margin: 0 0.3rem;
-}
-.banner-cta{
-background: var(--gradient-primary);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-font-weight: 700;
-}
-@keyframes pulse-icon{
-0%, 100%{transform: scale(1);}
-50%{transform: scale(1.2);}
+@keyframes scroll-banner {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 @media(max-width: 640px){
-.top-banner{height: 40px;}
-.banner-item{font-size: 0.75rem; padding: 0 1rem;}
-.banner-item i{font-size: 0.8rem;}
+  .banner { font-size: 0.9em; padding: 8px 0; }
+  .banner-track span { margin: 0 25px; }
 }
 </style>
 </head>
 <body class="antialiased relative">
 
-<!-- ✅ Banner superior estilo Wall Street - SCROLL AUTOMÁTICO AL CARGAR -->
-<div class="top-banner">
-<div class="banner-track">
-<!-- === CONJUNTO 1: Contenido original === -->
-<!-- Mensaje 1 -->
-<span class="banner-item">
-<i class="fa-solid fa-droplet"></i>
-<span>LIMPIEZA DE INYECTORES CADA 6 MESES</span>
-<span class="banner-separator">=</span>
-<span>MOTOR MAS EFICIENTE</span>
-</span>
-<!-- Separador -->
-<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<!-- Mensaje 2 -->
-<span class="banner-item">
-<i class="fa-solid fa-oil-can"></i>
-<span>ACEITE DE CALIDAD CADA 6.000 KM</span>
-<span class="banner-separator">=</span>
-<span>VIDA UTIL Y PROLONGADA</span>
-</span>
-<!-- Separador -->
-<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<!-- Mensaje 3 -->
-<span class="banner-item">
-<i class="fa-solid fa-gas-pump"></i>
-<span>USAR NAFTA PREMIUM</span>
-<span class="banner-separator">=</span>
-<span>MAS POTENCIA MENOS DESGASTE</span>
-</span>
-<!-- Separador -->
-<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<!-- Mensaje 4 -->
-<span class="banner-item">
-<i class="fa-solid fa-heart-pulse"></i>
-<span>TRES SIMPLE HABITOS</span>
-<span class="banner-separator">=</span>
-<span>MENOS CONSUMO MENOS FALLAS MAS AÑOS DE MOTOR</span>
-</span>
-<!-- Separador -->
-<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<!-- CTA Final -->
-<span class="banner-item banner-cta">
-<i class="fa-brands fa-whatsapp"></i>
-<span>SACA UN TURNO NO LO DEJES PASAR WHATSAPP +59898680159</span>
-</span>
-<!-- Separador -->
-<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<!-- === CONJUNTO 2: Duplicado exacto para loop infinito perfecto === -->
-<span class="banner-item">
-<i class="fa-solid fa-droplet"></i>
-<span>LIMPIEZA DE INYECTORES CADA 6 MESES</span>
-<span class="banner-separator">=</span>
-<span>MOTOR MAS EFICIENTE</span>
-</span>
-<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<span class="banner-item">
-<i class="fa-solid fa-oil-can"></i>
-<span>ACEITE DE CALIDAD CADA 6.000 KM</span>
-<span class="banner-separator">=</span>
-<span>VIDA UTIL Y PROLONGADA</span>
-</span>
-<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<span class="banner-item">
-<i class="fa-solid fa-gas-pump"></i>
-<span>USAR NAFTA PREMIUM</span>
-<span class="banner-separator">=</span>
-<span>MAS POTENCIA MENOS DESGASTE</span>
-</span>
-<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<span class="banner-item">
-<i class="fa-solid fa-heart-pulse"></i>
-<span>TRES SIMPLE HABITOS</span>
-<span class="banner-separator">=</span>
-<span>MENOS CONSUMO MENOS FALLAS MAS AÑOS DE MOTOR</span>
-</span>
-<span class="banner-item"><i class="fa-solid fa-chevron-right text-primary-orange"></i></span>
-<span class="banner-item banner-cta">
-<i class="fa-brands fa-whatsapp"></i>
-<span>SACA UN TURNO NO LO DEJES PASAR WHATSAPP +59898680159</span>
-</span>
-</div>
+<!-- ✅ Banner Automático Taller - EJEMPLO PROPORCIONADO -->
+<div class="banner">
+  <div class="banner-track">
+    <span>🧼 Limpieza de inyectores cada 6 meses = motor más eficiente</span>
+    <span>🛢️ Aceite de calidad cada 10.000 km = vida útil prolongada</span>
+    <span>⛽ Usar nafta premium = más potencia, menos desgaste</span>
+    <span>✅ Tres simples hábitos = menos consumo, menos fallas, más años de motor</span>
+    <span>📲 ¡Sacá un turno, no lo dejes pasar! WhatsApp +59898680159</span>
+    <!-- Duplicado para loop continuo -->
+    <span>🧼 Limpieza de inyectores cada 6 meses = motor más eficiente</span>
+    <span>🛢️ Aceite de calidad cada 10.000 km = vida útil prolongada</span>
+    <span>⛽ Usar nafta premium = más potencia, menos desgaste</span>
+    <span>✅ Tres simples hábitos = menos consumo, menos fallas, más años de motor</span>
+    <span>📲 ¡Sacá un turno, no lo dejes pasar! WhatsApp +59898680159</span>
+  </div>
 </div>
 
 <!-- Partículas decorativas de fondo-->
 <div class="particles" id="particles"></div>
 
 <!-- NAVBAR (ajustado para no superponerse con el banner) -->
-<nav class="fixed w-full z-50 top-11 glass border-b border-white/10 transition-all duration-300" id="navbar">
+<nav class="fixed w-full z-50 top-[48px] md:top-[46px] glass border-b border-white/10 transition-all duration-300" id="navbar">
 <div class="container mx-auto px-4 h-16 md:h-20 flex items-center relative">
 <a href="#" class="flex items-center md:absolute md:left-4 md:translate-x-0">
 <img src="LOGOROMERO.png" alt="Romero Mecánica Integral Logo" class="navbar-logo">
@@ -870,7 +780,7 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 </div>
 
 <!-- HERO SECTION (ajustado padding-top para no superponerse con banner) -->
-<header class="relative pt-28 pb-20 md:pt-36 md:pb-32 lg:pt-44 lg:pb-40 min-h-screen flex items-center overflow-hidden">
+<header class="relative pt-32 md:pt-40 pb-20 md:pt-44 md:pb-32 lg:pt-48 lg:pb-40 min-h-screen flex items-center overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-primary-dark via-[#0D0D0D] to-[#0A0A0A]">
 <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 20% 35%, rgba(255,107,53, 0.2) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(247,147,30, 0.15) 0%, transparent 45%)"></div>
 </div>
@@ -1453,7 +1363,6 @@ setTimeout(function(){
 const fireRing = document.getElementById('fireRing');
 if(fireRing){
 fireRing.classList.add('active');
-// Comenzar desvanecimiento gradual segundo a segundo después de activar
 setTimeout(function(){
 fireRing.classList.add('fading');
 }, 0);
@@ -1476,31 +1385,26 @@ container.appendChild(particle);
 }
 createParticles();
 
-// ========== ESTADO DEL NEGOCIO - HORARIOS NUEVOS ==========
+// ========== ESTADO DEL NEGOCIO ==========
 function checkStatus(){
     const now = new Date();
     const hours = now.getHours();
     const minutes = now.getMinutes();
-    const day = now.getDay(); // 0=Domingo, 1=Lunes, ..., 6=Sábado
+    const day = now.getDay();
     const currentMinutes = hours * 60 + minutes;
     
-    // HORARIOS NUEVOS: Lunes a Viernes 08:00-12:00 y 14:00-18:00
-    const weekdayMorningOpen = 8 * 60;        // 08:00
-    const weekdayMorningClose = 12 * 60;      // 12:00
-    const weekdayAfternoonOpen = 14 * 60;     // 14:00
-    const weekdayAfternoonClose = 18 * 60;    // 18:00
+    const weekdayMorningOpen = 8 * 60;
+    const weekdayMorningClose = 12 * 60;
+    const weekdayAfternoonOpen = 14 * 60;
+    const weekdayAfternoonClose = 18 * 60;
     
     let isOpen = false;
     
-    // Lunes a Viernes (1-5)
     if(day >= 1 && day <= 5){
-        // Mañana: 08:00 - 12:00
         const morningOpen = currentMinutes >= weekdayMorningOpen && currentMinutes < weekdayMorningClose;
-        // Tarde: 14:00 - 18:00
         const afternoonOpen = currentMinutes >= weekdayAfternoonOpen && currentMinutes < weekdayAfternoonClose;
         isOpen = morningOpen || afternoonOpen;
     }
-    // Sábado y Domingo: siempre cerrado
     
     const dotDesktop = document.getElementById('status-dot-desktop');
     const textDesktop = document.getElementById('status-text-desktop');
@@ -1560,7 +1464,6 @@ startCounters();
 const form = document.getElementById('triageForm');
 const submitBtn = document.getElementById('submitBtn');
 
-// Marcar campos cuando tienen valor
 const allFields = document.querySelectorAll('.field-input');
 allFields.forEach(function(field){
 field.addEventListener('input', function(){
@@ -1570,7 +1473,6 @@ this.classList.add('has-value');
 this.classList.remove('has-value');
 }
 });
-// También para selects
 if(this.tagName === 'SELECT'){
 this.addEventListener('change', function(){
 if(this.value){
@@ -1582,12 +1484,10 @@ this.classList.remove('has-value');
 }
 });
 
-// Submit del formulario
 if(form){
 form.addEventListener('submit', function(e){
 e.preventDefault();
 
-// Obtener todos los valores
 var vehicleTypeEl = document.getElementById('inputVehicleType');
 var vehicleType = vehicleTypeEl && vehicleTypeEl.value ? vehicleTypeEl.value : 'No especificado';
 
@@ -1608,7 +1508,6 @@ var service = serviceEl && serviceEl.value ? serviceEl.options[serviceEl.selecte
 var name = document.getElementById('inputName').value.trim() || 'Cliente';
 var phone = document.getElementById('inputPhone').value.trim() || 'No proporcionado';
 
-// Construir mensaje de WhatsApp
 var message = '🚗 ¡Hola ROMERO MECÁNICA INTEGRAL! 👋\n';
 message += '*Cliente:* ' + name + '\n';
 message += '📱 *Contacto:* ' + phone + '\n';
@@ -1622,22 +1521,18 @@ message += '🔧 *Servicio solicitado:* ' + service + '\n';
 message += '📍 *Ubicación: Paysandú, Uruguay*\n';
 message += '📅 *Solicito turno para diagnóstico profesional.* 💨';
 
-// Mostrar estado de carga
 var originalBtnContent = submitBtn.innerHTML;
 submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando solicitud...';
 submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
 submitBtn.disabled = true;
 
-// Abrir WhatsApp
 setTimeout(function(){
 var whatsappUrl = 'https://api.whatsapp.com/send?phone=59898680159&text=' + encodeURIComponent(message);
 window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
-// Éxito
 submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Solicitud Enviada! ✅';
 submitBtn.classList.add('bg-green-600');
 
-// Reset después de 3.5 segundos
 setTimeout(function(){
 submitBtn.innerHTML = originalBtnContent;
 submitBtn.classList.remove('opacity-80', 'cursor-not-allowed', 'bg-green-600');
