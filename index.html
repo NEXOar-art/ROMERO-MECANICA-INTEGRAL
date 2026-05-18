@@ -104,7 +104,6 @@ color:#E2E8F0;
 font-feature-settings:"cv02","cv03","cv04","cv11";
 overflow-x: hidden;
 position: relative;
-/* Espacio para el banner LED fijo superior */
 padding-top: 52px;
 }
 @media(max-width: 640px){
@@ -362,9 +361,6 @@ transform: scale(1.15);
 box-shadow: 0 0 40px rgba(255, 107, 53, 0.9), inset 0 0 30px rgba(255, 107, 53, 0.3);
 }
 
-/* ============================== */
-/* HERO LOGO - EFECTO FUEGO CON DESVANECIMIENTO GRADUAL */
-/* ============================== */
 .hero-logo{
 height: 12rem;
 width: 12rem;
@@ -413,7 +409,6 @@ z-index: 4;
 left: 100%;
 }
 
-/* EFECTO FUEGO CON DESVANECIMIENTO GRADUAL SEGUNDO A SEGUNDO */
 .fire-ring{
 position: absolute;
 inset: -14px;
@@ -437,7 +432,6 @@ animation-delay: 5s;
 75%{opacity: 0.25;}
 100%{opacity: 0; visibility: hidden;}
 }
-/* Llamas ascendentes */
 .fire-ring .flame{
 position: absolute;
 bottom: -4px;
@@ -480,7 +474,6 @@ filter: blur(4px);
 animation: flames-rise 1s ease-in-out infinite alternate-reverse;
 border-radius: 50% 50% 30% 30%;
 }
-/* Partículas de chispas */
 .fire-ring .spark{
 position: absolute;
 width: 3px;
@@ -507,21 +500,10 @@ animation: spark-rise 2s ease-out infinite;
 100%{transform: translateX(-50%) scaleY(1.3); opacity: 1;}
 }
 @keyframes spark-rise{
-0%{
-bottom: 0;
-opacity: 0;
-transform: translateX(0) scale(1);
+0%{bottom: 0;opacity: 0;transform: translateX(0) scale(1);}
+20%{opacity: 1;}
+100%{bottom: 160px;opacity: 0;transform: translateX(calc((var(--spark-x, 0)) * 1px)) scale(0.2);}
 }
-20%{
-opacity: 1;
-}
-100%{
-bottom: 160px;
-opacity: 0;
-transform: translateX(calc((var(--spark-x, 0)) * 1px)) scale(0.2);
-}
-}
-/* Efecto de resplandor pulsante */
 .fire-ring .glow-pulse{
 position: absolute;
 inset: -20px;
@@ -534,12 +516,10 @@ pointer-events: none;
 0%, 100%{transform: scale(1); opacity: 0.6;}
 50%{transform: scale(1.15); opacity: 1;}
 }
-
 .hero-logo:hover{
 transform: scale(1.08);
 box-shadow: 0 0 80px rgba(255, 107, 53, 0.8), 0 0 120px rgba(255, 107, 53, 0.5), inset 0 0 50px rgba(255, 107, 53, 0.3);
 }
-
 .hero-logo-wrapper{
 display: flex;
 justify-content: center;
@@ -606,7 +586,6 @@ transform: translateY(-5px) scale(1.1);box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4
 .badge-animated{position: relative;animation: badge-pulse 2s ease-in-out infinite;}
 @keyframes badge-pulse{0%, 100%{transform: scale(1);}50%{transform: scale(1.05);}}
 
-/* Select wrapper para flecha personalizada */
 .select-wrapper{position: relative;}
 .select-wrapper::after{
 content:'';position: absolute;right: 1rem;top: 50%;transform: translateY(-50%);
@@ -615,7 +594,6 @@ border-top: 6px solid #FF6B35;pointer-events: none;z-index: 5;
 }
 .select-wrapper select{padding-right: 2.5rem;}
 
-/* Estilos para el formulario - inputs funcionales */
 .form-field{
 position: relative;
 margin-bottom: 0;
@@ -760,10 +738,6 @@ animation: led-flicker 0.15s infinite;
 .led-item i{font-size: 0.9rem;}
 .led-track{gap: 2rem;}
 }
-/* Efecto de brillo al hacer hover en el banner (opcional, no interfiere) */
-.led-banner:hover .led-item{
-text-shadow: 0 0 12px rgba(255,107,53,1), 0 0 24px rgba(255,107,53,0.8), 0 0 36px rgba(255,107,53,0.5);
-}
 </style>
 </head>
 <body class="antialiased relative">
@@ -780,7 +754,6 @@ text-shadow: 0 0 12px rgba(255,107,53,1), 0 0 24px rgba(255,107,53,0.8), 0 0 36p
 <span class="led-divider"></span>
 <span class="led-cta"><i class="fa-brands fa-whatsapp"></i> SACÁ UN TURNO • WHATSAPP +598 98 680 159</span>
 <span class="led-divider"></span>
-<!-- Duplicado para loop seamless -->
 <span class="led-item"><i class="fa-solid fa-droplet"></i> LIMPIEZA DE INYECTORES CADA 6 MESES = MOTOR MÁS EFICIENTE</span>
 <span class="led-divider"></span>
 <span class="led-item"><i class="fa-solid fa-oil-can"></i> ACEITE DE CALIDAD CADA 10K KM = VIDA ÚTIL PROLONGADA</span>
@@ -796,7 +769,7 @@ text-shadow: 0 0 12px rgba(255,107,53,1), 0 0 24px rgba(255,107,53,0.8), 0 0 36p
 <!-- Partículas decorativas de fondo-->
 <div class="particles" id="particles"></div>
 
-<!-- NAVBAR (ajustado para no superponerse con el banner LED)-->
+<!-- NAVBAR -->
 <nav class="fixed w-full z-50 top-[52px] glass border-b border-white/10 transition-all duration-300" id="navbar">
 <div class="container mx-auto px-4 h-16 md:h-20 flex items-center relative">
 <a href="#" class="flex items-center md:absolute md:left-4 md:translate-x-0">
@@ -995,7 +968,7 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 </div>
 </section>
 
-<!-- SECCIÓN: SERVICIOS INTEGRALES (MODIFICADO) -->
+<!-- SECCIÓN: SERVICIOS INTEGRALES -->
 <section class="py-16 md:py-24 bg-primary-dark relative">
 <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 10% 20%, rgba(255,107,53, 0.08) 0%, transparent 25%), radial-gradient(circle at 90% 80%, rgba(247,147,30, 0.08) 0%, transparent 25%)"></div>
 <div class="container mx-auto px-4 relative z-10">
@@ -1043,13 +1016,6 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Mecánica Integral</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Reparaciones completas de motor, transmisión y sistemas mecánicos con garantía de calidad.</p>
-</div>
-<div class="glass-card p-6 md:p-7 group">
-<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-<i class="fa-solid fa-magnifying-glass-chart text-2xl md:text-3xl text-primary-orange"></i>
-</div>
-<h3 class="font-bold text-xl text-white mb-2.5">Escaneo Profesional</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Lectura y borrado de códigos de falla, análisis de datos en tiempo real y programación de módulos.</p>
 </div>
 <!-- NUEVA TARJETA: CAJA DE CAMBIO -->
 <div class="glass-card p-6 md:p-7 group">
@@ -1131,7 +1097,7 @@ Confianza construida sobre resultados verificables y atención profesional en Pa
 </div>
 </section>
 
-<!-- SECCIÓN: FORMULARIO DE DIAGNÓSTICO - COMPLETAMENTE FUNCIONAL -->
+<!-- SECCIÓN: FORMULARIO DE DIAGNÓSTICO -->
 <section id="diagnostico" class="py-16 md:py-24 bg-gradient-to-b from-primary-dark to-[#080808] relative overflow-hidden">
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(255,107,53,0.1),transparent_55%)]"></div>
 <div class="container mx-auto px-4 relative z-10">
@@ -1186,14 +1152,12 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <!-- Formulario FUNCIONAL -->
 <div class="lg:w-2/3 glass-card rounded-3xl shadow-card p-6 md:p-8 w-full">
 <form id="triageForm" novalidate>
-<!-- Sección 1: Vehículo -->
 <div class="border-b border-white/10 pb-6 mb-6">
 <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
 <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
 <span>Datos del Vehículo</span>
 </h3>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-<!-- Tipo de Vehículo -->
 <div class="form-field select-wrapper">
 <label for="inputVehicleType" class="field-label">Tipo de Vehículo</label>
 <select id="inputVehicleType" class="field-input">
@@ -1203,18 +1167,15 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <option value="Cuatriciclo">🏎️ Cuatriciclo</option>
 </select>
 </div>
-<!-- Marca y Modelo -->
 <div class="form-field">
 <label for="inputVehicle" class="field-label">Marca y Modelo</label>
 <input type="text" id="inputVehicle" class="field-input" placeholder="Ej: Toyota Corolla 2020" autocomplete="off">
 </div>
-<!-- Kilometraje -->
 <div class="form-field">
 <label for="inputKm" class="field-label">Kilometraje</label>
 <input type="number" id="inputKm" class="field-input" placeholder="Ej: 85000" autocomplete="off">
 </div>
 </div>
-<!-- Combustible -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
 <div class="form-field select-wrapper">
 <label for="inputFuelType" class="field-label">Combustible</label>
@@ -1228,18 +1189,15 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 </div>
 </div>
-<!-- Sección 2: Síntomas -->
 <div class="border-b border-white/10 pb-6 mb-6">
 <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
 <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
 <span>Descripción de Fallas</span>
 </h3>
-<!-- Síntomas -->
 <div class="form-field mb-5">
 <label for="inputSymptoms" class="field-label">Síntomas</label>
 <textarea id="inputSymptoms" class="field-input" rows="4" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..."></textarea>
 </div>
-<!-- Contexto de la falla -->
 <div class="form-field select-wrapper">
 <label for="inputContext" class="field-label">Contexto de la falla</label>
 <select id="inputContext" class="field-input">
@@ -1271,7 +1229,6 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </select>
 </div>
 </div>
-<!-- Sección 3: Servicio Integral -->
 <div class="border-b border-white/10 pb-6 mb-6">
 <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
 <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
@@ -1287,12 +1244,10 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <option value="direccion">🔄 Dirección</option>
 <option value="electricidad">⚡ Electricidad Automotriz</option>
 <option value="mecanica_integral">🛠️ Mecánica Integral</option>
-<option value="escaneo">💻 Escaneo</option>
 <option value="caja_cambio">⚙️ Caja de Cambio</option>
 </select>
 </div>
 </div>
-<!-- Sección 4: Contacto -->
 <div class="mb-6">
 <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
 <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
@@ -1312,7 +1267,6 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-solid fa-lock text-primary-orange"></i> <span>Tus datos se usarán únicamente para coordinar tu turno</span>
 </p>
 </div>
-<!-- Botón de envío -->
 <button type="submit" id="submitBtn" class="btn-primary w-full font-bold uppercase text-base py-5 rounded-2xl hover:shadow-neon transition flex items-center justify-center gap-3">
 <i class="fa-brands fa-whatsapp text-2xl"></i> <span>Enviar Solicitud a ROMERO MECÁNICA INTEGRAL</span>
 </button>
@@ -1325,7 +1279,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 </section>
 
-<!-- SECCIÓN: UBICACIÓN Y CONFIANZA (MODIFICADA) -->
+<!-- SECCIÓN: UBICACIÓN Y CONFIANZA -->
 <section class="py-14 md:py-20 bg-[#0D0D0D] border-t border-white/5">
 <div class="container mx-auto px-4 text-center">
 <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500 mb-12 md:mb-16">
@@ -1443,9 +1397,7 @@ setInterval(updateClock, 1000);
 // ========== EFECTO FUEGO - Gradual segundo a segundo después de 5s ==========
 const fireRing = document.getElementById('fireRing');
 if(fireRing){
-// Activar fuego inmediatamente
 fireRing.classList.add('active');
-// Desvanecimiento gradual segundo a segundo después de 5 segundos
 setTimeout(function(){
 fireRing.classList.add('fading');
 }, 5000);
@@ -1467,36 +1419,26 @@ container.appendChild(particle);
 }
 createParticles();
 
-// ========== ESTADO DEL NEGOCIO - HORARIOS NUEVOS ==========
+// ========== ESTADO DEL NEGOCIO ==========
 function checkStatus(){
     const now = new Date();
     const hours = now.getHours();
     const minutes = now.getMinutes();
-    const day = now.getDay(); // 0=Domingo, 1=Lunes, ..., 6=Sábado
+    const day = now.getDay();
     const currentMinutes = hours * 60 + minutes;
-    
-    // HORARIOS NUEVOS: Lunes a Viernes 08:00-12:00 y 14:00-18:00
-    const weekdayMorningOpen = 8 * 60;        // 08:00
-    const weekdayMorningClose = 12 * 60;      // 12:00
-    const weekdayAfternoonOpen = 14 * 60;     // 14:00
-    const weekdayAfternoonClose = 18 * 60;    // 18:00
-    
+    const weekdayMorningOpen = 8 * 60;
+    const weekdayMorningClose = 12 * 60;
+    const weekdayAfternoonOpen = 14 * 60;
+    const weekdayAfternoonClose = 18 * 60;
     let isOpen = false;
-    
-    // Lunes a Viernes (1-5)
     if(day >= 1 && day <= 5){
-        // Mañana: 08:00 - 12:00
         const morningOpen = currentMinutes >= weekdayMorningOpen && currentMinutes < weekdayMorningClose;
-        // Tarde: 14:00 - 18:00
         const afternoonOpen = currentMinutes >= weekdayAfternoonOpen && currentMinutes < weekdayAfternoonClose;
         isOpen = morningOpen || afternoonOpen;
     }
-    // Sábado y Domingo: siempre cerrado
-    
     const dotDesktop = document.getElementById('status-dot-desktop');
     const textDesktop = document.getElementById('status-text-desktop');
     const barMobile = document.getElementById('status-bar-mobile');
-    
     if(isOpen){
         dotDesktop.className = 'status-dot w-2 h-2 rounded-full mr-2.5 bg-primary-orange';
         textDesktop.textContent = 'Abierto Ahora';
@@ -1523,11 +1465,8 @@ const progress = Math.min((timestamp - startTimestamp) / duration, 1);
 const easeProgress = 1 - Math.pow(1 - progress, 3);
 const value = Math.floor(easeProgress * (target - start) + start);
 obj.textContent = value.toLocaleString('es-AR');
-if(progress < 1){
-window.requestAnimationFrame(step);
-} else {
-obj.textContent = target.toLocaleString('es-AR');
-}
+if(progress < 1){ window.requestAnimationFrame(step); }
+else { obj.textContent = target.toLocaleString('es-AR'); }
 };
 window.requestAnimationFrame(step);
 }
@@ -1550,56 +1489,37 @@ startCounters();
 // ========== FORMULARIO FUNCIONAL ==========
 const form = document.getElementById('triageForm');
 const submitBtn = document.getElementById('submitBtn');
-
-// Marcar campos cuando tienen valor
 const allFields = document.querySelectorAll('.field-input');
 allFields.forEach(function(field){
 field.addEventListener('input', function(){
-if(this.value.trim().length > 0){
-this.classList.add('has-value');
-} else {
-this.classList.remove('has-value');
-}
+if(this.value.trim().length > 0) this.classList.add('has-value');
+else this.classList.remove('has-value');
 });
-// También para selects
 if(this.tagName === 'SELECT'){
 this.addEventListener('change', function(){
-if(this.value){
-this.classList.add('has-value');
-} else {
-this.classList.remove('has-value');
-}
+if(this.value) this.classList.add('has-value');
+else this.classList.remove('has-value');
 });
 }
 });
 
-// Submit del formulario
 if(form){
 form.addEventListener('submit', function(e){
 e.preventDefault();
-
-// Obtener todos los valores
 var vehicleTypeEl = document.getElementById('inputVehicleType');
 var vehicleType = vehicleTypeEl && vehicleTypeEl.value ? vehicleTypeEl.value : 'No especificado';
-
 var vehicle = document.getElementById('inputVehicle').value.trim() || 'No especificado';
 var km = document.getElementById('inputKm').value.trim() || 'No especificado';
-
 var fuelTypeEl = document.getElementById('inputFuelType');
 var fuelType = fuelTypeEl && fuelTypeEl.value ? fuelTypeEl.value : 'No especificado';
-
 var symptoms = document.getElementById('inputSymptoms').value.trim() || 'No especificado';
-
 var contextEl = document.getElementById('inputContext');
 var context = contextEl && contextEl.value ? contextEl.options[contextEl.selectedIndex].text : 'No especificado';
-
 var serviceEl = document.getElementById('inputService');
 var service = serviceEl && serviceEl.value ? serviceEl.options[serviceEl.selectedIndex].text : 'No especificado';
-
 var name = document.getElementById('inputName').value.trim() || 'Cliente';
 var phone = document.getElementById('inputPhone').value.trim() || 'No proporcionado';
 
-// Construir mensaje de WhatsApp
 var message = '🚗 ¡Hola ROMERO MECÁNICA INTEGRAL! 👋\n';
 message += '*Cliente:* ' + name + '\n';
 message += '📱 *Contacto:* ' + phone + '\n';
@@ -1613,30 +1533,22 @@ message += '🔧 *Servicio solicitado:* ' + service + '\n';
 message += '📍 *Ubicación: Paysandú, Uruguay*\n';
 message += '📅 *Solicito turno para diagnóstico profesional.* 💨';
 
-// Mostrar estado de carga
 var originalBtnContent = submitBtn.innerHTML;
 submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando solicitud...';
 submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
 submitBtn.disabled = true;
 
-// Abrir WhatsApp
 setTimeout(function(){
 var whatsappUrl = 'https://api.whatsapp.com/send?phone=59898680159&text=' + encodeURIComponent(message);
 window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-
-// Éxito
 submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Solicitud Enviada! ✅';
 submitBtn.classList.add('bg-green-600');
-
-// Reset después de 3.5 segundos
 setTimeout(function(){
 submitBtn.innerHTML = originalBtnContent;
 submitBtn.classList.remove('opacity-80', 'cursor-not-allowed', 'bg-green-600');
 submitBtn.disabled = false;
 form.reset();
-allFields.forEach(function(el){
-el.classList.remove('has-value');
-});
+allFields.forEach(function(el){ el.classList.remove('has-value'); });
 }, 3500);
 }, 1200);
 });
@@ -1675,10 +1587,7 @@ const targetId = this.getAttribute('href');
 if(targetId === '#') return;
 const targetElement = document.querySelector(targetId);
 if(targetElement){
-window.scrollTo({
-top: targetElement.offsetTop - 80,
-behavior: 'smooth'
-});
+window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
 }
 });
 });
