@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JRP Motors de Jonas Risso Patron - Taller de reparación de automóviles con años de experiencia. Servicio de calidad, confiable y transparente en Santiago del Estero.">
+<meta name="description" content="Romero Mecánica Integral - Taller de reparación de automóviles con años de experiencia. Servicio de calidad, confiable y transparente en Paysandú, Uruguay.">
 <meta name="theme-color" content="#0A0A0A">
-<title>JRP MOTORS | Taller Mecánico - Jonas Risso Patron - Diagnóstico y Reparación Profesional</title>
+<title>ROMERO MECÁNICA INTEGRAL | Taller Mecánico - Diagnóstico y Reparación Profesional</title>
 <!-- Preconnect para mejor rendimiento-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -576,7 +576,6 @@ transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);position: relative;overf
 .social-btn:hover{
 transform: translateY(-5px) scale(1.1);box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
-.social-btn.facebook:hover{background: #1877F2;border-color: transparent;}
 .social-btn.whatsapp:hover{background: #25D366;border-color: transparent;}
 .badge-animated{position: relative;animation: badge-pulse 2s ease-in-out infinite;}
 @keyframes badge-pulse{0%, 100%{transform: scale(1);}50%{transform: scale(1.05);}}
@@ -649,19 +648,44 @@ min-height: 80px;
 .form-field .field-input.has-value{
 border-color: rgba(255, 107, 53, 0.5);
 }
+
+/* Banner superior persuasivo */
+.top-banner{
+background: linear-gradient(135deg, rgba(255,107,53,0.95) 0%, rgba(247,147,30,0.95) 100%);
+color: #0A0A0A;
+font-weight: 700;
+text-align: center;
+padding: 0.75rem 1rem;
+font-size: 0.9rem;
+letter-spacing: 0.03em;
+box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+position: relative;
+z-index: 60;
+}
+.top-banner i{margin-right: 0.5rem; animation: pulse-icon 2s ease-in-out infinite;}
+@keyframes pulse-icon{0%, 100%{transform: scale(1);} 50%{transform: scale(1.15);}}
+@media(max-width: 640px){
+.top-banner{font-size: 0.8rem; padding: 0.6rem 1rem;}
+}
 </style>
 </head>
 <body class="antialiased relative">
+<!-- Banner superior persuasivo -->
+<div class="top-banner">
+<i class="fa-solid fa-wrench"></i> ROMERO MECÁNICA INTEGRAL - Tu vehículo en manos expertas en Paysandú <i class="fa-solid fa-car"></i>
+</div>
+
 <!-- Partículas decorativas de fondo-->
 <div class="particles" id="particles"></div>
+
 <!-- NAVBAR-->
 <nav class="fixed w-full z-50 top-0 glass border-b border-white/10 transition-all duration-300" id="navbar">
 <div class="container mx-auto px-4 h-16 md:h-20 flex items-center relative">
 <a href="#" class="flex items-center md:absolute md:left-4 md:translate-x-0">
-<img src="JRPLOGO.png" alt="JRP Motors Logo" class="navbar-logo">
+<img src="LOGOROMERO" alt="Romero Mecánica Integral Logo" class="navbar-logo">
 </a>
 <a href="#" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 md:ml-auto md:mr-auto font-display font-bold text-lg sm:text-xl md:text-2xl gradient-text tracking-tight uppercase text-center md:text-left drop-shadow-lg">
-JRP MOTORS
+ROMERO MECÁNICA INTEGRAL
 </a>
 <div id="navbarClock" class="hidden md:flex items-center ml-4">
 <div class="navbar-clock">
@@ -691,9 +715,10 @@ Pre-Diagnóstico
 <span>Verificando estado...</span>
 </div>
 </nav>
+
 <!-- Botones flotantes premium -->
 <div class="fixed bottom-24 md:bottom-8 right-4 z-50 animate-float flex flex-col gap-3">
-<a href="https://api.whatsapp.com/send?phone=543855814187" target="_blank" rel="noopener noreferrer"
+<a href="https://api.whatsapp.com/send?phone=59898680159" target="_blank" rel="noopener noreferrer"
 class="bg-[#25D366] hover:bg-[#128C7E] text-white p-3.5 md:p-4 rounded-full shadow-lg transition-all hover:scale-110 flex items-center justify-center gap-2 group"
 title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinite;">
 <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
@@ -704,11 +729,12 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 <span class="hidden xs:inline">Pedir Turno</span>
 <i class="fa-solid fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
 </a>
-<a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-review px-4 py-2.5 md:px-5 md:py-3 rounded-xl shadow-lg transition flex items-center gap-2 text-xs md:text-sm font-semibold group animate-float" style="animation-delay: 0.5s;">
+<a href="https://maps.app.goo.gl/9A41Z7aBCDbVJxnSA" target="_blank" rel="noopener noreferrer" class="btn-review px-4 py-2.5 md:px-5 md:py-3 rounded-xl shadow-lg transition flex items-center gap-2 text-xs md:text-sm font-semibold group animate-float" style="animation-delay: 0.5s;">
 <i class="fa-solid fa-star text-lg"></i>
 <span class="hidden xs:inline">Deja tu Reseña</span>
 </a>
 </div>
+
 <!-- HERO SECTION -->
 <header class="relative pt-20 pb-20 md:pt-32 md:pb-32 lg:pt-40 lg:pb-40 min-h-screen flex items-center overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-primary-dark via-[#0D0D0D] to-[#0A0A0A]">
@@ -726,12 +752,12 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 </div>
 </div>
 <h1 class="font-display font-black text-4xl md:text-5xl lg:text-7xl leading-tight glow-text main-title fade-in-up" style="animation-delay: 0.2s;">
-JRP MOTORS<br><span class="gradient-text">DE JONAS RISSO PATRON</span>
+ROMERO MECÁNICA<br><span class="gradient-text">INTEGRAL</span>
 </h1>
-<!-- LOGO CENTRADO -->
+<!-- LOGO CIRCULAR INFERIOR -->
 <div class="hero-logo-wrapper fade-in-up" style="animation-delay: 0.25s;">
 <div class="hero-logo-inner">
-<img src="JRPLOGO.png" alt="JRP Motors Logo" class="hero-logo" id="heroLogo">
+<img src="LOGOROMERO" alt="Romero Mecánica Integral Logo" class="hero-logo" id="heroLogo">
 <div class="shine-effect"></div>
 <!-- EFECTO FUEGO -->
 <div class="fire-ring" id="fireRing">
@@ -749,7 +775,7 @@ JRP MOTORS<br><span class="gradient-text">DE JONAS RISSO PATRON</span>
 </div>
 </div>
 <p class="text-gray-300/90 text-base md:text-lg max-w-3xl mx-auto description-text fade-in-up leading-relaxed" style="animation-delay: 0.3s;">
-En JRP Motors de Jonas Risso Patron, entendemos que tu auto es una inversión importante y tu seguridad es primordial. Somos un taller de reparación de automóviles con años de experiencia en Santiago del Estero, dedicados a brindarte un servicio de calidad, confiable y transparente. Nos especializamos en mantener tu vehículo en óptimas condiciones para que disfrutes de cada viaje con total tranquilidad.
+En Romero Mecánica Integral, entendemos que tu auto es una inversión importante y tu seguridad es primordial. Somos un taller de reparación de automóviles con años de experiencia en Paysandú, Uruguay, dedicados a brindarte un servicio de calidad, confiable y transparente. Nos especializamos en mantener tu vehículo en óptimas condiciones para que disfrutes de cada viaje con total tranquilidad.
 </p>
 <div class="grid grid-cols-3 gap-3 md:gap-5 pt-2 md:pt-4 fade-in-up" style="animation-delay: 0.5s;">
 <div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 transition">
@@ -776,6 +802,7 @@ En JRP Motors de Jonas Risso Patron, entendemos que tu auto es una inversión im
 </div>
 </div>
 </header>
+
 <!-- SECCIÓN: CENTRO DE ASESORAMIENTO -->
 <section id="asesoramiento" class="py-16 md:py-24 bg-[#0D0D0D] relative">
 <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,107,53,0.1),_transparent_60%)]"></div>
@@ -849,7 +876,8 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 </div>
 </div>
 </section>
-<!-- SECCIÓN: SERVICIOS INTEGRALES -->
+
+<!-- SECCIÓN: SERVICIOS INTEGRALES (MODIFICADO) -->
 <section class="py-16 md:py-24 bg-primary-dark relative">
 <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 10% 20%, rgba(255,107,53, 0.08) 0%, transparent 25%), radial-gradient(circle at 90% 80%, rgba(247,147,30, 0.08) 0%, transparent 25%)"></div>
 <div class="container mx-auto px-4 relative z-10">
@@ -893,13 +921,6 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 </div>
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-<i class="fa-solid fa-snowflake text-2xl md:text-3xl text-primary-orange"></i>
-</div>
-<h3 class="font-bold text-xl text-white mb-2.5">Climatización</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Carga de gas, limpieza de conductos y reparación de compresores para confort térmico.</p>
-</div>
-<div class="glass-card p-6 md:p-7 group">
-<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-bolt text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Electricidad Automotriz</h3>
@@ -914,28 +935,23 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 </div>
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-<i class="fa-solid fa-box-open text-2xl md:text-3xl text-primary-orange"></i>
-</div>
-<h3 class="font-bold text-xl text-white mb-2.5">Repuestos</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Amplio stock de repuestos originales y alternativos de primera calidad para todas las marcas.</p>
-</div>
-<div class="glass-card p-6 md:p-7 group">
-<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-magnifying-glass-chart text-2xl md:text-3xl text-primary-orange"></i>
 </div>
 <h3 class="font-bold text-xl text-white mb-2.5">Escaneo Profesional</h3>
 <p class="text-gray-400/90 text-sm leading-relaxed">Lectura y borrado de códigos de falla, análisis de datos en tiempo real y programación de módulos.</p>
 </div>
+<!-- NUEVA TARJETA: CAJA DE CAMBIO -->
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-<i class="fa-solid fa-compass-drafting text-2xl md:text-3xl text-primary-orange"></i>
+<i class="fa-solid fa-gears text-2xl md:text-3xl text-primary-orange"></i>
 </div>
-<h3 class="font-bold text-xl text-white mb-2.5">Alineación y Balanceo</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Equipos láser de última generación para alineación 3D y balanceo computarizado de ruedas.</p>
+<h3 class="font-bold text-xl text-white mb-2.5">Caja de Cambio</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed">Reparación y mantenimiento de cajas manuales y automáticas. Diagnóstico de embrague y transmisión.</p>
 </div>
 </div>
 </div>
 </section>
+
 <!-- SECCIÓN: TESTIMONIOS -->
 <section class="py-16 md:py-24 bg-[#0D0D0D] border-t border-white/5">
 <div class="container mx-auto px-4">
@@ -945,7 +961,7 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 </div>
 <h2 class="font-display font-bold text-4xl md:text-5xl text-white uppercase glow-text tracking-tight">La Voz de Nuestros Clientes</h2>
 <p class="text-gray-400/90 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
-Confianza construida sobre resultados verificables y atención profesional en Santiago del Estero.
+Confianza construida sobre resultados verificables y atención profesional en Paysandú, Uruguay.
 </p>
 </div>
 <div class="testimonial-carousel flex gap-5 md:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide mx-2 px-2">
@@ -956,12 +972,12 @@ Confianza construida sobre resultados verificables y atención profesional en Sa
 </div>
 <i class="fa-solid fa-quote-right text-3xl text-gray-700/70"></i>
 </div>
-<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Excelente servicio en JRP Motors. Diagnóstico preciso y rápido. Me explicaron todo con claridad y profesionalismo. Totalmente recomendado."</p>
+<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Excelente servicio en Romero Mecánica Integral. Diagnóstico preciso y rápido. Me explicaron todo con claridad y profesionalismo. Totalmente recomendado."</p>
 <div class="flex items-center pt-3 border-t border-white/10">
 <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0">MP</div>
 <div>
 <p class="font-bold text-white text-sm">Martín P.</p>
-<p class="text-xs text-gray-500">Santiago del Estero - Chevrolet Tracker 2023</p>
+<p class="text-xs text-gray-500">Paysandú - Chevrolet Tracker 2023</p>
 </div>
 </div>
 </div>
@@ -972,12 +988,12 @@ Confianza construida sobre resultados verificables y atención profesional en Sa
 </div>
 <i class="fa-solid fa-quote-right text-3xl text-gray-700/70"></i>
 </div>
-<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"El mejor taller de Santiago del Estero. Proceso transparente y rápido. El pre-diagnóstico online me ahorró tiempo y dinero. Volveré sin dudas a JRP Motors."</p>
+<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"El mejor taller de Paysandú. Proceso transparente y rápido. El pre-diagnóstico online me ahorró tiempo y dinero. Volveré sin dudas a Romero Mecánica Integral."</p>
 <div class="flex items-center pt-3 border-t border-white/10">
 <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0">AR</div>
 <div>
 <p class="font-bold text-white text-sm">Alejandra R.</p>
-<p class="text-xs text-gray-500">Santiago del Estero - Renault Fluence</p>
+<p class="text-xs text-gray-500">Paysandú - Renault Fluence</p>
 </div>
 </div>
 </div>
@@ -988,12 +1004,12 @@ Confianza construida sobre resultados verificables y atención profesional en Sa
 </div>
 <i class="fa-solid fa-quote-right text-3xl text-gray-700/70"></i>
 </div>
-<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Llevo mi flota de utilitarios a JRP Motors. Reportes detallados, atención personalizada y precios justos. Un taller de confianza."</p>
+<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Llevo mi flota de utilitarios a Romero Mecánica Integral. Reportes detallados, atención personalizada y precios justos. Un taller de confianza."</p>
 <div class="flex items-center pt-3 border-t border-white/10">
 <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0">EC</div>
 <div>
 <p class="font-bold text-white text-sm">Esteban C.</p>
-<p class="text-xs text-gray-500">Santiago del Estero - Flota Utilitarios</p>
+<p class="text-xs text-gray-500">Paysandú - Flota Utilitarios</p>
 </div>
 </div>
 </div>
@@ -1003,6 +1019,7 @@ Confianza construida sobre resultados verificables y atención profesional en Sa
 </p>
 </div>
 </section>
+
 <!-- SECCIÓN: FORMULARIO DE DIAGNÓSTICO - COMPLETAMENTE FUNCIONAL -->
 <section id="diagnostico" class="py-16 md:py-24 bg-gradient-to-b from-primary-dark to-[#080808] relative overflow-hidden">
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(255,107,53,0.1),transparent_55%)]"></div>
@@ -1158,13 +1175,10 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <option value="frenos">🛑 Sistema de Frenos</option>
 <option value="suspension">🔩 Suspensión</option>
 <option value="direccion">🔄 Dirección</option>
-<option value="climatizacion">❄️ Climatización</option>
 <option value="electricidad">⚡ Electricidad Automotriz</option>
 <option value="mecanica_integral">🛠️ Mecánica Integral</option>
-<option value="repuesto">📦 Repuesto</option>
 <option value="escaneo">💻 Escaneo</option>
-<option value="alineacion">🎯 Alineación</option>
-<option value="balanceo">⚖️ Balanceo</option>
+<option value="caja_cambio">⚙️ Caja de Cambio</option>
 </select>
 </div>
 </div>
@@ -1190,7 +1204,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 <!-- Botón de envío -->
 <button type="submit" id="submitBtn" class="btn-primary w-full font-bold uppercase text-base py-5 rounded-2xl hover:shadow-neon transition flex items-center justify-center gap-3">
-<i class="fa-brands fa-whatsapp text-2xl"></i> <span>Enviar Solicitud a JRP MOTORS</span>
+<i class="fa-brands fa-whatsapp text-2xl"></i> <span>Enviar Solicitud a ROMERO MECÁNICA INTEGRAL</span>
 </button>
 <p class="text-center text-xs text-gray-500 pt-3">
 <span>Al enviar, aceptas nuestros</span> <a href="#" class="text-primary-orange hover:underline">términos de servicio</a>
@@ -1200,7 +1214,8 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 </div>
 </section>
-<!-- SECCIÓN: UBICACIÓN Y CONFIANZA -->
+
+<!-- SECCIÓN: UBICACIÓN Y CONFIANZA (MODIFICADA) -->
 <section class="py-14 md:py-20 bg-[#0D0D0D] border-t border-white/5">
 <div class="container mx-auto px-4 text-center">
 <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500 mb-12 md:mb-16">
@@ -1219,46 +1234,40 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-regular fa-location-dot text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
 <p class="font-medium">Dirección:</p>
-<p>Paris 147, G4200 Santiago del Estero, Santiago del Estero</p>
+<p>Blvr. Gral. Artigas 585, 60000 Paysandú, Departamento de Paysandú, Uruguay</p>
 </div>
 </div>
 <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
 <i class="fa-brands fa-whatsapp text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
 <p class="font-medium">WhatsApp:</p>
-<p dir="ltr">+54 385 581-4187</p>
+<p dir="ltr">+598 98 680 159</p>
 </div>
 </div>
 <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
 <i class="fa-solid fa-envelope text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
 <p class="font-medium">E-mail:</p>
-<p>jrpmotors@email.com</p>
+<p>romeromecanica@email.com</p>
 </div>
 </div>
 <div class="flex items-start gap-3 text-gray-300/90 text-sm">
 <i class="fa-regular fa-clock text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
 <p class="font-medium">Horarios de atención:</p>
-<p>Lunes a Viernes: 08:00 - 20:00 hs</p>
-<p>Sábados: 08:30 - 13:00</p>
-<p>Domingos: Cerrado</p>
+<p>Lunes a Viernes: 08:00 - 12:00 y 14:00 - 18:00 hs</p>
+<p>Sábados y Domingos: Cerrado</p>
 </div>
 </div>
 </div>
 <div class="flex flex-col sm:flex-row gap-3">
-<a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
+<a href="https://maps.app.goo.gl/9A41Z7aBCDbVJxnSA" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
 <i class="fa-solid fa-map-location-dot text-lg"></i> <span>Ver en Google Maps</span>
 </a>
-<a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="btn-review px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
+<a href="https://maps.app.goo.gl/9A41Z7aBCDbVJxnSA" target="_blank" rel="noopener noreferrer" class="btn-review px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
 <i class="fa-solid fa-star text-lg"></i> <span>Deja tu Reseña</span>
 </a>
 </div>
-</div>
-<div class="mt-8 flex items-center justify-center gap-4">
-<a href="https://www.facebook.com/people/Jrp-motors/61551452017701/" target="_blank" rel="noopener noreferrer" class="social-btn facebook" title="Facebook">
-<i class="fa-brands fa-facebook-f"></i>
-</a>
 </div>
 <div class="mt-10 inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-full">
 <i class="fa-solid fa-certificate text-primary-orange text-lg"></i>
@@ -1266,16 +1275,17 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 </div>
 </section>
+
 <!-- FOOTER -->
 <footer class="bg-primary-dark/95 text-gray-500 py-10 md:py-14 border-t border-white/10">
 <div class="container mx-auto px-4">
 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
 <div class="text-center md:text-left">
-<p class="mb-2 text-white font-display font-bold text-xl md:text-2xl glow-text tracking-tight">JRP MOTORS</p>
-<p class="text-sm">De Jonas Risso Patron - Santiago del Estero</p>
+<p class="mb-2 text-white font-display font-bold text-xl md:text-2xl glow-text tracking-tight">ROMERO MECÁNICA INTEGRAL</p>
+<p class="text-sm">Paysandú, Uruguay</p>
 </div>
 <div class="flex items-center gap-4">
-<a href="https://maps.app.goo.gl/kA5eFJP2G7LX4diW7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-primary-orange hover:text-yellow-400 transition text-sm font-semibold group">
+<a href="https://maps.app.goo.gl/9A41Z7aBCDbVJxnSA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-primary-orange hover:text-yellow-400 transition text-sm font-semibold group">
 <i class="fa-solid fa-star group-hover:scale-110 transition-transform"></i>
 <span>Deja tu Reseña</span>
 </a>
@@ -1291,6 +1301,7 @@ Diseño: NEXO-Art
 </div>
 </div>
 </footer>
+
 <!-- STICKY MOBILE CTA -->
 <div class="fixed bottom-0 left-0 w-full bg-gray-900/95 backdrop-blur-sm border-t border-white/10 p-4 md:hidden z-50 flex gap-3">
 <a href="#asesoramiento" class="flex-1 bg-white/5 text-white font-semibold py-3.5 rounded-xl text-center border border-white/10 hover:border-primary-orange/40 transition text-sm flex items-center justify-center gap-2">
@@ -1300,6 +1311,7 @@ Diseño: NEXO-Art
 <i class="fa-solid fa-microchip"></i> <span>Diagnóstico</span>
 </a>
 </div>
+
 <!-- JAVASCRIPT FUNCIONAL -->
 <script>
 document.addEventListener('DOMContentLoaded', function(){
@@ -1340,7 +1352,7 @@ container.appendChild(particle);
 }
 createParticles();
 
-// ========== ESTADO DEL NEGOCIO ==========
+// ========== ESTADO DEL NEGOCIO - HORARIOS NUEVOS ==========
 function checkStatus(){
     const now = new Date();
     const hours = now.getHours();
@@ -1348,23 +1360,23 @@ function checkStatus(){
     const day = now.getDay(); // 0=Domingo, 1=Lunes, ..., 6=Sábado
     const currentMinutes = hours * 60 + minutes;
     
-    // HORARIOS CORREGIDOS SEGÚN SOLICITUD:
-    const weekdayOpen = 8 * 60;        // Lunes a Viernes: 08:00 hs
-    const weekdayClose = 20 * 60;      // Lunes a Viernes: 20:00 hs
-    const saturdayOpen = 8 * 60 + 30;  // Sábados: 08:30 hs
-    const saturdayClose = 13 * 60;     // Sábados: 13:00 hs
+    // HORARIOS NUEVOS: Lunes a Viernes 08:00-12:00 y 14:00-18:00
+    const weekdayMorningOpen = 8 * 60;        // 08:00
+    const weekdayMorningClose = 12 * 60;      // 12:00
+    const weekdayAfternoonOpen = 14 * 60;     // 14:00
+    const weekdayAfternoonClose = 18 * 60;    // 18:00
     
     let isOpen = false;
     
     // Lunes a Viernes (1-5)
     if(day >= 1 && day <= 5){
-        isOpen = currentMinutes >= weekdayOpen && currentMinutes < weekdayClose;
-    } 
-    // Sábado (6)
-    else if(day === 6){
-        isOpen = currentMinutes >= saturdayOpen && currentMinutes < saturdayClose;
+        // Mañana: 08:00 - 12:00
+        const morningOpen = currentMinutes >= weekdayMorningOpen && currentMinutes < weekdayMorningClose;
+        // Tarde: 14:00 - 18:00
+        const afternoonOpen = currentMinutes >= weekdayAfternoonOpen && currentMinutes < weekdayAfternoonClose;
+        isOpen = morningOpen || afternoonOpen;
     }
-    // Domingo (0): siempre cerrado
+    // Sábado y Domingo: siempre cerrado
     
     const dotDesktop = document.getElementById('status-dot-desktop');
     const textDesktop = document.getElementById('status-text-desktop');
@@ -1473,7 +1485,7 @@ var name = document.getElementById('inputName').value.trim() || 'Cliente';
 var phone = document.getElementById('inputPhone').value.trim() || 'No proporcionado';
 
 // Construir mensaje de WhatsApp
-var message = '🚗 ¡Hola JRP MOTORS! 👋\n';
+var message = '🚗 ¡Hola ROMERO MECÁNICA INTEGRAL! 👋\n';
 message += '*Cliente:* ' + name + '\n';
 message += '📱 *Contacto:* ' + phone + '\n';
 message += '🚘 *Tipo de Vehículo:* ' + vehicleType + '\n';
@@ -1483,7 +1495,7 @@ message += '⛽ *Combustible:* ' + fuelType + '\n';
 message += '⚠️ *Síntomas reportados:*\n' + symptoms + '\n';
 message += '🔍 *Contexto:* ' + context + '\n';
 message += '🔧 *Servicio solicitado:* ' + service + '\n';
-message += '📍 *Ubicación: Santiago del Estero*\n';
+message += '📍 *Ubicación: Paysandú, Uruguay*\n';
 message += '📅 *Solicito turno para diagnóstico profesional.* 💨';
 
 // Mostrar estado de carga
@@ -1494,7 +1506,7 @@ submitBtn.disabled = true;
 
 // Abrir WhatsApp
 setTimeout(function(){
-var whatsappUrl = 'https://api.whatsapp.com/send?phone=543855814187&text=' + encodeURIComponent(message);
+var whatsappUrl = 'https://api.whatsapp.com/send?phone=59898680159&text=' + encodeURIComponent(message);
 window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
 // Éxito
