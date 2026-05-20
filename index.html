@@ -698,6 +698,24 @@ border-color: rgba(255, 107, 53, 0.5);
   .banner { font-size: 0.9em; padding: 10px 0; }
   .banner-track span { margin: 0 25px; }
 }
+
+/* 🔥 HOVER TEXT PARA BOTONES FLOTANTES */
+@media(min-width: 768px){
+  .floating-btn-label{
+    display: none;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: all 0.25s ease;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 0.85rem;
+  }
+  .group:hover .floating-btn-label{
+    display: inline;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 </style>
 </head>
 <body class="antialiased relative">
@@ -770,12 +788,12 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 </a>
 <a href="#diagnostico" class="btn-primary px-5 py-3 md:px-7 md:py-3.5 rounded-2xl shadow-neon transition flex items-center gap-2.5 hover:shadow-glow text-sm font-semibold group">
 <i class="fa-solid fa-calendar-check text-lg"></i>
-<span class="hidden xs:inline">Pedir Turno</span>
+<span class="floating-btn-label">Pedir Turno</span>
 <i class="fa-solid fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
 </a>
-<a href="https://maps.app.goo.gl/9A41Z7aBCDbVJxnSA" target="_blank" rel="noopener noreferrer" class="btn-review px-4 py-2.5 md:px-5 md:py-3 rounded-xl shadow-lg transition flex items-center gap-2 text-xs md:text-sm font-semibold group animate-float" style="animation-delay: 0.5s;">
+<a href="https://maps.app.goo.gl/yiAsXENC2p94CAsE9" target="_blank" rel="noopener noreferrer" class="btn-review px-4 py-2.5 md:px-5 md:py-3 rounded-xl shadow-lg transition flex items-center gap-2 text-xs md:text-sm font-semibold group animate-float" style="animation-delay: 0.5s;">
 <i class="fa-solid fa-star text-lg"></i>
-<span class="hidden xs:inline">Deja tu Reseña</span>
+<span class="floating-btn-label">Deja tu Reseña</span>
 </a>
 </div>
 
@@ -1262,7 +1280,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-regular fa-location-dot text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
 <p class="font-medium">Dirección:</p>
-<p>Blvr. Gral. Artigas 585, 60000 Paysandú, Departamento de Paysandú, Uruguay</p>
+<p>AV. SORIANO 2127 ENTRE DE 4 Y 5, PAYSANDÚ</p>
 </div>
 </div>
 <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
@@ -1289,10 +1307,10 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 </div>
 <div class="flex flex-col sm:flex-row gap-3">
-<a href="https://maps.app.goo.gl/9A41Z7aBCDbVJxnSA" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
+<a href="https://maps.app.goo.gl/yiAsXENC2p94CAsE9" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
 <i class="fa-solid fa-map-location-dot text-lg"></i> <span>Ver en Google Maps</span>
 </a>
-<a href="https://maps.app.goo.gl/9A41Z7aBCDbVJxnSA" target="_blank" rel="noopener noreferrer" class="btn-review px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
+<a href="https://maps.app.goo.gl/yiAsXENC2p94CAsE9" target="_blank" rel="noopener noreferrer" class="btn-review px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
 <i class="fa-solid fa-star text-lg"></i> <span>Deja tu Reseña</span>
 </a>
 </div>
@@ -1313,7 +1331,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <p class="text-sm">Paysandú, Uruguay</p>
 </div>
 <div class="flex items-center gap-4">
-<a href="https://maps.app.goo.gl/9A41Z7aBCDbVJxnSA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-primary-orange hover:text-yellow-400 transition text-sm font-semibold group">
+<a href="https://maps.app.goo.gl/yiAsXENC2p94CAsE9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-primary-orange hover:text-yellow-400 transition text-sm font-semibold group">
 <i class="fa-solid fa-star group-hover:scale-110 transition-transform"></i>
 <span>Deja tu Reseña</span>
 </a>
