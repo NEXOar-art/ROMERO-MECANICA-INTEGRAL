@@ -725,6 +725,77 @@ border-color: rgba(255, 107, 53, 0.5);
 .btn-instagram-pulse{
 animation: instagram-glow 3.5s ease-in-out infinite;
 }
+
+/* 🌍 SELECTOR DE IDIOMA */
+.lang-selector{
+position: relative;
+display: inline-flex;
+align-items: center;
+gap: 0.3rem;
+background: rgba(26, 26, 26, 0.85);
+border: 2px solid rgba(255, 255, 255, 0.12);
+border-radius: 12px;
+padding: 0.4rem 0.7rem;
+color: #E2E8F0;
+font-size: 0.8rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.lang-selector:hover{
+border-color: #FF6B35;
+box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15), 0 0 15px rgba(255, 107, 53, 0.1);
+}
+.lang-selector i{
+font-size: 0.9rem;
+color: #FF6B35;
+}
+.lang-dropdown{
+position: absolute;
+top: 100%;
+right: 0;
+margin-top: 0.5rem;
+background: #1A1A1A;
+border: 1px solid rgba(255, 107, 53, 0.3);
+border-radius: 12px;
+padding: 0.3rem;
+min-width: 140px;
+z-index: 100;
+opacity: 0;
+visibility: hidden;
+transform: translateY(-10px);
+transition: all 0.2s ease;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.lang-selector:hover .lang-dropdown{
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
+.lang-option{
+display: flex;
+align-items: center;
+gap: 0.5rem;
+padding: 0.5rem 0.7rem;
+border-radius: 8px;
+color: #E2E8F0;
+font-size: 0.85rem;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+.lang-option:hover{
+background: rgba(255, 107, 53, 0.15);
+color: #FF6B35;
+}
+.lang-option.active{
+background: rgba(255, 107, 53, 0.25);
+color: #FF6B35;
+font-weight: 700;
+}
+.lang-option i{
+width: 16px;
+text-align: center;
+}
 </style>
 </head>
 <body class="antialiased relative">
@@ -732,17 +803,17 @@ animation: instagram-glow 3.5s ease-in-out infinite;
 <!-- ✅ Banner Automático Taller -->
 <div class="banner">
   <div class="banner-track">
-    <span>🧼 Limpieza de inyectores cada 6 meses = motor más eficiente</span>
-    <span>🛢️ Aceite de calidad cada 10.000 km = vida útil prolongada</span>
-    <span>⛽ Usar nafta premium = más potencia, menos desgaste</span>
-    <span>✅ Tres simples hábitos = menos consumo, menos fallas, más años de motor</span>
-    <span>📲 ¡Sacá un turno, no lo dejes pasar! WhatsApp +59898680159</span>
+    <span data-i18n="banner_1">🧼 Limpieza de inyectores cada 6 meses = motor más eficiente</span>
+    <span data-i18n="banner_2">🛢️ Aceite de calidad cada 10.000 km = vida útil prolongada</span>
+    <span data-i18n="banner_3">⛽ Usar nafta premium = más potencia, menos desgaste</span>
+    <span data-i18n="banner_4">✅ Tres simples hábitos = menos consumo, menos fallas, más años de motor</span>
+    <span data-i18n="banner_5">📲 ¡Sacá un turno, no lo dejes pasar! WhatsApp +59898680159</span>
     <!-- Duplicado para loop continuo -->
-    <span>🧼 Limpieza de inyectores cada 6 meses = motor más eficiente</span>
-    <span>🛢️ Aceite de calidad cada 10.000 km = vida útil prolongada</span>
-    <span>⛽ Usar nafta premium = más potencia, menos desgaste</span>
-    <span>✅ Tres simples hábitos = menos consumo, menos fallas, más años de motor</span>
-    <span>📲 ¡Sacá un turno, no lo dejes pasar! WhatsApp +59898680159</span>
+    <span data-i18n="banner_1">🧼 Limpieza de inyectores cada 6 meses = motor más eficiente</span>
+    <span data-i18n="banner_2">🛢️ Aceite de calidad cada 10.000 km = vida útil prolongada</span>
+    <span data-i18n="banner_3">⛽ Usar nafta premium = más potencia, menos desgaste</span>
+    <span data-i18n="banner_4">✅ Tres simples hábitos = menos consumo, menos fallas, más años de motor</span>
+    <span data-i18n="banner_5">📲 ¡Sacá un turno, no lo dejes pasar! WhatsApp +59898680159</span>
   </div>
 </div>
 
@@ -765,16 +836,26 @@ ROMERO MECÁNICA INTEGRAL
 </div>
 </div>
 <div class="ml-auto flex items-center gap-3 md:gap-5">
+<!-- 🌍 SELECTOR DE IDIOMA -->
+<div class="lang-selector" id="langSelector">
+<i class="fa-solid fa-globe"></i>
+<span id="currentLang">ES</span>
+<div class="lang-dropdown">
+<div class="lang-option active" data-lang="es"><i class="fa-solid fa-check"></i> Español</div>
+<div class="lang-option" data-lang="en"><i class="fa-regular fa-circle"></i> English</div>
+<div class="lang-option" data-lang="pt"><i class="fa-regular fa-circle"></i> Português</div>
+</div>
+</div>
 <div id="status-badge-desktop" class="hidden md:flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs font-semibold uppercase tracking-wide bg-white/5 border border-white/10 hover:border-primary-orange/40 transition-all">
 <span id="status-dot-desktop" class="status-dot w-2 h-2 rounded-full mr-2.5 bg-gray-500"></span>
-<span id="status-text-desktop" class="text-gray-300">Verificando...</span>
+<span id="status-text-desktop" class="text-gray-300" data-i18n="status_checking">Verificando...</span>
 </div>
 <div class="hidden md:flex items-center gap-3 lg:gap-5">
-<a href="#asesoramiento" class="text-gray-300 hover:text-primary-orange transition text-sm lg:text-base font-medium relative group">
+<a href="#asesoramiento" class="text-gray-300 hover:text-primary-orange transition text-sm lg:text-base font-medium relative group" data-i18n="nav_advice">
 Asesoramiento
 <span class="absolute bottom-1 left-0 w-0 h-0.5 bg-primary-orange transition-all group-hover:w-full"></span>
 </a>
-<a href="#diagnostico" class="btn-primary px-4 lg:px-6 py-2 lg:py-2.5 rounded-xl font-bold transition shadow-neon uppercase text-xs lg:text-sm tracking-wide">
+<a href="#diagnostico" class="btn-primary px-4 lg:px-6 py-2 lg:py-2.5 rounded-xl font-bold transition shadow-neon uppercase text-xs lg:text-sm tracking-wide" data-i18n="nav_diagnosis">
 Pre-Diagnóstico
 </a>
 </div>
@@ -783,7 +864,7 @@ Pre-Diagnóstico
 <div id="status-bar-mobile" class="md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-gray-900/80 border-t border-white/10 flex items-center justify-center gap-2">
 <span id="navbarClockTimeMobile" style="font-family:'Space Grotesk',monospace;color:#FF6B35;text-shadow:0 0 10px rgba(255,107,53,0.6);">00:00:00</span>
 <span>|</span>
-<span>Verificando estado...</span>
+<span data-i18n="status_checking">Verificando estado...</span>
 </div>
 </nav>
 
@@ -793,25 +874,25 @@ Pre-Diagnóstico
 class="bg-[#25D366] hover:bg-[#128C7E] text-white p-3.5 md:p-4 rounded-full shadow-lg transition-all hover:scale-110 flex items-center justify-center gap-2 group"
 title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinite;">
 <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
-<span class="hidden lg:inline text-xs font-bold whitespace-nowrap">Chat</span>
+<span class="hidden lg:inline text-xs font-bold whitespace-nowrap" data-i18n="btn_chat">Chat</span>
 </a>
 <a href="#diagnostico" class="btn-primary px-5 py-3 md:px-7 md:py-3.5 rounded-2xl shadow-neon transition flex items-center gap-2.5 hover:shadow-glow text-sm font-semibold group">
 <i class="fa-solid fa-calendar-check text-lg"></i>
-<span class="floating-btn-label">Pedir Turno</span>
+<span class="floating-btn-label" data-i18n="btn_appointment">Pedir Turno</span>
 <i class="fa-solid fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
 </a>
 <a href="https://maps.app.goo.gl/yiAsXENC2p94CAsE9" target="_blank" rel="noopener noreferrer" class="btn-review px-4 py-2.5 md:px-5 md:py-3 rounded-xl shadow-lg transition flex items-center gap-2 text-xs md:text-sm font-semibold group animate-float" style="animation-delay: 0.5s;">
 <i class="fa-solid fa-star text-lg"></i>
-<span class="floating-btn-label">Deja tu Reseña</span>
+<span class="floating-btn-label" data-i18n="btn_review">Deja tu Reseña</span>
 </a>
 <a href="https://www.instagram.com/romero_taller/" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] hover:from-[#d6822a] hover:via-[#c4223d] hover:to-[#a8167a] text-white p-3.5 md:p-4 rounded-full shadow-lg transition-all hover:scale-110 flex items-center justify-center gap-2 group animate-float btn-instagram-pulse" style="animation-delay: 1s;" title="Síguenos en Instagram">
 <i class="fa-brands fa-instagram text-2xl md:text-3xl"></i>
-<span class="floating-btn-label">Instagram</span>
+<span class="floating-btn-label" data-i18n="btn_instagram">Instagram</span>
 </a>
 </div>
 
-<!-- HERO SECTION - PADDING AJUSTADO PARA NO SUPERPONERSE CON BANNER + NAVBAR -->
-<header class="relative pt-44 md:pt-52 lg:pt-56 pb-20 md:pt-56 md:pb-32 lg:pt-60 lg:pb-40 min-h-screen flex items-center overflow-hidden">
+<!-- HERO SECTION - PADDING AJUSTADO PARA SEPARAR LOGO DEL BANNER (SIN REDUCIR TAMAÑO DEL LOGO) -->
+<header class="relative pt-48 md:pt-56 lg:pt-60 pb-20 md:pt-60 md:pb-32 lg:pt-64 lg:pb-40 min-h-screen flex items-center overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-primary-dark via-[#0D0D0D] to-[#0A0A0A]">
 <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 20% 35%, rgba(255,107,53, 0.2) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(247,147,30, 0.15) 0%, transparent 45%)"></div>
 </div>
@@ -823,7 +904,7 @@ title="Chat directo por WhatsApp" style="animation: float 6s ease-in-out infinit
 <div class="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
 <div class="fade-in-up badge-animated" style="animation-delay: 0.1s;">
 <div class="inline-flex items-center gap-2 bg-primary-orange/20 border border-primary-orange/40 text-primary-orange px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm shadow-lg">
-<i class="fa-solid fa-microchip"></i> <span>Diagnóstico de Precisión</span>
+<i class="fa-solid fa-microchip"></i> <span data-i18n="hero_badge">Diagnóstico de Precisión</span>
 </div>
 </div>
 <h1 class="font-display font-black text-4xl md:text-5xl lg:text-7xl leading-tight glow-text main-title fade-in-up" style="animation-delay: 0.2s;">
@@ -849,29 +930,29 @@ ROMERO MECÁNICA<br><span class="gradient-text">INTEGRAL</span>
 </div>
 </div>
 </div>
-<p class="text-gray-300/90 text-base md:text-lg max-w-3xl mx-auto description-text fade-in-up leading-relaxed" style="animation-delay: 0.3s;">
+<p class="text-gray-300/90 text-base md:text-lg max-w-3xl mx-auto description-text fade-in-up leading-relaxed" style="animation-delay: 0.3s;" data-i18n="hero_description">
 En Romero Mecánica Integral, entendemos que tu auto es una inversión importante y tu seguridad es primordial. Somos un taller de reparación de automóviles con años de experiencia en Paysandú, Uruguay, dedicados a brindarte un servicio de calidad, confiable y transparente. Nos especializamos en mantener tu vehículo en óptimas condiciones para que disfrutes de cada viaje con total tranquilidad.
 </p>
 <div class="grid grid-cols-3 gap-3 md:gap-5 pt-2 md:pt-4 fade-in-up" style="animation-delay: 0.5s;">
 <div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 transition">
 <span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter1" data-target="99">0</span>%</span>
-<span class="text-xs text-gray-400 mt-1 block">Precisión</span>
+<span class="text-xs text-gray-400 mt-1 block" data-i18n="stat_precision">Precisión</span>
 </div>
 <div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 transition">
 <span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter2" data-target="50">0</span>min</span>
-<span class="text-xs text-gray-400 mt-1 block">Ahorro</span>
+<span class="text-xs text-gray-400 mt-1 block" data-i18n="stat_saving">Ahorro</span>
 </div>
 <div class="text-center p-4 rounded-2xl bg-white/5 border border-white/10 transition">
 <span class="block text-2xl md:text-3xl font-bold gradient-text"><span id="counter3" data-target="8000">0</span>+</span>
-<span class="text-xs text-gray-400 mt-1 block">Vehículos</span>
+<span class="text-xs text-gray-400 mt-1 block" data-i18n="stat_vehicles">Vehículos</span>
 </div>
 </div>
 <div class="flex flex-col sm:flex-row gap-3.5 pt-2 justify-center fade-in-up" style="animation-delay: 0.6s;">
-<a href="#diagnostico" class="btn-primary px-6 py-3.5 rounded-xl uppercase tracking-wide flex items-center justify-center gap-2.5 group text-sm font-semibold shadow-neon">
+<a href="#diagnostico" class="btn-primary px-6 py-3.5 rounded-xl uppercase tracking-wide flex items-center justify-center gap-2.5 group text-sm font-semibold shadow-neon" data-i18n="btn_start_diagnosis">
 <span>Iniciar Diagnóstico</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
 </a>
 <a href="#asesoramiento" class="btn-outline px-6 py-3.5 rounded-xl uppercase tracking-wide flex items-center justify-center gap-2 text-sm font-semibold">
-<i class="fa-solid fa-book-open text-primary-orange"></i> <span>Guías Técnicas</span>
+<i class="fa-solid fa-book-open text-primary-orange"></i> <span data-i18n="btn_guides">Guías Técnicas</span>
 </a>
 </div>
 </div>
@@ -884,10 +965,10 @@ En Romero Mecánica Integral, entendemos que tu auto es una inversión important
 <div class="container mx-auto px-4 relative z-10">
 <div class="text-center mb-14 md:mb-20 max-w-3xl mx-auto">
 <div class="inline-block bg-primary-orange/15 border border-primary-orange/30 text-primary-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
-<i class="fa-solid fa-lightbulb mr-1.5"></i> <span>Conocimiento Técnico</span>
+<i class="fa-solid fa-lightbulb mr-1.5"></i> <span data-i18n="advice_badge">Conocimiento Técnico</span>
 </div>
-<h2 class="font-display font-bold text-4xl md:text-5xl gradient-text uppercase mb-5 glow-text tracking-tight">Centro de Asesoramiento</h2>
-<p class="text-gray-400/90 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+<h2 class="font-display font-bold text-4xl md:text-5xl gradient-text uppercase mb-5 glow-text tracking-tight" data-i18n="advice_title">Centro de Asesoramiento</h2>
+<p class="text-gray-400/90 max-w-2xl mx-auto text-base md:text-lg leading-relaxed" data-i18n="advice_description">
 Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a identificar las señales clave de tu vehículo.
 </p>
 </div>
@@ -897,14 +978,14 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 <img src="https://placehold.co/600x400/FF6B35/0A0A0A?text=FRENOS" alt="Sistema de frenos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
 <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent"></div>
 <div class="absolute bottom-3 left-4">
-<span class="text-xs font-bold text-primary-orange uppercase tracking-wider">Predictivo</span>
+<span class="text-xs font-bold text-primary-orange uppercase tracking-wider" data-i18n="card_predictive">Predictivo</span>
 </div>
 </div>
 <div class="p-5 md:p-6">
-<h3 class="font-bold text-lg md:text-xl text-white mb-2.5">Señales en Frenos</h3>
-<p class="text-gray-400/90 text-sm mb-4 leading-relaxed">Chillidos, vibración en pedal o recorrido excesivo: indicadores de desgaste en pastillas o aire en el circuito.</p>
+<h3 class="font-bold text-lg md:text-xl text-white mb-2.5" data-i18n="card_brakes_title">Señales en Frenos</h3>
+<p class="text-gray-400/90 text-sm mb-4 leading-relaxed" data-i18n="card_brakes_desc">Chillidos, vibración en pedal o recorrido excesivo: indicadores de desgaste en pastillas o aire en el circuito.</p>
 <a href="#diagnostico" class="text-primary-orange hover:text-orange-300 font-semibold text-sm flex items-center gap-1.5 group">
-<span>Analizar ahora</span>
+<span data-i18n="card_analyze">Analizar ahora</span>
 <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
@@ -914,14 +995,14 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 <img src="https://placehold.co/600x400/2D2D2D/FF6B35?text=BATERIA" alt="Sistema eléctrico" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
 <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent"></div>
 <div class="absolute bottom-3 left-4">
-<span class="text-xs font-bold text-primary-orange uppercase tracking-wider">Preventivo</span>
+<span class="text-xs font-bold text-primary-orange uppercase tracking-wider" data-i18n="card_preventive">Preventivo</span>
 </div>
 </div>
 <div class="p-5 md:p-6">
-<h3 class="font-bold text-lg md:text-xl text-white mb-2.5">Batería y Alternador</h3>
-<p class="text-gray-400/90 text-sm mb-4 leading-relaxed">Arranque lento, luces tenues o parpadeantes: verifica voltaje y estado de carga antes de una falla total.</p>
+<h3 class="font-bold text-lg md:text-xl text-white mb-2.5" data-i18n="card_battery_title">Batería y Alternador</h3>
+<p class="text-gray-400/90 text-sm mb-4 leading-relaxed" data-i18n="card_battery_desc">Arranque lento, luces tenues o parpadeantes: verifica voltaje y estado de carga antes de una falla total.</p>
 <a href="#diagnostico" class="text-primary-orange hover:text-orange-300 font-semibold text-sm flex items-center gap-1.5 group">
-<span>Verificar sistema</span>
+<span data-i18n="card_verify">Verificar sistema</span>
 <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
@@ -931,21 +1012,21 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 <img src="https://placehold.co/600x400/F7931E/0A0A0A?text=FLUIDOS" alt="Fluidos críticos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
 <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 to-transparent"></div>
 <div class="absolute bottom-3 left-4">
-<span class="text-xs font-bold text-primary-orange uppercase tracking-wider">Mantenimiento</span>
+<span class="text-xs font-bold text-primary-orange uppercase tracking-wider" data-i18n="card_maintenance">Mantenimiento</span>
 </div>
 </div>
 <div class="p-5 md:p-6">
-<h3 class="font-bold text-lg md:text-xl text-white mb-2.5">Fluidos Críticos</h3>
-<p class="text-gray-400/90 text-sm mb-4 leading-relaxed">Aceite, refrigerante y líquido de frenos: niveles bajos o cambios de color indican urgencia de revisión.</p>
+<h3 class="font-bold text-lg md:text-xl text-white mb-2.5" data-i18n="card_fluids_title">Fluidos Críticos</h3>
+<p class="text-gray-400/90 text-sm mb-4 leading-relaxed" data-i18n="card_fluids_desc">Aceite, refrigerante y líquido de frenos: niveles bajos o cambios de color indican urgencia de revisión.</p>
 <a href="#diagnostico" class="text-primary-orange hover:text-orange-300 font-semibold text-sm flex items-center gap-1.5 group">
-<span>Revisar niveles</span>
+<span data-i18n="card_check">Revisar niveles</span>
 <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
 </a>
 </div>
 </div>
 </div>
 <div class="text-center mt-10 md:mt-14">
-<a href="#diagnostico" class="inline-flex items-center gap-2.5 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-primary-orange/40 text-white font-bold py-3.5 px-7 md:px-9 rounded-2xl transition-all uppercase tracking-wide text-sm shadow-soft hover:shadow-neon">
+<a href="#diagnostico" class="inline-flex items-center gap-2.5 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-primary-orange/40 text-white font-bold py-3.5 px-7 md:px-9 rounded-2xl transition-all uppercase tracking-wide text-sm shadow-soft hover:shadow-neon" data-i18n="btn_start_prediagnosis">
 <i class="fa-solid fa-hand-pointer text-primary-orange"></i> <span>Iniciar Pre-Diagnóstico Ahora</span>
 </a>
 </div>
@@ -958,10 +1039,10 @@ Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a iden
 <div class="container mx-auto px-4 relative z-10">
 <div class="text-center mb-14 md:mb-20">
 <div class="inline-block bg-primary-orange/15 border border-primary-orange/30 text-primary-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
-<i class="fa-solid fa-screwdriver-wrench mr-1.5"></i> <span>Soluciones Profesionales</span>
+<i class="fa-solid fa-screwdriver-wrench mr-1.5"></i> <span data-i18n="services_badge">Soluciones Profesionales</span>
 </div>
-<h2 class="font-display font-bold text-4xl md:text-5xl text-white uppercase mb-4 glow-text tracking-tight"><span>Servicios</span><span class="gradient-text">Integrales</span></h2>
-<p class="text-gray-400/90 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+<h2 class="font-display font-bold text-4xl md:text-5xl text-white uppercase mb-4 glow-text tracking-tight"><span data-i18n="services_title_part1">Servicios</span><span class="gradient-text" data-i18n="services_title_part2">Integrales</span></h2>
+<p class="text-gray-400/90 max-w-2xl mx-auto text-base md:text-lg leading-relaxed" data-i18n="services_description">
 Tecnología avanzada y expertise técnico para mantener tu vehículo en condiciones óptimas de seguridad y rendimiento.
 </p>
 </div>
@@ -970,44 +1051,44 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-laptop-code text-2xl md:text-3xl text-primary-orange"></i>
 </div>
-<h3 class="font-bold text-xl text-white mb-2.5">Diagnóstico Computarizado</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Escaneo avanzado de ECU, sensores y sistemas electrónicos con equipos de última generación.</p>
+<h3 class="font-bold text-xl text-white mb-2.5" data-i18n="service_diagnostic">Diagnóstico Computarizado</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed" data-i18n="service_diagnostic_desc">Escaneo avanzado de ECU, sensores y sistemas electrónicos con equipos de última generación.</p>
 </div>
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-circle-stop text-2xl md:text-3xl text-primary-orange"></i>
 </div>
-<h3 class="font-bold text-xl text-white mb-2.5">Sistema de Frenos</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Revisión integral de ABS, pastillas, discos y líquido de frenos para máxima seguridad.</p>
+<h3 class="font-bold text-xl text-white mb-2.5" data-i18n="service_brakes">Sistema de Frenos</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed" data-i18n="service_brakes_desc">Revisión integral de ABS, pastillas, discos y líquido de frenos para máxima seguridad.</p>
 </div>
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-car-burst text-2xl md:text-3xl text-primary-orange"></i>
 </div>
-<h3 class="font-bold text-xl text-white mb-2.5">Suspensión y Dirección</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Amortiguadores, rótulas, alineación y balanceo para confort y estabilidad en ruta.</p>
+<h3 class="font-bold text-xl text-white mb-2.5" data-i18n="service_suspension">Suspensión y Dirección</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed" data-i18n="service_suspension_desc">Amortiguadores, rótulas, alineación y balanceo para confort y estabilidad en ruta.</p>
 </div>
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-bolt text-2xl md:text-3xl text-primary-orange"></i>
 </div>
-<h3 class="font-bold text-xl text-white mb-2.5">Electricidad Automotriz</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Diagnóstico de fallas eléctricas, baterías, alternadores y sistemas de iluminación.</p>
+<h3 class="font-bold text-xl text-white mb-2.5" data-i18n="service_electric">Electricidad Automotriz</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed" data-i18n="service_electric_desc">Diagnóstico de fallas eléctricas, baterías, alternadores y sistemas de iluminación.</p>
 </div>
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-wrench text-2xl md:text-3xl text-primary-orange"></i>
 </div>
-<h3 class="font-bold text-xl text-white mb-2.5">Mecánica Integral</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Reparaciones completas de motor, transmisión y sistemas mecánicos con garantía de calidad.</p>
+<h3 class="font-bold text-xl text-white mb-2.5" data-i18n="service_mechanic">Mecánica Integral</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed" data-i18n="service_mechanic_desc">Reparaciones completas de motor, transmisión y sistemas mecánicos con garantía de calidad.</p>
 </div>
 <!-- TARJETA: CAJA DE CAMBIO -->
 <div class="glass-card p-6 md:p-7 group">
 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-orange/20 to-primary-orange/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
 <i class="fa-solid fa-gears text-2xl md:text-3xl text-primary-orange"></i>
 </div>
-<h3 class="font-bold text-xl text-white mb-2.5">Caja de Cambio</h3>
-<p class="text-gray-400/90 text-sm leading-relaxed">Reparación y mantenimiento de cajas manuales y automáticas. Diagnóstico de embrague y transmisión.</p>
+<h3 class="font-bold text-xl text-white mb-2.5" data-i18n="service_gearbox">Caja de Cambio</h3>
+<p class="text-gray-400/90 text-sm leading-relaxed" data-i18n="service_gearbox_desc">Reparación y mantenimiento de cajas manuales y automáticas. Diagnóstico de embrague y transmisión.</p>
 </div>
 </div>
 </div>
@@ -1018,10 +1099,10 @@ Tecnología avanzada y expertise técnico para mantener tu vehículo en condicio
 <div class="container mx-auto px-4">
 <div class="text-center mb-10 md:mb-14">
 <div class="inline-block bg-primary-orange/15 border border-primary-orange/30 text-primary-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
-<i class="fa-solid fa-comments mr-1.5"></i> <span>Experiencias Reales</span>
+<i class="fa-solid fa-comments mr-1.5"></i> <span data-i18n="testimonials_badge">Experiencias Reales</span>
 </div>
-<h2 class="font-display font-bold text-4xl md:text-5xl text-white uppercase glow-text tracking-tight">La Voz de Nuestros Clientes</h2>
-<p class="text-gray-400/90 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
+<h2 class="font-display font-bold text-4xl md:text-5xl text-white uppercase glow-text tracking-tight" data-i18n="testimonials_title">La Voz de Nuestros Clientes</h2>
+<p class="text-gray-400/90 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed" data-i18n="testimonials_description">
 Confianza construida sobre resultados verificables y atención profesional en Paysandú, Uruguay.
 </p>
 </div>
@@ -1033,7 +1114,7 @@ Confianza construida sobre resultados verificables y atención profesional en Pa
 </div>
 <i class="fa-solid fa-quote-right text-3xl text-gray-700/70"></i>
 </div>
-<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Excelente servicio en Romero Mecánica Integral. Diagnóstico preciso y rápido. Me explicaron todo con claridad y profesionalismo. Totalmente recomendado."</p>
+<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm" data-i18n="testimonial_1">"Excelente servicio en Romero Mecánica Integral. Diagnóstico preciso y rápido. Me explicaron todo con claridad y profesionalismo. Totalmente recomendado."</p>
 <div class="flex items-center pt-3 border-t border-white/10">
 <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0">MP</div>
 <div>
@@ -1049,7 +1130,7 @@ Confianza construida sobre resultados verificables y atención profesional en Pa
 </div>
 <i class="fa-solid fa-quote-right text-3xl text-gray-700/70"></i>
 </div>
-<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"El mejor taller de Paysandú. Proceso transparente y rápido. El pre-diagnóstico online me ahorró tiempo y dinero. Volveré sin dudas a Romero Mecánica Integral."</p>
+<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm" data-i18n="testimonial_2">"El mejor taller de Paysandú. Proceso transparente y rápido. El pre-diagnóstico online me ahorró tiempo y dinero. Volveré sin dudas a Romero Mecánica Integral."</p>
 <div class="flex items-center pt-3 border-t border-white/10">
 <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0">AR</div>
 <div>
@@ -1065,7 +1146,7 @@ Confianza construida sobre resultados verificables y atención profesional en Pa
 </div>
 <i class="fa-solid fa-quote-right text-3xl text-gray-700/70"></i>
 </div>
-<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm">"Llevo mi flota de utilitarios a Romero Mecánica Integral. Reportes detallados, atención personalizada y precios justos. Un taller de confianza."</p>
+<p class="text-gray-300/95 italic mb-5 leading-relaxed text-sm" data-i18n="testimonial_3">"Llevo mi flota de utilitarios a Romero Mecánica Integral. Reportes detallados, atención personalizada y precios justos. Un taller de confianza."</p>
 <div class="flex items-center pt-3 border-t border-white/10">
 <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary-orange to-orange-700 flex items-center justify-center text-white font-bold mr-3.5 flex-shrink-0">EC</div>
 <div>
@@ -1076,7 +1157,7 @@ Confianza construida sobre resultados verificables y atención profesional en Pa
 </div>
 </div>
 <p class="text-center text-gray-500 mt-5 text-sm flex items-center justify-center gap-1.5">
-<i class="fa-solid fa-arrow-right text-primary-orange"></i> <span>Desliza para más opiniones</span>
+<i class="fa-solid fa-arrow-right text-primary-orange"></i> <span data-i18n="testimonials_swipe">Desliza para más opiniones</span>
 </p>
 </div>
 </section>
@@ -1089,9 +1170,9 @@ Confianza construida sobre resultados verificables y atención profesional en Pa
 <!-- Columna informativa -->
 <div class="lg:w-1/3 space-y-6">
 <h2 class="font-display font-bold text-4xl md:text-5xl text-white mb-2 glow-text tracking-tight">
-ACELERADOR DE<br><span class="gradient-text">DIAGNÓSTICO</span>
+<span data-i18n="diagnosis_title_part1">ACELERADOR DE</span><br><span class="gradient-text" data-i18n="diagnosis_title_part2">DIAGNÓSTICO</span>
 </h2>
-<p class="text-gray-400/90 mb-6 text-base leading-relaxed">
+<p class="text-gray-400/90 mb-6 text-base leading-relaxed" data-i18n="diagnosis_description">
 Completa el formulario y nuestros técnicos prepararán el análisis previo antes de tu llegada. Optimizamos tu tiempo y recursos.
 </p>
 <div class="space-y-5 pt-2">
@@ -1100,8 +1181,8 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-solid fa-stopwatch text-xl"></i>
 </div>
 <div>
-<h4 class="font-bold text-white text-base mb-1">Ahorro de Tiempo</h4>
-<p class="text-gray-400/90 text-sm">Evita esperas innecesarias. Tu caso ya estará en análisis al llegar.</p>
+<h4 class="font-bold text-white text-base mb-1" data-i18n="benefit_time_title">Ahorro de Tiempo</h4>
+<p class="text-gray-400/90 text-sm" data-i18n="benefit_time_desc">Evita esperas innecesarias. Tu caso ya estará en análisis al llegar.</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
@@ -1109,8 +1190,8 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-solid fa-file-waveform text-xl"></i>
 </div>
 <div>
-<h4 class="font-bold text-white text-base mb-1">Análisis Previo</h4>
-<p class="text-gray-400/90 text-sm">Preparamos herramientas y repuestos específicos para tu caso.</p>
+<h4 class="font-bold text-white text-base mb-1" data-i18n="benefit_analysis_title">Análisis Previo</h4>
+<p class="text-gray-400/90 text-sm" data-i18n="benefit_analysis_desc">Preparamos herramientas y repuestos específicos para tu caso.</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
@@ -1118,8 +1199,8 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-solid fa-shield-halved text-xl"></i>
 </div>
 <div>
-<h4 class="font-bold text-white text-base mb-1">Transparencia Total</h4>
-<p class="text-gray-400/90 text-sm">Recibirás un informe detallado con opciones de reparación y costos.</p>
+<h4 class="font-bold text-white text-base mb-1" data-i18n="benefit_transparency_title">Transparencia Total</h4>
+<p class="text-gray-400/90 text-sm" data-i18n="benefit_transparency_desc">Recibirás un informe detallado con opciones de reparación y costos.</p>
 </div>
 </div>
 </div>
@@ -1128,8 +1209,8 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <i class="fa-solid fa-check text-orange-400"></i>
 </div>
 <div>
-<p class="text-sm font-semibold text-white">Datos 100% seguros</p>
-<p class="text-xs text-gray-500">Tu información está protegida</p>
+<p class="text-sm font-semibold text-white" data-i18n="security_title">Datos 100% seguros</p>
+<p class="text-xs text-gray-500" data-i18n="security_desc">Tu información está protegida</p>
 </div>
 </div>
 </div>
@@ -1140,14 +1221,14 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <div class="border-b border-white/10 pb-6 mb-6">
 <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
 <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
-<span>Datos del Vehículo</span>
+<span data-i18n="form_section_vehicle">Datos del Vehículo</span>
 </h3>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 <!-- Tipo de Vehículo -->
 <div class="form-field select-wrapper">
-<label for="inputVehicleType" class="field-label">Tipo de Vehículo</label>
+<label for="inputVehicleType" class="field-label" data-i18n="form_vehicle_type">Tipo de Vehículo</label>
 <select id="inputVehicleType" class="field-input">
-<option value="" disabled selected>Seleccionar tipo...</option>
+<option value="" disabled selected data-i18n="form_select_vehicle">Seleccionar tipo...</option>
 <option value="Auto">🚗 Auto</option>
 <option value="Moto">🏍️ Moto</option>
 <option value="Cuatriciclo">🏎️ Cuatriciclo</option>
@@ -1155,21 +1236,21 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 <!-- Marca y Modelo -->
 <div class="form-field">
-<label for="inputVehicle" class="field-label">Marca y Modelo</label>
+<label for="inputVehicle" class="field-label" data-i18n="form_vehicle_model">Marca y Modelo</label>
 <input type="text" id="inputVehicle" class="field-input" placeholder="Ej: Toyota Corolla 2020" autocomplete="off">
 </div>
 <!-- Kilometraje -->
 <div class="form-field">
-<label for="inputKm" class="field-label">Kilometraje</label>
+<label for="inputKm" class="field-label" data-i18n="form_mileage">Kilometraje</label>
 <input type="number" id="inputKm" class="field-input" placeholder="Ej: 85000" autocomplete="off">
 </div>
 </div>
 <!-- Combustible -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
 <div class="form-field select-wrapper">
-<label for="inputFuelType" class="field-label">Combustible</label>
+<label for="inputFuelType" class="field-label" data-i18n="form_fuel">Combustible</label>
 <select id="inputFuelType" class="field-input">
-<option value="" disabled selected>Seleccionar...</option>
+<option value="" disabled selected data-i18n="form_select_fuel">Seleccionar...</option>
 <option value="Naftero">⛽ Nafta / Gasolina</option>
 <option value="Diesel">🛢️ Diesel</option>
 <option value="Híbrido">🔋 Híbrido</option>
@@ -1182,42 +1263,42 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <div class="border-b border-white/10 pb-6 mb-6">
 <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
 <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
-<span>Descripción de Fallas</span>
+<span data-i18n="form_section_symptoms">Descripción de Fallas</span>
 </h3>
 <!-- Síntomas -->
 <div class="form-field mb-5">
-<label for="inputSymptoms" class="field-label">Síntomas</label>
+<label for="inputSymptoms" class="field-label" data-i18n="form_symptoms">Síntomas</label>
 <textarea id="inputSymptoms" class="field-input" rows="4" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..."></textarea>
 </div>
 <!-- Contexto de la falla -->
 <div class="form-field select-wrapper">
-<label for="inputContext" class="field-label">Contexto de la falla</label>
+<label for="inputContext" class="field-label" data-i18n="form_context">Contexto de la falla</label>
 <select id="inputContext" class="field-input">
-<option value="" disabled selected>Seleccionar contexto...</option>
+<option value="" disabled selected data-i18n="form_select_context">Seleccionar contexto...</option>
 <optgroup label="🔋 ARRANQUE Y ENERGÍA" class="font-bold">
-<option value="no_arranca_gira">Gira pero no arranca</option>
-<option value="no_arranca_nada">No da contacto</option>
-<option value="arranca_lento">Arranque lento o difícil</option>
+<option value="no_arranca_gira" data-i18n="opt_starts_no_start">Gira pero no arranca</option>
+<option value="no_arranca_nada" data-i18n="opt_no_contact">No da contacto</option>
+<option value="arranca_lento" data-i18n="opt_slow_start">Arranque lento o difícil</option>
 </optgroup>
 <optgroup label="⚙️ RENDIMIENTO" class="font-bold">
-<option value="falla_ralenti">Inestabilidad en ralentí</option>
-<option value="pierde_potencia">Pérdida de potencia</option>
-<option value="consumo_excesivo">Consumo excesivo de combustible</option>
-<option value="humo_escape">Humo en escape (color)</option>
+<option value="falla_ralenti" data-i18n="opt_idle_issue">Inestabilidad en ralentí</option>
+<option value="pierde_potencia" data-i18n="opt_power_loss">Pérdida de potencia</option>
+<option value="consumo_excesivo" data-i18n="opt_high_consumption">Consumo excesivo de combustible</option>
+<option value="humo_escape" data-i18n="opt_exhaust_smoke">Humo en escape (color)</option>
 </optgroup>
 <optgroup label="🔊 RUIDOS Y VIBRACIONES" class="font-bold">
-<option value="ruido_frenar">Ruido al frenar</option>
-<option value="ruido_direccion">Ruido al girar dirección</option>
-<option value="vibracion_alta">Vibración en alta velocidad</option>
-<option value="ruido_motor">Ruido anormal en motor</option>
+<option value="ruido_frenar" data-i18n="opt_brake_noise">Ruido al frenar</option>
+<option value="ruido_direccion" data-i18n="opt_steering_noise">Ruido al girar dirección</option>
+<option value="vibracion_alta" data-i18n="opt_high_speed_vibration">Vibración en alta velocidad</option>
+<option value="ruido_motor" data-i18n="opt_engine_noise">Ruido anormal en motor</option>
 </optgroup>
 <optgroup label="🌡️ TEMPERATURA Y FLUIDOS" class="font-bold">
-<option value="levanta_temp">Se calienta el motor</option>
-<option value="perdida_fluido">Pérdida de fluido visible</option>
+<option value="levanta_temp" data-i18n="opt_overheating">Se calienta el motor</option>
+<option value="perdida_fluido" data-i18n="opt_fluid_leak">Pérdida de fluido visible</option>
 </optgroup>
-<option value="falla_frio">Solo falla en frío</option>
-<option value="falla_caliente">Solo falla en caliente</option>
-<option value="falla_intermitente">Falla intermitente</option>
+<option value="falla_frio" data-i18n="opt_cold_issue">Solo falla en frío</option>
+<option value="falla_caliente" data-i18n="opt_hot_issue">Solo falla en caliente</option>
+<option value="falla_intermitente" data-i18n="opt_intermittent">Falla intermitente</option>
 </select>
 </div>
 </div>
@@ -1225,19 +1306,19 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <div class="border-b border-white/10 pb-6 mb-6">
 <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
 <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
-<span>Servicio Integral</span>
+<span data-i18n="form_section_service">Servicio Integral</span>
 </h3>
 <div class="form-field select-wrapper">
-<label for="inputService" class="field-label">Servicio Requerido</label>
+<label for="inputService" class="field-label" data-i18n="form_service_required">Servicio Requerido</label>
 <select id="inputService" class="field-input">
-<option value="" disabled selected>Selecciona un servicio...</option>
-<option value="diagnostico">🔍 Diagnóstico Computarizado</option>
-<option value="frenos">🛑 Sistema de Frenos</option>
-<option value="suspension">🔩 Suspensión</option>
-<option value="direccion">🔄 Dirección</option>
-<option value="electricidad">⚡ Electricidad Automotriz</option>
-<option value="mecanica_integral">🛠️ Mecánica Integral</option>
-<option value="caja_cambio">⚙️ Caja de Cambio</option>
+<option value="" disabled selected data-i18n="form_select_service">Selecciona un servicio...</option>
+<option value="diagnostico" data-i18n="srv_diagnostic">🔍 Diagnóstico Computarizado</option>
+<option value="frenos" data-i18n="srv_brakes">🛑 Sistema de Frenos</option>
+<option value="suspension" data-i18n="srv_suspension">🔩 Suspensión</option>
+<option value="direccion" data-i18n="srv_steering">🔄 Dirección</option>
+<option value="electricidad" data-i18n="srv_electric">⚡ Electricidad Automotriz</option>
+<option value="mecanica_integral" data-i18n="srv_mechanic">🛠️ Mecánica Integral</option>
+<option value="caja_cambio" data-i18n="srv_gearbox">⚙️ Caja de Cambio</option>
 </select>
 </div>
 </div>
@@ -1245,28 +1326,28 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <div class="mb-6">
 <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-3">
 <span class="bg-gradient-to-r from-primary-orange to-orange-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
-<span>Datos de Contacto</span>
+<span data-i18n="form_section_contact">Datos de Contacto</span>
 </h3>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 <div class="form-field">
-<label for="inputName" class="field-label">Nombre</label>
+<label for="inputName" class="field-label" data-i18n="form_name">Nombre</label>
 <input type="text" id="inputName" class="field-input" placeholder="Tu nombre completo" autocomplete="name">
 </div>
 <div class="form-field">
-<label for="inputPhone" class="field-label">WhatsApp</label>
+<label for="inputPhone" class="field-label" data-i18n="form_whatsapp">WhatsApp</label>
 <input type="tel" id="inputPhone" class="field-input" placeholder="Tu número de WhatsApp" autocomplete="tel">
 </div>
 </div>
 <p class="text-xs text-gray-500 mt-4 flex items-center gap-1.5">
-<i class="fa-solid fa-lock text-primary-orange"></i> <span>Tus datos se usarán únicamente para coordinar tu turno</span>
+<i class="fa-solid fa-lock text-primary-orange"></i> <span data-i18n="form_privacy">Tus datos se usarán únicamente para coordinar tu turno</span>
 </p>
 </div>
 <!-- Botón de envío -->
 <button type="submit" id="submitBtn" class="btn-primary w-full font-bold uppercase text-base py-5 rounded-2xl hover:shadow-neon transition flex items-center justify-center gap-3">
-<i class="fa-brands fa-whatsapp text-2xl"></i> <span>Enviar Solicitud a ROMERO MECÁNICA INTEGRAL</span>
+<i class="fa-brands fa-whatsapp text-2xl"></i> <span data-i18n="btn_send_request">Enviar Solicitud a ROMERO MECÁNICA INTEGRAL</span>
 </button>
 <p class="text-center text-xs text-gray-500 pt-3">
-<span>Al enviar, aceptas nuestros</span> <a href="#" class="text-primary-orange hover:underline">términos de servicio</a>
+<span data-i18n="terms_prefix">Al enviar, aceptas nuestros</span> <a href="#" class="text-primary-orange hover:underline" data-i18n="terms_link">términos de servicio</a>
 </p>
 </form>
 </div>
@@ -1287,50 +1368,50 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 <div class="glass-card rounded-3xl p-6 md:p-10 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
 <div class="text-left max-w-md">
-<h3 class="font-display font-bold text-2xl md:text-3xl text-white mb-2">¿Dónde estamos?</h3>
-<p class="text-gray-400/90 mb-4 text-base">Visítanos para validación final y reparaciones especializadas.</p>
+<h3 class="font-display font-bold text-2xl md:text-3xl text-white mb-2" data-i18n="location_title">¿Dónde estamos?</h3>
+<p class="text-gray-400/90 mb-4 text-base" data-i18n="location_subtitle">Visítanos para validación final y reparaciones especializadas.</p>
 <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
 <i class="fa-regular fa-location-dot text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
-<p class="font-medium">Dirección:</p>
-<p>AV. SORIANO 2127 ENTRE DE 4 Y 5, PAYSANDÚ,URUGUAY</p>
+<p class="font-medium" data-i18n="label_address">Dirección:</p>
+<p>AV. SORIANO 2127 ENTRE DE 4 Y 5, PAYSANDÚ</p>
 </div>
 </div>
 <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
 <i class="fa-brands fa-whatsapp text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
-<p class="font-medium">WhatsApp:</p>
+<p class="font-medium" data-i18n="label_whatsapp">WhatsApp:</p>
 <p dir="ltr">+598 98 680 159</p>
 </div>
 </div>
 <div class="flex items-start gap-3 text-gray-300/90 text-sm mb-2">
 <i class="fa-solid fa-envelope text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
-<p class="font-medium">E-mail:</p>
-<p>admtalleromero@gmail.com</p>
+<p class="font-medium" data-i18n="label_email">E-mail:</p>
+<p>romeromecanica@email.com</p>
 </div>
 </div>
 <div class="flex items-start gap-3 text-gray-300/90 text-sm">
 <i class="fa-regular fa-clock text-primary-orange text-xl mt-0.5 flex-shrink-0"></i>
 <div>
-<p class="font-medium">Horarios de atención:</p>
-<p>Lunes a Viernes: 08:00 - 12:00 y 14:00 - 18:00 hs</p>
-<p>Sábados y Domingos: Cerrado</p>
+<p class="font-medium" data-i18n="label_hours">Horarios de atención:</p>
+<p data-i18n="hours_weekdays">Lunes a Viernes: 08:00 - 12:00 y 14:00 - 18:00 hs</p>
+<p data-i18n="hours_weekend">Sábados y Domingos: Cerrado</p>
 </div>
 </div>
 </div>
 <div class="flex flex-col sm:flex-row gap-3">
 <a href="https://maps.app.goo.gl/yiAsXENC2p94CAsE9" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
-<i class="fa-solid fa-map-location-dot text-lg"></i> <span>Ver en Google Maps</span>
+<i class="fa-solid fa-map-location-dot text-lg"></i> <span data-i18n="btn_maps">Ver en Google Maps</span>
 </a>
 <a href="https://maps.app.goo.gl/yiAsXENC2p94CAsE9" target="_blank" rel="noopener noreferrer" class="btn-review px-6 py-3.5 md:px-8 md:py-4 rounded-2xl font-bold hover:shadow-neon transition flex items-center gap-3 text-sm md:text-base whitespace-nowrap shadow-soft">
-<i class="fa-solid fa-star text-lg"></i> <span>Deja tu Reseña</span>
+<i class="fa-solid fa-star text-lg"></i> <span data-i18n="btn_review">Deja tu Reseña</span>
 </a>
 </div>
 </div>
 <div class="mt-10 inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-full">
 <i class="fa-solid fa-certificate text-primary-orange text-lg"></i>
-<span class="text-sm font-medium text-gray-300">Garantía en todos nuestros servicios</span>
+<span class="text-sm font-medium text-gray-300" data-i18n="warranty_text">Garantía en todos nuestros servicios</span>
 </div>
 </div>
 </section>
@@ -1346,7 +1427,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <div class="flex items-center gap-4">
 <a href="https://maps.app.goo.gl/yiAsXENC2p94CAsE9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-primary-orange hover:text-yellow-400 transition text-sm font-semibold group">
 <i class="fa-solid fa-star group-hover:scale-110 transition-transform"></i>
-<span>Deja tu Reseña</span>
+<span data-i18n="btn_review">Deja tu Reseña</span>
 </a>
 </div>
 </div>
@@ -1354,9 +1435,9 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <a href="https://nexoar-art.github.io/NEXO-art/" target="_blank" rel="noopener noreferrer"
 class="inline-flex items-center gap-1.5 text-xs text-gray-600 hover:text-primary-orange transition font-medium group">
 <i class="fa-solid fa-pen-nib group-hover:scale-110 transition-transform"></i>
-Diseño: NEXO-Art
+<span data-i18n="footer_design">Diseño: NEXO-Art</span>
 </a>
-<p class="text-gray-600 mt-2 text-xs">Sitio web desarrollado con tecnología moderna</p>
+<p class="text-gray-600 mt-2 text-xs" data-i18n="footer_tech">Sitio web desarrollado con tecnología moderna</p>
 </div>
 </div>
 </footer>
@@ -1364,15 +1445,435 @@ Diseño: NEXO-Art
 <!-- STICKY MOBILE CTA -->
 <div class="fixed bottom-0 left-0 w-full bg-gray-900/95 backdrop-blur-sm border-t border-white/10 p-4 md:hidden z-50 flex gap-3">
 <a href="#asesoramiento" class="flex-1 bg-white/5 text-white font-semibold py-3.5 rounded-xl text-center border border-white/10 hover:border-primary-orange/40 transition text-sm flex items-center justify-center gap-2">
-<i class="fa-solid fa-book-open text-primary-orange"></i><span>Guías</span>
+<i class="fa-solid fa-book-open text-primary-orange"></i><span data-i18n="btn_guides_short">Guías</span>
 </a>
 <a href="#diagnostico" class="flex-[2] btn-primary font-bold py-3.5 rounded-xl text-center uppercase shadow-neon text-sm flex items-center justify-center gap-2">
-<i class="fa-solid fa-microchip"></i> <span>Diagnóstico</span>
+<i class="fa-solid fa-microchip"></i> <span data-i18n="btn_diagnosis_short">Diagnóstico</span>
 </a>
 </div>
 
 <!-- JAVASCRIPT FUNCIONAL -->
 <script>
+// ============================================
+// 🌍 TRADUCCIONES - ESPAÑOL / ENGLISH / PORTUGUÊS
+// ============================================
+const translations = {
+  es: {
+    // Banner
+    banner_1: "🧼 Limpieza de inyectores cada 6 meses = motor más eficiente",
+    banner_2: "🛢️ Aceite de calidad cada 10.000 km = vida útil prolongada",
+    banner_3: "⛽ Usar nafta premium = más potencia, menos desgaste",
+    banner_4: "✅ Tres simples hábitos = menos consumo, menos fallas, más años de motor",
+    banner_5: "📲 ¡Sacá un turno, no lo dejes pasar! WhatsApp +59898680159",
+    // Navbar
+    status_checking: "Verificando...",
+    nav_advice: "Asesoramiento",
+    nav_diagnosis: "Pre-Diagnóstico",
+    btn_chat: "Chat",
+    btn_appointment: "Pedir Turno",
+    btn_review: "Deja tu Reseña",
+    btn_instagram: "Instagram",
+    // Hero
+    hero_badge: "Diagnóstico de Precisión",
+    hero_description: "En Romero Mecánica Integral, entendemos que tu auto es una inversión importante y tu seguridad es primordial. Somos un taller de reparación de automóviles con años de experiencia en Paysandú, Uruguay, dedicados a brindarte un servicio de calidad, confiable y transparente. Nos especializamos en mantener tu vehículo en óptimas condiciones para que disfrutes de cada viaje con total tranquilidad.",
+    stat_precision: "Precisión",
+    stat_saving: "Ahorro",
+    stat_vehicles: "Vehículos",
+    btn_start_diagnosis: "Iniciar Diagnóstico",
+    btn_guides: "Guías Técnicas",
+    // Advice Section
+    advice_badge: "Conocimiento Técnico",
+    advice_title: "Centro de Asesoramiento",
+    advice_description: "Detecta fallas en etapas tempranas y evita reparaciones costosas. Aprende a identificar las señales clave de tu vehículo.",
+    card_predictive: "Predictivo",
+    card_brakes_title: "Señales en Frenos",
+    card_brakes_desc: "Chillidos, vibración en pedal o recorrido excesivo: indicadores de desgaste en pastillas o aire en el circuito.",
+    card_analyze: "Analizar ahora",
+    card_preventive: "Preventivo",
+    card_battery_title: "Batería y Alternador",
+    card_battery_desc: "Arranque lento, luces tenues o parpadeantes: verifica voltaje y estado de carga antes de una falla total.",
+    card_verify: "Verificar sistema",
+    card_maintenance: "Mantenimiento",
+    card_fluids_title: "Fluidos Críticos",
+    card_fluids_desc: "Aceite, refrigerante y líquido de frenos: niveles bajos o cambios de color indican urgencia de revisión.",
+    card_check: "Revisar niveles",
+    btn_start_prediagnosis: "Iniciar Pre-Diagnóstico Ahora",
+    // Services Section
+    services_badge: "Soluciones Profesionales",
+    services_title_part1: "Servicios",
+    services_title_part2: "Integrales",
+    services_description: "Tecnología avanzada y expertise técnico para mantener tu vehículo en condiciones óptimas de seguridad y rendimiento.",
+    service_diagnostic: "Diagnóstico Computarizado",
+    service_diagnostic_desc: "Escaneo avanzado de ECU, sensores y sistemas electrónicos con equipos de última generación.",
+    service_brakes: "Sistema de Frenos",
+    service_brakes_desc: "Revisión integral de ABS, pastillas, discos y líquido de frenos para máxima seguridad.",
+    service_suspension: "Suspensión y Dirección",
+    service_suspension_desc: "Amortiguadores, rótulas, alineación y balanceo para confort y estabilidad en ruta.",
+    service_electric: "Electricidad Automotriz",
+    service_electric_desc: "Diagnóstico de fallas eléctricas, baterías, alternadores y sistemas de iluminación.",
+    service_mechanic: "Mecánica Integral",
+    service_mechanic_desc: "Reparaciones completas de motor, transmisión y sistemas mecánicos con garantía de calidad.",
+    service_gearbox: "Caja de Cambio",
+    service_gearbox_desc: "Reparación y mantenimiento de cajas manuales y automáticas. Diagnóstico de embrague y transmisión.",
+    // Testimonials
+    testimonials_badge: "Experiencias Reales",
+    testimonials_title: "La Voz de Nuestros Clientes",
+    testimonials_description: "Confianza construida sobre resultados verificables y atención profesional en Paysandú, Uruguay.",
+    testimonial_1: "\"Excelente servicio en Romero Mecánica Integral. Diagnóstico preciso y rápido. Me explicaron todo con claridad y profesionalismo. Totalmente recomendado.\"",
+    testimonial_2: "\"El mejor taller de Paysandú. Proceso transparente y rápido. El pre-diagnóstico online me ahorró tiempo y dinero. Volveré sin dudas a Romero Mecánica Integral.\"",
+    testimonial_3: "\"Llevo mi flota de utilitarios a Romero Mecánica Integral. Reportes detallados, atención personalizada y precios justos. Un taller de confianza.\"",
+    testimonials_swipe: "Desliza para más opiniones",
+    // Diagnosis Form
+    diagnosis_title_part1: "ACELERADOR DE",
+    diagnosis_title_part2: "DIAGNÓSTICO",
+    diagnosis_description: "Completa el formulario y nuestros técnicos prepararán el análisis previo antes de tu llegada. Optimizamos tu tiempo y recursos.",
+    benefit_time_title: "Ahorro de Tiempo",
+    benefit_time_desc: "Evita esperas innecesarias. Tu caso ya estará en análisis al llegar.",
+    benefit_analysis_title: "Análisis Previo",
+    benefit_analysis_desc: "Preparamos herramientas y repuestos específicos para tu caso.",
+    benefit_transparency_title: "Transparencia Total",
+    benefit_transparency_desc: "Recibirás un informe detallado con opciones de reparación y costos.",
+    security_title: "Datos 100% seguros",
+    security_desc: "Tu información está protegida",
+    form_section_vehicle: "Datos del Vehículo",
+    form_vehicle_type: "Tipo de Vehículo",
+    form_select_vehicle: "Seleccionar tipo...",
+    form_vehicle_model: "Marca y Modelo",
+    form_mileage: "Kilometraje",
+    form_fuel: "Combustible",
+    form_select_fuel: "Seleccionar...",
+    form_section_symptoms: "Descripción de Fallas",
+    form_symptoms: "Síntomas",
+    form_context: "Contexto de la falla",
+    form_select_context: "Seleccionar contexto...",
+    opt_starts_no_start: "Gira pero no arranca",
+    opt_no_contact: "No da contacto",
+    opt_slow_start: "Arranque lento o difícil",
+    opt_idle_issue: "Inestabilidad en ralentí",
+    opt_power_loss: "Pérdida de potencia",
+    opt_high_consumption: "Consumo excesivo de combustible",
+    opt_exhaust_smoke: "Humo en escape (color)",
+    opt_brake_noise: "Ruido al frenar",
+    opt_steering_noise: "Ruido al girar dirección",
+    opt_high_speed_vibration: "Vibración en alta velocidad",
+    opt_engine_noise: "Ruido anormal en motor",
+    opt_overheating: "Se calienta el motor",
+    opt_fluid_leak: "Pérdida de fluido visible",
+    opt_cold_issue: "Solo falla en frío",
+    opt_hot_issue: "Solo falla en caliente",
+    opt_intermittent: "Falla intermitente",
+    form_section_service: "Servicio Integral",
+    form_service_required: "Servicio Requerido",
+    form_select_service: "Selecciona un servicio...",
+    srv_diagnostic: "🔍 Diagnóstico Computarizado",
+    srv_brakes: "🛑 Sistema de Frenos",
+    srv_suspension: "🔩 Suspensión",
+    srv_steering: "🔄 Dirección",
+    srv_electric: "⚡ Electricidad Automotriz",
+    srv_mechanic: "🛠️ Mecánica Integral",
+    srv_gearbox: "⚙️ Caja de Cambio",
+    form_section_contact: "Datos de Contacto",
+    form_name: "Nombre",
+    form_whatsapp: "WhatsApp",
+    form_privacy: "Tus datos se usarán únicamente para coordinar tu turno",
+    btn_send_request: "Enviar Solicitud a ROMERO MECÁNICA INTEGRAL",
+    terms_prefix: "Al enviar, aceptas nuestros",
+    terms_link: "términos de servicio",
+    // Location
+    location_title: "¿Dónde estamos?",
+    location_subtitle: "Visítanos para validación final y reparaciones especializadas.",
+    label_address: "Dirección:",
+    label_whatsapp: "WhatsApp:",
+    label_email: "E-mail:",
+    label_hours: "Horarios de atención:",
+    hours_weekdays: "Lunes a Viernes: 08:00 - 12:00 y 14:00 - 18:00 hs",
+    hours_weekend: "Sábados y Domingos: Cerrado",
+    btn_maps: "Ver en Google Maps",
+    warranty_text: "Garantía en todos nuestros servicios",
+    // Footer
+    footer_design: "Diseño: NEXO-Art",
+    footer_tech: "Sitio web desarrollado con tecnología moderna",
+    btn_guides_short: "Guías",
+    btn_diagnosis_short: "Diagnóstico"
+  },
+  en: {
+    // Banner
+    banner_1: "🧼 Injector cleaning every 6 months = more efficient engine",
+    banner_2: "🛢️ Quality oil every 10,000 km = extended lifespan",
+    banner_3: "⛽ Use premium fuel = more power, less wear",
+    banner_4: "✅ Three simple habits = less consumption, fewer failures, more engine life",
+    banner_5: "📲 Book an appointment, don't miss out! WhatsApp +59898680159",
+    // Navbar
+    status_checking: "Checking...",
+    nav_advice: "Advice",
+    nav_diagnosis: "Pre-Diagnosis",
+    btn_chat: "Chat",
+    btn_appointment: "Book Appointment",
+    btn_review: "Leave a Review",
+    btn_instagram: "Instagram",
+    // Hero
+    hero_badge: "Precision Diagnosis",
+    hero_description: "At Romero Mecánica Integral, we understand that your car is an important investment and your safety is paramount. We are an auto repair shop with years of experience in Paysandú, Uruguay, dedicated to providing you with quality, reliable, and transparent service. We specialize in keeping your vehicle in optimal condition so you can enjoy every trip with complete peace of mind.",
+    stat_precision: "Precision",
+    stat_saving: "Savings",
+    stat_vehicles: "Vehicles",
+    btn_start_diagnosis: "Start Diagnosis",
+    btn_guides: "Technical Guides",
+    // Advice Section
+    advice_badge: "Technical Knowledge",
+    advice_title: "Advice Center",
+    advice_description: "Detect faults at early stages and avoid costly repairs. Learn to identify the key signals from your vehicle.",
+    card_predictive: "Predictive",
+    card_brakes_title: "Brake Warning Signs",
+    card_brakes_desc: "Squealing, pedal vibration, or excessive travel: indicators of worn pads or air in the circuit.",
+    card_analyze: "Analyze now",
+    card_preventive: "Preventive",
+    card_battery_title: "Battery & Alternator",
+    card_battery_desc: "Slow start, dim or flickering lights: check voltage and charge status before a total failure.",
+    card_verify: "Check system",
+    card_maintenance: "Maintenance",
+    card_fluids_title: "Critical Fluids",
+    card_fluids_desc: "Oil, coolant, and brake fluid: low levels or color changes indicate urgent need for inspection.",
+    card_check: "Check levels",
+    btn_start_prediagnosis: "Start Pre-Diagnosis Now",
+    // Services Section
+    services_badge: "Professional Solutions",
+    services_title_part1: "Integrated",
+    services_title_part2: "Services",
+    services_description: "Advanced technology and technical expertise to keep your vehicle in optimal safety and performance conditions.",
+    service_diagnostic: "Computerized Diagnosis",
+    service_diagnostic_desc: "Advanced ECU, sensor, and electronic systems scanning with latest-generation equipment.",
+    service_brakes: "Brake System",
+    service_brakes_desc: "Comprehensive ABS, pads, discs, and brake fluid inspection for maximum safety.",
+    service_suspension: "Suspension & Steering",
+    service_suspension_desc: "Shock absorbers, ball joints, alignment, and balancing for comfort and road stability.",
+    service_electric: "Automotive Electrical",
+    service_electric_desc: "Diagnosis of electrical faults, batteries, alternators, and lighting systems.",
+    service_mechanic: "Full Mechanical Service",
+    service_mechanic_desc: "Complete engine, transmission, and mechanical system repairs with quality guarantee.",
+    service_gearbox: "Gearbox",
+    service_gearbox_desc: "Manual and automatic transmission repair and maintenance. Clutch and drivetrain diagnosis.",
+    // Testimonials
+    testimonials_badge: "Real Experiences",
+    testimonials_title: "Our Customers' Voices",
+    testimonials_description: "Trust built on verifiable results and professional attention in Paysandú, Uruguay.",
+    testimonial_1: "\"Excellent service at Romero Mecánica Integral. Precise and fast diagnosis. They explained everything clearly and professionally. Highly recommended.\"",
+    testimonial_2: "\"The best workshop in Paysandú. Transparent and fast process. The online pre-diagnosis saved me time and money. I'll definitely return to Romero Mecánica Integral.\"",
+    testimonial_3: "\"I bring my utility fleet to Romero Mecánica Integral. Detailed reports, personalized attention, and fair prices. A trustworthy workshop.\"",
+    testimonials_swipe: "Swipe for more reviews",
+    // Diagnosis Form
+    diagnosis_title_part1: "DIAGNOSIS",
+    diagnosis_title_part2: "ACCELERATOR",
+    diagnosis_description: "Complete the form and our technicians will prepare the preliminary analysis before your arrival. We optimize your time and resources.",
+    benefit_time_title: "Time Savings",
+    benefit_time_desc: "Avoid unnecessary waits. Your case will already be under analysis upon arrival.",
+    benefit_analysis_title: "Preliminary Analysis",
+    benefit_analysis_desc: "We prepare specific tools and parts for your case.",
+    benefit_transparency_title: "Full Transparency",
+    benefit_transparency_desc: "You'll receive a detailed report with repair options and costs.",
+    security_title: "100% Secure Data",
+    security_desc: "Your information is protected",
+    form_section_vehicle: "Vehicle Details",
+    form_vehicle_type: "Vehicle Type",
+    form_select_vehicle: "Select type...",
+    form_vehicle_model: "Make & Model",
+    form_mileage: "Mileage",
+    form_fuel: "Fuel Type",
+    form_select_fuel: "Select...",
+    form_section_symptoms: "Issue Description",
+    form_symptoms: "Symptoms",
+    form_context: "Issue Context",
+    form_select_context: "Select context...",
+    opt_starts_no_start: "Cranks but won't start",
+    opt_no_contact: "No power/contact",
+    opt_slow_start: "Slow or difficult start",
+    opt_idle_issue: "Unstable idle",
+    opt_power_loss: "Loss of power",
+    opt_high_consumption: "Excessive fuel consumption",
+    opt_exhaust_smoke: "Exhaust smoke (color)",
+    opt_brake_noise: "Noise when braking",
+    opt_steering_noise: "Noise when turning steering",
+    opt_high_speed_vibration: "Vibration at high speed",
+    opt_engine_noise: "Abnormal engine noise",
+    opt_overheating: "Engine overheating",
+    opt_fluid_leak: "Visible fluid leak",
+    opt_cold_issue: "Only fails when cold",
+    opt_hot_issue: "Only fails when hot",
+    opt_intermittent: "Intermittent failure",
+    form_section_service: "Required Service",
+    form_service_required: "Service Required",
+    form_select_service: "Select a service...",
+    srv_diagnostic: "🔍 Computerized Diagnosis",
+    srv_brakes: "🛑 Brake System",
+    srv_suspension: "🔩 Suspension",
+    srv_steering: "🔄 Steering",
+    srv_electric: "⚡ Automotive Electrical",
+    srv_mechanic: "🛠️ Full Mechanical",
+    srv_gearbox: "⚙️ Gearbox",
+    form_section_contact: "Contact Details",
+    form_name: "Name",
+    form_whatsapp: "WhatsApp",
+    form_privacy: "Your data will only be used to coordinate your appointment",
+    btn_send_request: "Send Request to ROMERO MECÁNICA INTEGRAL",
+    terms_prefix: "By sending, you accept our",
+    terms_link: "terms of service",
+    // Location
+    location_title: "Where are we?",
+    location_subtitle: "Visit us for final validation and specialized repairs.",
+    label_address: "Address:",
+    label_whatsapp: "WhatsApp:",
+    label_email: "E-mail:",
+    label_hours: "Business Hours:",
+    hours_weekdays: "Mon-Fri: 8:00 AM - 12:00 PM & 2:00 PM - 6:00 PM",
+    hours_weekend: "Sat-Sun: Closed",
+    btn_maps: "View on Google Maps",
+    warranty_text: "Warranty on all our services",
+    // Footer
+    footer_design: "Design: NEXO-Art",
+    footer_tech: "Website developed with modern technology",
+    btn_guides_short: "Guides",
+    btn_diagnosis_short: "Diagnosis"
+  },
+  pt: {
+    // Banner
+    banner_1: "🧼 Limpeza de injetores a cada 6 meses = motor mais eficiente",
+    banner_2: "🛢️ Óleo de qualidade a cada 10.000 km = vida útil prolongada",
+    banner_3: "⛽ Usar gasolina premium = mais potência, menos desgaste",
+    banner_4: "✅ Três hábitos simples = menos consumo, menos falhas, mais anos de motor",
+    banner_5: "📲 Agende uma consulta, não perca! WhatsApp +59898680159",
+    // Navbar
+    status_checking: "Verificando...",
+    nav_advice: "Assessoria",
+    nav_diagnosis: "Pré-Diagnóstico",
+    btn_chat: "Chat",
+    btn_appointment: "Agendar",
+    btn_review: "Deixe sua Avaliação",
+    btn_instagram: "Instagram",
+    // Hero
+    hero_badge: "Diagnóstico de Precisão",
+    hero_description: "Na Romero Mecánica Integral, entendemos que seu carro é um investimento importante e sua segurança é primordial. Somos uma oficina de reparo de automóveis com anos de experiência em Paysandú, Uruguai, dedicados a oferecer um serviço de qualidade, confiável e transparente. Especializamos-nos em manter seu veículo em condições ótimas para que você aproveite cada viagem com total tranquilidade.",
+    stat_precision: "Precisão",
+    stat_saving: "Economia",
+    stat_vehicles: "Veículos",
+    btn_start_diagnosis: "Iniciar Diagnóstico",
+    btn_guides: "Guias Técnicas",
+    // Advice Section
+    advice_badge: "Conhecimento Técnico",
+    advice_title: "Centro de Assessoria",
+    advice_description: "Detecte falhas em estágios iniciais e evite reparos custosos. Aprenda a identificar os sinais-chave do seu veículo.",
+    card_predictive: "Preditivo",
+    card_brakes_title: "Sinais nos Freios",
+    card_brakes_desc: "Chiados, vibração no pedal ou curso excessivo: indicadores de desgaste nas pastilhas ou ar no circuito.",
+    card_analyze: "Analisar agora",
+    card_preventive: "Preventivo",
+    card_battery_title: "Bateria e Alternador",
+    card_battery_desc: "Partida lenta, luzes fracas ou piscando: verifique voltagem e estado de carga antes de uma falha total.",
+    card_verify: "Verificar sistema",
+    card_maintenance: "Manutenção",
+    card_fluids_title: "Fluidos Críticos",
+    card_fluids_desc: "Óleo, refrigerante e fluido de freio: níveis baixos ou mudança de cor indicam urgência de revisão.",
+    card_check: "Verificar níveis",
+    btn_start_prediagnosis: "Iniciar Pré-Diagnóstico Agora",
+    // Services Section
+    services_badge: "Soluções Profissionais",
+    services_title_part1: "Serviços",
+    services_title_part2: "Integrados",
+    services_description: "Tecnologia avançada e expertise técnico para manter seu veículo em condições ótimas de segurança e desempenho.",
+    service_diagnostic: "Diagnóstico Computadorizado",
+    service_diagnostic_desc: "Varredura avançada de ECU, sensores e sistemas eletrônicos com equipamentos de última geração.",
+    service_brakes: "Sistema de Freios",
+    service_brakes_desc: "Revisão integral de ABS, pastilhas, discos e fluido de freio para máxima segurança.",
+    service_suspension: "Suspensão e Direção",
+    service_suspension_desc: "Amortecedores, rótulas, alinhamento e balanceamento para conforto e estabilidade na estrada.",
+    service_electric: "Elétrica Automotiva",
+    service_electric_desc: "Diagnóstico de falhas elétricas, baterias, alternadores e sistemas de iluminação.",
+    service_mechanic: "Mecânica Integral",
+    service_mechanic_desc: "Reparos completos de motor, transmissão e sistemas mecânicos com garantia de qualidade.",
+    service_gearbox: "Câmbio",
+    service_gearbox_desc: "Reparo e manutenção de câmbios manuais e automáticos. Diagnóstico de embreagem e transmissão.",
+    // Testimonials
+    testimonials_badge: "Experiências Reais",
+    testimonials_title: "A Voz dos Nossos Clientes",
+    testimonials_description: "Confiança construída sobre resultados verificáveis e atendimento profissional em Paysandú, Uruguai.",
+    testimonial_1: "\"Excelente serviço na Romero Mecánica Integral. Diagnóstico preciso e rápido. Explicaram tudo com clareza e profissionalismo. Totalmente recomendado.\"",
+    testimonial_2: "\"A melhor oficina de Paysandú. Processo transparente e rápido. O pré-diagnóstico online me economizou tempo e dinheiro. Voltarei sem dúvidas à Romero Mecánica Integral.\"",
+    testimonial_3: "\"Levo minha frota de utilitários à Romero Mecánica Integral. Relatórios detalhados, atendimento personalizado e preços justos. Uma oficina de confiança.\"",
+    testimonials_swipe: "Deslize para mais opiniões",
+    // Diagnosis Form
+    diagnosis_title_part1: "ACELERADOR DE",
+    diagnosis_title_part2: "DIAGNÓSTICO",
+    diagnosis_description: "Preencha o formulário e nossos técnicos prepararão a análise prévia antes da sua chegada. Otimizamos seu tempo e recursos.",
+    benefit_time_title: "Economia de Tempo",
+    benefit_time_desc: "Evite esperas desnecessárias. Seu caso já estará em análise ao chegar.",
+    benefit_analysis_title: "Análise Prévia",
+    benefit_analysis_desc: "Preparamos ferramentas e peças específicas para o seu caso.",
+    benefit_transparency_title: "Transparência Total",
+    benefit_transparency_desc: "Você receberá um relatório detalhado com opções de reparo e custos.",
+    security_title: "Dados 100% seguros",
+    security_desc: "Suas informações estão protegidas",
+    form_section_vehicle: "Dados do Veículo",
+    form_vehicle_type: "Tipo de Veículo",
+    form_select_vehicle: "Selecionar tipo...",
+    form_vehicle_model: "Marca e Modelo",
+    form_mileage: "Quilometragem",
+    form_fuel: "Combustível",
+    form_select_fuel: "Selecionar...",
+    form_section_symptoms: "Descrição de Falhas",
+    form_symptoms: "Sintomas",
+    form_context: "Contexto da falha",
+    form_select_context: "Selecionar contexto...",
+    opt_starts_no_start: "Gira mas não liga",
+    opt_no_contact: "Não dá contato",
+    opt_slow_start: "Partida lenta ou difícil",
+    opt_idle_issue: "Instabilidade em marcha lenta",
+    opt_power_loss: "Perda de potência",
+    opt_high_consumption: "Consumo excessivo de combustível",
+    opt_exhaust_smoke: "Fumaça no escape (cor)",
+    opt_brake_noise: "Ruído ao frear",
+    opt_steering_noise: "Ruído ao girar direção",
+    opt_high_speed_vibration: "Vibração em alta velocidade",
+    opt_engine_noise: "Ruído anormal no motor",
+    opt_overheating: "Motor superaquecendo",
+    opt_fluid_leak: "Vazamento de fluido visível",
+    opt_cold_issue: "Só falha quando frio",
+    opt_hot_issue: "Só falha quando quente",
+    opt_intermittent: "Falha intermitente",
+    form_section_service: "Serviço Integral",
+    form_service_required: "Serviço Requerido",
+    form_select_service: "Selecione um serviço...",
+    srv_diagnostic: "🔍 Diagnóstico Computadorizado",
+    srv_brakes: "🛑 Sistema de Freios",
+    srv_suspension: "🔩 Suspensão",
+    srv_steering: "🔄 Direção",
+    srv_electric: "⚡ Elétrica Automotiva",
+    srv_mechanic: "🛠️ Mecânica Integral",
+    srv_gearbox: "⚙️ Câmbio",
+    form_section_contact: "Dados de Contato",
+    form_name: "Nome",
+    form_whatsapp: "WhatsApp",
+    form_privacy: "Seus dados serão usados apenas para coordenar sua consulta",
+    btn_send_request: "Enviar Solicitação à ROMERO MECÁNICA INTEGRAL",
+    terms_prefix: "Ao enviar, você aceita nossos",
+    terms_link: "termos de serviço",
+    // Location
+    location_title: "Onde estamos?",
+    location_subtitle: "Visite-nos para validação final e reparos especializados.",
+    label_address: "Endereço:",
+    label_whatsapp: "WhatsApp:",
+    label_email: "E-mail:",
+    label_hours: "Horário de atendimento:",
+    hours_weekdays: "Seg-Sex: 08:00 - 12:00 e 14:00 - 18:00 hs",
+    hours_weekend: "Sáb-Dom: Fechado",
+    btn_maps: "Ver no Google Maps",
+    warranty_text: "Garantia em todos os nossos serviços",
+    // Footer
+    footer_design: "Design: NEXO-Art",
+    footer_tech: "Site desenvolvido com tecnologia moderna",
+    btn_guides_short: "Guias",
+    btn_diagnosis_short: "Diagnóstico"
+  }
+};
+
 document.addEventListener('DOMContentLoaded', function(){
 // ========== RELOJ DIGITAL ==========
 function updateClock(){
@@ -1621,6 +2122,69 @@ behavior: 'smooth'
 // ========== FADE IN UP ==========
 document.querySelectorAll('.fade-in-up').forEach(function(el, i){
 el.style.animationDelay = (0.1 + i * 0.12) + 's';
+});
+
+// ========== 🌍 SISTEMA DE IDIOMAS ==========
+function applyTranslations(lang){
+  // Aplicar traducciones a todos los elementos con data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key]){
+      // Preservar iconos y estructura HTML si existen
+      const icon = el.querySelector('i');
+      const text = translations[lang][key];
+      if(icon && el.childNodes.length > 1){
+        el.innerHTML = '';
+        el.appendChild(document.createTextNode(text));
+        el.appendChild(icon.cloneNode(true));
+      } else {
+        el.textContent = text;
+      }
+    }
+  });
+  
+  // Actualizar indicador de idioma activo
+  document.querySelectorAll('.lang-option').forEach(function(opt){
+    opt.classList.toggle('active', opt.dataset.lang === lang);
+    const icon = opt.querySelector('i');
+    if(icon){
+      icon.className = opt.dataset.lang === lang ? 'fa-solid fa-check' : 'fa-regular fa-circle';
+    }
+  });
+  
+  // Actualizar texto del botón selector
+  const currentLangEl = document.getElementById('currentLang');
+  if(currentLangEl) currentLangEl.textContent = lang.toUpperCase();
+  
+  // Actualizar atributo lang del HTML
+  document.documentElement.lang = lang;
+  
+  // Guardar preferencia en localStorage
+  localStorage.setItem('romero_lang', lang);
+}
+
+// Inicializar selector de idioma
+const langSelector = document.getElementById('langSelector');
+const langOptions = document.querySelectorAll('.lang-option');
+
+// Cargar idioma guardado o usar español por defecto
+const savedLang = localStorage.getItem('romero_lang') || 'es';
+applyTranslations(savedLang);
+
+// Event listeners para opciones de idioma
+langOptions.forEach(function(option){
+  option.addEventListener('click', function(e){
+    e.stopPropagation();
+    const selectedLang = this.dataset.lang;
+    applyTranslations(selectedLang);
+  });
+});
+
+// Cerrar dropdown al hacer clic fuera
+document.addEventListener('click', function(e){
+  if(langSelector && !langSelector.contains(e.target)){
+    // El dropdown se cierra automáticamente por CSS hover
+  }
 });
 });
 </script>
